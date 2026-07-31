@@ -51,7 +51,7 @@ const cases: CaseStudy[] = [
       'A unified event platform connected organizer workflows, attendee experiences, mobile engagement, on-site operations, and reporting.',
     outcomeLead: 'Simplified event operations',
     outcomeRest: 'from registration and attendee engagement through on-site delivery and reporting.',
-    visualImage: '/images/industry-retail.jpg',
+    visualImage: '/images/enterprise-event-technology.webp',
     visualAlt: 'Professional conference environment with attendee operations and event technology',
   },
   {
@@ -66,7 +66,7 @@ const cases: CaseStudy[] = [
       'Secure APIs, middleware, synchronized data, and automated processes connected critical enterprise applications.',
     outcomeLead: 'Improved data accuracy',
     outcomeRest: 'with faster processing and better operational visibility.',
-    visualImage: '/images/industry-infrastructure.jpg',
+    visualImage: '/images/enterprise-integration.webp',
     visualAlt: 'Enterprise infrastructure and connected operational systems',
   },
 ];

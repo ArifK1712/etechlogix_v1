@@ -14,7 +14,7 @@ interface SlideData {
 
 const slides: SlideData[] = [
   {
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80',
+    image: '/images/slider-1.jpg',
     eyebrow: 'ENTERPRISE CUSTOM SOFTWARE',
     headlineLine1: 'Enterprise software built around how your',
     headlineLine2Prefix: '',
@@ -25,7 +25,7 @@ const slides: SlideData[] = [
     secondaryCta: 'Explore Our Capabilities',
   },
   {
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1920&q=80',
+    image: '/images/slider-2.jpg',
     eyebrow: 'AGENTIC AI & WORKFLOW AUTOMATION',
     headlineLine1: 'AI agents that execute',
     headlineLine2Prefix: '',
@@ -36,7 +36,7 @@ const slides: SlideData[] = [
     secondaryCta: 'See Business Impact',
   },
   {
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1920&q=80',
+    image: '/images/slider-3.jpg',
     eyebrow: 'ENTERPRISE SYSTEM INTEGRATION',
     headlineLine1: 'Connect critical systems into',
     headlineLine2Prefix: '',
@@ -47,7 +47,7 @@ const slides: SlideData[] = [
     secondaryCta: 'View Capabilities',
   },
   {
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80',
+    image: '/images/slider-4.jpg',
     eyebrow: 'MODERNIZATION & PRODUCT ACCELERATION',
     headlineLine1: 'Move beyond legacy systems and',
     headlineLine2Prefix: '',
