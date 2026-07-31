@@ -15,9 +15,9 @@ function App() {
   useLenis();
 
   return (
-    <div className="bg-[#ffffff] text-[#171717] min-h-screen font-body selection:bg-[#df012a] selection:text-[#ffffff]">
+    <div className="bg-[#ffffff] text-[#171717] min-h-screen font-body selection:bg-[#df012a] selection:text-[#ffffff] overflow-x-clip">
       <Header />
-      <main>
+      <main className="overflow-x-clip">
         <HeroSection />
         <ServicesSection />
         <ProvenBusinessImpactSection />

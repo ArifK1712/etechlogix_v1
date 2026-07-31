@@ -70,7 +70,7 @@ export default function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[100dvh] w-full bg-[#030712] text-white flex flex-col justify-between items-center px-5 pt-28 pb-12 overflow-hidden select-none"
+      className="relative min-h-[100dvh] w-full max-w-[100vw] bg-[#030712] text-white flex flex-col justify-between items-center px-5 pt-28 pb-12 overflow-x-clip overflow-y-visible select-none"
     >
       {/* Background Autoplay Image Crossfade Slider */}
       <div aria-hidden="true" className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -87,7 +87,7 @@ export default function HeroSection() {
               fetchPriority={index === 0 ? 'high' : 'auto'}
               loading={index === 0 ? 'eager' : 'lazy'}
               decoding="async"
-              className="w-full h-full object-cover object-center scale-105"
+              className="w-full h-full object-cover object-center scale-[1.02] sm:scale-105"
             />
           </div>
         ))}
@@ -107,17 +107,19 @@ export default function HeroSection() {
       {/* Top Balance Spacer */}
       <div className="w-full h-2 z-10" />
 
-      {/* Main Content Container with CSS Grid for Overlapping Slides */}
-      <div className="relative z-10 w-full max-w-[1280px] mx-auto grid grid-cols-1 grid-rows-1">
-        {slides.map((slide, index) => (
+      {/* Main Content Container — inactive slides are absolute so they cannot widen the layout */}
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto min-w-0">
+        {slides.map((slide, index) => {
+          const isActive = index === currentSlide;
+          return (
           <div
             key={index}
-            className={`col-start-1 row-start-1 flex flex-col items-center text-center transition-all duration-1000 ease-in-out gap-10 ${
-              index === currentSlide
-                ? 'opacity-100 translate-y-0 pointer-events-auto z-10'
-                : 'opacity-0 translate-y-8 pointer-events-none z-0'
+            className={`flex w-full min-w-0 max-w-full flex-col items-center text-center transition-all duration-1000 ease-in-out gap-10 ${
+              isActive
+                ? 'relative opacity-100 translate-y-0 pointer-events-auto z-10'
+                : 'absolute inset-x-0 top-0 opacity-0 translate-y-8 pointer-events-none z-0'
             }`}
-            aria-hidden={index !== currentSlide}
+            aria-hidden={!isActive}
           >
             {/* Eyebrow Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-md shadow-inner">
@@ -128,11 +130,11 @@ export default function HeroSection() {
             </div>
 
             {/* Headline Typography */}
-            <div className="w-full flex flex-col gap-3 md:gap-4 font-display font-extrabold tracking-tight text-[#f5f3ef]">
-              <h1 className="text-[2.75rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.75rem] xl:text-[7.5rem] leading-[0.95] text-center self-center text-[#f5f3ef]">
+            <div className="w-full min-w-0 flex flex-col gap-3 md:gap-4 font-display font-extrabold tracking-tight text-[#f5f3ef]">
+              <h1 className="text-[2.75rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.75rem] xl:text-[7.5rem] leading-[0.95] text-center self-center text-[#f5f3ef] text-balance max-w-full px-1">
                 {slide.headlineLine1}
               </h1>
-              <h1 className="text-[2.75rem] sm:text-[4.25rem] md:text-[5.75rem] lg:text-[7.25rem] xl:text-[8rem] leading-[0.95] text-center self-center text-[#f5f3ef]">
+              <h1 className="text-[2.75rem] sm:text-[4.25rem] md:text-[5.75rem] lg:text-[7.25rem] xl:text-[8rem] leading-[0.95] text-center self-center text-[#f5f3ef] text-balance max-w-full px-1">
                 {slide.headlineLine2Prefix}
                 <span className="text-[#df012a]">{slide.headlineLine2Highlight}</span>
               </h1>
@@ -144,13 +146,13 @@ export default function HeroSection() {
             </p>
 
             {/* Action CTAs */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5">
+            <div className="flex w-full min-w-0 max-w-full flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 sm:gap-5 px-1">
               <a
                 href="#contact"
                 style={{ paddingLeft: '24px', paddingRight: '8px' }}
-                className="group relative inline-flex items-center justify-between gap-4 bg-[#df012a] hover:bg-[#b80122] text-white font-semibold text-[15px] h-[52px] rounded-full transition-all duration-300 shadow-[0_10px_30px_rgba(223,1,42,0.3)] hover:shadow-[0_15px_40px_rgba(223,1,42,0.45)] hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a]"
+                className="group relative inline-flex w-full sm:w-auto max-w-full items-center justify-between gap-4 bg-[#df012a] hover:bg-[#b80122] text-white font-semibold text-[15px] h-[52px] rounded-full transition-all duration-300 shadow-[0_10px_30px_rgba(223,1,42,0.3)] hover:shadow-[0_15px_40px_rgba(223,1,42,0.45)] hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a]"
               >
-                <span className="whitespace-nowrap pl-2">{slide.primaryCta}</span>
+                <span className="min-w-0 pl-2 text-left sm:text-center whitespace-normal sm:whitespace-nowrap">{slide.primaryCta}</span>
                 <span className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5 group-hover:bg-white/30">
                   <ArrowRight className="w-4 h-4 text-white" />
                 </span>
@@ -158,13 +160,14 @@ export default function HeroSection() {
 
               <a
                 href="#services"
-                className="inline-flex items-center justify-center px-5 h-[52px] rounded-full bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-neutral-200 hover:text-white font-medium text-[15px] transition-all duration-300 backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                className="inline-flex w-full sm:w-auto max-w-full items-center justify-center px-5 h-[52px] rounded-full bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-neutral-200 hover:text-white font-medium text-[15px] transition-all duration-300 backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 text-center"
               >
                 {slide.secondaryCta}
               </a>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Slider Navigation Dots & Scroll Indicator Container */}

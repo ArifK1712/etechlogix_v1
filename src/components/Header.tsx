@@ -232,7 +232,7 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className={`fixed top-0 left-0 w-full flex justify-center items-center z-50 transition-all duration-300 overflow-visible ${
+      className={`fixed top-0 left-0 w-full max-w-[100vw] flex justify-center items-center z-50 transition-all duration-300 overflow-x-clip overflow-y-visible ${
         isScrolled
           ? 'bg-[#030712]/85 backdrop-blur-md border-b border-white/10 py-0'
           : 'bg-transparent border-b border-transparent py-2'
