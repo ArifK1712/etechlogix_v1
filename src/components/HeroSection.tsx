@@ -15,43 +15,47 @@ interface SlideData {
 const slides: SlideData[] = [
   {
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80',
-    eyebrow: 'ENTERPRISE AI & CUSTOM SOFTWARE',
-    headlineLine1: 'Enterprise software',
-    headlineLine2Prefix: 'built for ',
-    headlineLine2Highlight: 'complex operations.',
-    paragraph: 'We design and engineer custom software, AI-powered workflows, and enterprise integrations for critical business environments.',
+    eyebrow: 'ENTERPRISE CUSTOM SOFTWARE',
+    headlineLine1: 'Enterprise software built around how your',
+    headlineLine2Prefix: '',
+    headlineLine2Highlight: 'business operates.',
+    paragraph:
+      'We engineer secure, scalable platforms around complex workflows, users, systems, and operational requirements.',
     primaryCta: 'Discuss Your Project',
     secondaryCta: 'Explore Our Capabilities',
   },
   {
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1920&q=80',
     eyebrow: 'AGENTIC AI & WORKFLOW AUTOMATION',
-    headlineLine1: 'AI agents that move',
-    headlineLine2Prefix: 'business ',
-    headlineLine2Highlight: 'workflows forward.',
-    paragraph: 'We build AI-powered workflow systems that process information, apply business rules, trigger actions, and support human approvals.',
+    headlineLine1: 'AI agents that execute',
+    headlineLine2Prefix: '',
+    headlineLine2Highlight: 'real business workflows.',
+    paragraph:
+      'We build Agentic AI tools that process information, apply business rules, update systems, manage exceptions, and support human approvals.',
     primaryCta: 'Explore Agentic AI',
-    secondaryCta: 'Talk to Our Team',
+    secondaryCta: 'See Business Impact',
   },
   {
     image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1920&q=80',
-    eyebrow: 'ENTERPRISE INTEGRATIONS',
-    headlineLine1: 'Connect the systems',
-    headlineLine2Prefix: 'your ',
-    headlineLine2Highlight: 'business depends on.',
-    paragraph: 'We integrate ERP, CRM, payment, document, and operational platforms into one connected digital ecosystem.',
-    primaryCta: 'View Integration Services',
-    secondaryCta: 'Discuss Integration Needs',
+    eyebrow: 'ENTERPRISE SYSTEM INTEGRATION',
+    headlineLine1: 'Connect critical systems into',
+    headlineLine2Prefix: '',
+    headlineLine2Highlight: 'one dependable operation.',
+    paragraph:
+      'We integrate Salesforce, MuleSoft, Descartes, Avalara, DMSi Agility, ERP, CRM, healthcare, payment, and custom platforms.',
+    primaryCta: 'Discuss Integration',
+    secondaryCta: 'View Capabilities',
   },
   {
     image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80',
-    eyebrow: 'DIGITAL PLATFORMS FOR INDUSTRY',
-    headlineLine1: 'Software tailored to',
-    headlineLine2Prefix: 'the way your ',
-    headlineLine2Highlight: 'industry works.',
-    paragraph: 'From events and conferences to healthcare, ERP, distribution, and operations, we build platforms around real business processes.',
-    primaryCta: 'Explore Industries',
-    secondaryCta: 'See Our Work',
+    eyebrow: 'MODERNIZATION & PRODUCT ACCELERATION',
+    headlineLine1: 'Move beyond legacy systems and',
+    headlineLine2Prefix: '',
+    headlineLine2Highlight: 'bring new products to life.',
+    paragraph:
+      'We modernize outdated applications and help startups create functional, investor-ready prototypes for validation and fundraising.',
+    primaryCta: 'Start a Conversation',
+    secondaryCta: 'View Our Work',
   },
 ];
 
@@ -131,10 +135,10 @@ export default function HeroSection() {
 
             {/* Headline Typography */}
             <div className="w-full min-w-0 flex flex-col gap-3 md:gap-4 font-display font-extrabold tracking-tight text-[#f5f3ef]">
-              <h1 className="text-[2.75rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.75rem] xl:text-[7.5rem] leading-[0.95] text-center self-center text-[#f5f3ef] text-balance max-w-full px-1">
+              <h1 className="text-4xl sm:text-5xl md:text-[6.5rem] leading-[0.95] text-center self-center text-[#f5f3ef] text-balance max-w-full px-1">
                 {slide.headlineLine1}
               </h1>
-              <h1 className="text-[2.75rem] sm:text-[4.25rem] md:text-[5.75rem] lg:text-[7.25rem] xl:text-[8rem] leading-[0.95] text-center self-center text-[#f5f3ef] text-balance max-w-full px-1">
+              <h1 className="text-4xl sm:text-5xl md:text-[6.25rem] leading-[0.95] text-center self-center text-[#f5f3ef] text-balance max-w-full px-1">
                 {slide.headlineLine2Prefix}
                 <span className="text-[#df012a]">{slide.headlineLine2Highlight}</span>
               </h1>

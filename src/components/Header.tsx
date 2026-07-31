@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ChevronDown, ArrowRight, Menu, X, Layers, Cpu, Building2 } from 'lucide-react';
 
@@ -146,46 +145,18 @@ export default function Header() {
   const [expandedMobileCategory, setExpandedMobileCategory] = useState<string | null>(null);
 
   const headerRef = useRef<HTMLElement>(null);
+  const shellRef = useRef<HTMLDivElement>(null);
   const dropdownContainerRef = useRef<HTMLDivElement>(null);
 
-  // GSAP Smart Scroll Behavior
-  useGSAP(
-    () => {
-      let lastScrollY = window.scrollY;
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
 
-      const handleScroll = () => {
-        const currentScrollY = window.scrollY;
-
-        if (currentScrollY > 20) {
-          setIsScrolled(true);
-        } else {
-          setIsScrolled(false);
-        }
-
-        if (currentScrollY > lastScrollY && currentScrollY > 100 && !mobileMenuOpen) {
-          gsap.to(headerRef.current, {
-            yPercent: -100,
-            duration: 0.4,
-            ease: 'power2.out',
-            overwrite: 'auto',
-          });
-        } else if (currentScrollY < lastScrollY) {
-          gsap.to(headerRef.current, {
-            yPercent: 0,
-            duration: 0.4,
-            ease: 'power2.out',
-            overwrite: 'auto',
-          });
-        }
-
-        lastScrollY = currentScrollY;
-      };
-
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      return () => window.removeEventListener('scroll', handleScroll);
-    },
-    { scope: headerRef, dependencies: [mobileMenuOpen] }
-  );
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Close dropdown on click outside
   useEffect(() => {
@@ -217,7 +188,7 @@ export default function Header() {
       document.body.style.overflow = 'hidden';
       document.documentElement.classList.add('lenis-stopped');
       if (headerRef.current) {
-        gsap.set(headerRef.current, { yPercent: 0 });
+        gsap.set(headerRef.current, { yPercent: 0, clearProps: 'transform' });
       }
     } else {
       document.body.style.overflow = '';
@@ -229,20 +200,26 @@ export default function Header() {
     };
   }, [mobileMenuOpen]);
 
+  const navLinkTone = isScrolled ? 'text-white/90 hover:text-[#df012a]' : 'text-neutral-200 hover:text-[#df012a]';
+  const mobileMenuTopClass = isScrolled ? 'top-[calc(0.75rem+3.75rem)]' : 'top-[5.5rem]';
+
   return (
     <header
       ref={headerRef}
-      className={`fixed top-0 left-0 w-full max-w-[100vw] flex justify-center items-center z-50 transition-all duration-300 overflow-x-clip overflow-y-visible ${
-        isScrolled
-          ? 'bg-[#030712]/85 backdrop-blur-md border-b border-white/10 py-0'
-          : 'bg-transparent border-b border-transparent py-2'
+      className={`fixed left-0 right-0 z-50 flex w-full max-w-[1500px] mx-auto justify-center overflow-x-clip overflow-y-visible pointer-events-none transition-[top,padding] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
+        isScrolled ? 'top-2 sm:top-3 px-3 sm:px-4' : 'top-0 px-0 py-2'
       }`}
     >
-      {/* Centered Maximum-Width Container */}
       <div
-        ref={dropdownContainerRef}
-        style={{ marginLeft: 'auto', marginRight: 'auto' }}
-        className="relative w-full max-w-[1400px] mx-auto px-5 h-20 flex items-center justify-between overflow-visible"
+        ref={(node) => {
+          shellRef.current = node;
+          dropdownContainerRef.current = node;
+        }}
+        className={`pointer-events-auto relative mx-auto flex w-full items-center justify-between overflow-visible transition-[max-width,height,border-radius,background-color,box-shadow,border-color,padding] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
+          isScrolled
+            ? 'max-w-[1520px] h-14 sm:h-[3.75rem] rounded-full border border-white/[0.08] bg-[#272a32]/92 px-4 sm:px-5 lg:px-8 backdrop-blur-xl'
+            : 'max-w-none h-20 rounded-none border border-transparent bg-transparent px-5 shadow-none backdrop-blur-0'
+        }`}
       >
         {/* Left Column: Official Brand Logo */}
         <div className="flex items-center shrink-0">
@@ -260,7 +237,11 @@ export default function Header() {
               alt="eTechLogix"
               width={168}
               height={48}
-              className="h-9 sm:h-10 md:h-11 w-auto object-contain object-left"
+              className={
+                isScrolled
+                  ? 'h-8 sm:h-9 w-auto object-contain object-left transition-[height] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]'
+                  : 'h-9 sm:h-10 md:h-11 w-auto object-contain object-left transition-[height] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]'
+              }
               decoding="async"
             />
           </a>
@@ -283,7 +264,7 @@ export default function Header() {
               aria-controls="services-dropdown"
               onClick={() => setActiveDropdown(activeDropdown === 'Services' ? null : 'Services')}
               className={`group relative whitespace-nowrap text-[15px] font-medium transition-colors duration-200 flex items-center gap-1.5 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${
-                activeDropdown === 'Services' ? 'text-[#df012a]' : 'text-neutral-200 hover:text-[#df012a]'
+                activeDropdown === 'Services' ? 'text-[#df012a]' : navLinkTone
               }`}
             >
               <span>Services</span>
@@ -358,7 +339,7 @@ export default function Header() {
               aria-controls="ai-dropdown"
               onClick={() => setActiveDropdown(activeDropdown === 'AI Solutions' ? null : 'AI Solutions')}
               className={`group relative whitespace-nowrap text-[15px] font-medium transition-colors duration-200 flex items-center gap-1.5 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${
-                activeDropdown === 'AI Solutions' ? 'text-[#df012a]' : 'text-neutral-200 hover:text-[#df012a]'
+                activeDropdown === 'AI Solutions' ? 'text-[#df012a]' : navLinkTone
               }`}
             >
               <span>AI Solutions</span>
@@ -433,7 +414,7 @@ export default function Header() {
               aria-controls="industries-dropdown"
               onClick={() => setActiveDropdown(activeDropdown === 'Industries' ? null : 'Industries')}
               className={`group relative whitespace-nowrap text-[15px] font-medium transition-colors duration-200 flex items-center gap-1.5 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${
-                activeDropdown === 'Industries' ? 'text-[#df012a]' : 'text-neutral-200 hover:text-[#df012a]'
+                activeDropdown === 'Industries' ? 'text-[#df012a]' : navLinkTone
               }`}
             >
               <span>Industries</span>
@@ -499,7 +480,7 @@ export default function Header() {
           {/* Direct Links */}
           <a
             href="#work"
-            className="group relative whitespace-nowrap text-[15px] font-medium text-neutral-200 hover:text-[#df012a] transition-colors duration-200 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md"
+            className={`group relative whitespace-nowrap text-[15px] font-medium transition-colors duration-200 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${navLinkTone}`}
           >
             <span>Work</span>
             <span className="absolute bottom-0 left-0 h-[2px] bg-[#df012a] w-0 group-hover:w-full transition-all duration-300" />
@@ -507,7 +488,7 @@ export default function Header() {
 
           <a
             href="#company"
-            className="group relative whitespace-nowrap text-[15px] font-medium text-neutral-200 hover:text-[#df012a] transition-colors duration-200 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md"
+            className={`group relative whitespace-nowrap text-[15px] font-medium transition-colors duration-200 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${navLinkTone}`}
           >
             <span>Company</span>
             <span className="absolute bottom-0 left-0 h-[2px] bg-[#df012a] w-0 group-hover:w-full transition-all duration-300" />
@@ -531,7 +512,9 @@ export default function Header() {
               setActiveDropdown(null);
               setMobileMenuOpen((open) => !open);
             }}
-            className="relative z-[60] lg:hidden flex items-center justify-center w-10 h-10 rounded-lg text-white hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a]"
+            className={`relative z-[60] lg:hidden flex items-center justify-center w-10 h-10 text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] ${
+              isScrolled ? 'rounded-full hover:bg-white/10 border border-white/10' : 'rounded-lg hover:bg-white/10'
+            }`}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -544,7 +527,7 @@ export default function Header() {
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation"
-            className="lg:hidden fixed inset-x-0 bottom-0 top-20 z-[45] bg-[#030712]/98 backdrop-blur-2xl text-white flex flex-col justify-between overflow-y-auto border-t border-white/10"
+            className={`lg:hidden fixed inset-x-0 bottom-0 z-[45] bg-[#030712]/98 backdrop-blur-2xl text-white flex flex-col justify-between overflow-y-auto border-t border-white/10 ${mobileMenuTopClass}`}
             data-lenis-prevent
           >
             <div className="px-6 py-6 space-y-4">
