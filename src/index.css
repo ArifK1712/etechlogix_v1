@@ -1,0 +1,193 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+@theme {
+  /* Brand palette (current site) */
+  --color-brand-red: #df012a;
+  --color-brand-red-dark: #b80122;
+  --color-brand-red-light: #fbeaec;
+
+  --color-dark-pure: #000000;
+  --color-dark-card: #090909;
+  --color-dark-surface: #111111;
+
+  --color-light-cream: #f7f7f5;
+  --color-light-pure: #ffffff;
+
+  --color-text-dark: #000000;
+  --color-text-muted: #555555;
+  --color-text-light: #ffffff;
+  --color-text-dim-light: #888888;
+
+  /* Legacy dark-theme tokens (older section components) */
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-text-dim: #64748b;
+  --color-bg-primary: #030712;
+  --color-bg-elevated: #111827;
+  --color-accent-cyan: #22d3ee;
+  --color-accent-cyan-glow: #67e8f9;
+  --color-accent-gold: #fbbf24;
+
+  --font-display: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+    background-color: #ffffff;
+    color: #171717;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-red);
+    color: #ffffff;
+  }
+
+  #root {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer components {
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+
+  .text-red-highlight {
+    color: var(--color-brand-red);
+  }
+
+  .bg-brand-red {
+    background-color: var(--color-brand-red);
+  }
+
+  .border-brand-red {
+    border-color: var(--color-brand-red);
+  }
+
+  .animate-red-pulse {
+    animation: redPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .title-hero {
+    font-family: var(--font-display);
+    font-size: clamp(2.75rem, 7vw, 6.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+  }
+
+  .title-section-large {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+  }
+
+  .title-section {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  .gradient-text-cyan-gold {
+    background: linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .btn-glow {
+    box-shadow: 0 0 24px color-mix(in srgb, var(--color-accent-cyan) 45%, transparent);
+  }
+}
+
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-dark-pure);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-brand-red);
+  }
+}
+
+@keyframes redPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+/* Hero — subtle brand red ambient glow (minimalist-ui: radial at low opacity) */
+.hero-red-glow-base {
+  background:
+    radial-gradient(ellipse 72% 48% at 50% 40%, rgba(223, 1, 42, 0.11) 0%, transparent 58%),
+    radial-gradient(circle at 88% 18%, rgba(223, 1, 42, 0.06) 0%, transparent 34%),
+    radial-gradient(circle at 10% 78%, rgba(159, 47, 45, 0.05) 0%, transparent 36%);
+}
+
+.hero-red-glow-drift {
+  background: radial-gradient(ellipse 58% 42% at 50% 46%, rgba(223, 1, 42, 0.14) 0%, transparent 62%);
+  opacity: 0.32;
+  animation: heroRedGlowDrift 26s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes heroRedGlowDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.28;
+  }
+  50% {
+    transform: translate3d(1.5%, -1.25%, 0) scale(1.03);
+    opacity: 0.38;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-red-glow-drift {
+    animation: none;
+    opacity: 0.3;
+  }
+}
