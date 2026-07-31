@@ -224,6 +224,7 @@ function completeCardIllustration(card: HTMLElement) {
 
 export default function HowWeDeliverSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const pinContentRef = useRef<HTMLDivElement>(null);
   const introRef = useRef<HTMLDivElement>(null);
   const pinWrapRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -237,9 +238,10 @@ export default function HowWeDeliverSection() {
   useGSAP(
     () => {
       const section = sectionRef.current;
+      const pinContent = pinContentRef.current;
       const pinWrap = pinWrapRef.current;
       const track = trackRef.current;
-      if (!section || !pinWrap || !track) return;
+      if (!section || !pinContent || !pinWrap || !track) return;
 
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const cards = gsap.utils.toArray<HTMLElement>('[data-stage-card]', track);
@@ -355,6 +357,37 @@ export default function HowWeDeliverSection() {
           });
         }
 
+        pinWrap.querySelectorAll<HTMLElement>('[data-progress-point]').forEach((point, i) => {
+          const isCompleted = i < activeIndex;
+          const isActive = i === activeIndex;
+
+          if (isCompleted) {
+            gsap.set(point, {
+              width: 8,
+              height: 8,
+              backgroundColor: '#df012a',
+              borderColor: '#df012a',
+              boxShadow: 'none',
+            });
+          } else if (isActive) {
+            gsap.set(point, {
+              width: 10,
+              height: 10,
+              backgroundColor: '#df012a',
+              borderColor: '#df012a',
+              boxShadow: '0 0 0 3px rgba(223, 1, 42, 0.2)',
+            });
+          } else {
+            gsap.set(point, {
+              width: 8,
+              height: 8,
+              backgroundColor: '#141414',
+              borderColor: 'rgba(115, 115, 115, 0.55)',
+              boxShadow: 'none',
+            });
+          }
+        });
+
         if (activeIndex !== lastDrawnStage) {
           drawCardIllustration(cards[activeIndex]);
           lastDrawnStage = activeIndex;
@@ -365,7 +398,7 @@ export default function HowWeDeliverSection() {
 
       const ctx = gsap.context(() => {
         if (reducedMotion) {
-          gsap.set([introRef.current, pinWrap, ...cards], { opacity: 1, y: 0, scale: 1 });
+          gsap.set([introRef.current, pinContent, pinWrap, ...cards], { opacity: 1, y: 0, scale: 1 });
           cards.forEach((card) => {
             card.querySelectorAll('[data-draw]').forEach((el) => {
               gsap.set(el, { strokeDashoffset: 0 });
@@ -375,21 +408,19 @@ export default function HowWeDeliverSection() {
             });
           });
           if (processFillRef.current) gsap.set(processFillRef.current, { scaleX: 1 });
+          if (progressBarRef.current) gsap.set(progressBarRef.current, { scaleX: 1 });
           if (mobileLineFillRef.current) gsap.set(mobileLineFillRef.current, { scaleY: 1 });
+          pinWrap.querySelectorAll<HTMLElement>('[data-progress-point]').forEach((point) => {
+            gsap.set(point, {
+              width: 8,
+              height: 8,
+              backgroundColor: '#df012a',
+              borderColor: '#df012a',
+              boxShadow: 'none',
+            });
+          });
           return;
         }
-
-        gsap.fromTo(
-          introRef.current,
-          { opacity: 0, y: 14 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            ease: 'power3.out',
-            scrollTrigger: { trigger: section, start: 'top 82%', once: true },
-          },
-        );
 
         const refreshScrollTriggers = () => {
           ScrollTrigger.refresh();
@@ -421,13 +452,14 @@ export default function HowWeDeliverSection() {
         const mm = gsap.matchMedia();
 
         mm.add('(min-width: 1280px)', () => {
+          gsap.set(introRef.current, { opacity: 1, y: 0, clearProps: 'transform' });
           gsap.set(cards, { opacity: 0.38, scale: 0.98, y: 0 });
 
           const pinTrigger = ScrollTrigger.create({
-            trigger: pinWrap,
+            trigger: section,
             start: `top top+=${HEADER_OFFSET}`,
             end: () => `+=${getPinScrollDistance(track, cards)}`,
-            pin: pinWrap,
+            pin: pinContent,
             pinSpacing: true,
             scrub: 0.6,
             anticipatePin: 1,
@@ -439,6 +471,7 @@ export default function HowWeDeliverSection() {
             },
             onEnter: () => {
               lastDrawnStage = -1;
+              gsap.set(introRef.current, { opacity: 1, y: 0 });
               applyStageVisualState(0, 0);
             },
             onLeave: () => {
@@ -454,6 +487,18 @@ export default function HowWeDeliverSection() {
         });
 
         mm.add('(max-width: 1279px)', () => {
+          gsap.fromTo(
+            introRef.current,
+            { opacity: 0, y: 14 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.7,
+              ease: 'power3.out',
+              scrollTrigger: { trigger: section, start: 'top 82%', once: true },
+            },
+          );
+
           gsap.set(cards, { opacity: 1, scale: 1, y: 0, clearProps: 'borderColor' });
 
           cards.forEach((card, index) => {
@@ -521,6 +566,7 @@ export default function HowWeDeliverSection() {
       className="relative w-full overflow-hidden bg-[#0c0c0c] text-[#f5f3ef] py-16 md:py-20 lg:py-24 border-t border-white/[0.06]"
     >
       <div className="relative w-full max-w-[1440px] mx-auto px-5 md:px-6">
+        <div ref={pinContentRef} className="relative">
         <div ref={introRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start mb-10 md:mb-12">
           <div className="lg:col-span-4 max-w-md">
             <p className="text-xs md:text-sm font-mono font-semibold tracking-[0.2em] text-[#df012a] uppercase mb-5">
@@ -543,20 +589,37 @@ export default function HowWeDeliverSection() {
 
         <div ref={pinWrapRef} className="relative xl:flex xl:flex-col xl:justify-center">
           <div
-            className="hidden xl:flex items-center justify-between gap-4 mb-6 font-mono text-xs tracking-wider text-neutral-500"
+            className="hidden xl:flex items-center gap-4 mb-6 font-mono text-xs tracking-wider text-neutral-500"
             aria-live="polite"
             aria-atomic="true"
           >
-            <span>
+            <span className="shrink-0 whitespace-nowrap">
               Active stage{' '}
               <span ref={progressIdRef} className="text-[#df012a] font-bold">
                 01
               </span>
             </span>
-            <div className="flex-1 max-w-[200px] h-px bg-white/10 overflow-hidden">
-              <div ref={progressBarRef} className="h-full w-full bg-[#df012a] origin-left scale-x-0" />
+            <div className="relative flex-1 min-w-0 h-5">
+              <div
+                className="pointer-events-none absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-white/10"
+                aria-hidden="true"
+              />
+              <div
+                ref={progressBarRef}
+                className="pointer-events-none absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-[#df012a] origin-left scale-x-0"
+                aria-hidden="true"
+              />
+              {stages.map((stage, index) => (
+                <div
+                  key={`top-progress-${stage.id}`}
+                  data-progress-point
+                  aria-hidden="true"
+                  className="absolute top-1/2 z-[1] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 box-border"
+                  style={{ left: `${(index / (STAGE_COUNT - 1)) * 100}%` }}
+                />
+              ))}
             </div>
-            <span className="text-neutral-600">05 stages</span>
+            <span className="shrink-0 whitespace-nowrap text-neutral-600">05 stages</span>
           </div>
 
           <div
@@ -623,6 +686,7 @@ export default function HowWeDeliverSection() {
               </article>
             ))}
           </div>
+        </div>
         </div>
       </div>
     </section>
