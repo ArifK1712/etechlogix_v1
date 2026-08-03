@@ -42,7 +42,7 @@ const capabilities: Capability[] = [
     caption: 'Application architecture across cloud, APIs, and operational systems.',
     label: 'Enterprise platforms',
     operationalFocus: ['Business Process', 'Custom Platform', 'Scalable Operations'],
-    image: '/images/case-study-workflow-workspace.jpg',
+    image: '/images/custom-software.webp',
   },
   {
     id: '02',
@@ -68,7 +68,7 @@ const capabilities: Capability[] = [
     caption: 'Named enterprise platforms connected through a central integration layer.',
     label: 'Integration layer',
     operationalFocus: ['Connected Systems', 'Synchronized Data', 'Unified Operations'],
-    image: '/images/service-data.jpg',
+    image: '/images/enterprise-integrations.webp',
   },
   {
     id: '04',
@@ -79,7 +79,7 @@ const capabilities: Capability[] = [
     caption: 'From product concept to functional demonstrations investors and customers can experience.',
     label: 'Product prototypes',
     operationalFocus: ['Product Idea', 'Functional Experience', 'Market Validation'],
-    image: '/images/workspace-panoramic.jpg',
+    image: '/images/product-prototypes.webp',
   },
   {
     id: '05',
@@ -101,7 +101,7 @@ const capabilities: Capability[] = [
     caption: 'Legacy fragmentation resolved through phased migration into a modern platform.',
     label: 'Modernization',
     operationalFocus: ['Legacy Environment', 'Controlled Transition', 'Modern Platform'],
-    image: '/images/industry-infrastructure.jpg',
+    image: '/images/legacy-systems.webp',
   },
 ];
 

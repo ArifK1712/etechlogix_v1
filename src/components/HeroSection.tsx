@@ -16,12 +16,12 @@ const slides: SlideData[] = [
   {
     image: '/images/slider-1.jpg',
     eyebrow: 'ENTERPRISE CUSTOM SOFTWARE',
-    headlineLine1: 'Enterprise software built around how your',
+    headlineLine1: 'Custom software for',
     headlineLine2Prefix: '',
-    headlineLine2Highlight: 'business operates.',
+    headlineLine2Highlight: 'complex business operations.',
     paragraph:
-      'We engineer secure, scalable platforms around complex workflows, users, systems, and operational requirements.',
-    primaryCta: 'Discuss Your Project',
+      'We design AI-powered enterprise platforms, workflow automation, and system integrations around complex operational requirements.',
+    primaryCta: 'Discuss Your Requirements',
     secondaryCta: 'Explore Our Capabilities',
   },
   {
@@ -31,20 +31,20 @@ const slides: SlideData[] = [
     headlineLine2Prefix: '',
     headlineLine2Highlight: 'real business workflows.',
     paragraph:
-      'We build Agentic AI tools that process information, apply business rules, update systems, manage exceptions, and support human approvals.',
+      'We build AI agents that process information, apply business rules, update enterprise systems, manage exceptions, and route approvals to the right people.',
     primaryCta: 'Explore Agentic AI',
     secondaryCta: 'See Business Impact',
   },
   {
     image: '/images/slider-3.jpg',
     eyebrow: 'ENTERPRISE SYSTEM INTEGRATION',
-    headlineLine1: 'Connect critical systems into',
+    headlineLine1: 'Connect every system into',
     headlineLine2Prefix: '',
     headlineLine2Highlight: 'one dependable operation.',
     paragraph:
-      'We integrate Salesforce, MuleSoft, Descartes, Avalara, DMSi Agility, ERP, CRM, healthcare, payment, and custom platforms.',
-    primaryCta: 'Discuss Integration',
-    secondaryCta: 'View Capabilities',
+      'We connect Salesforce, MuleSoft, Descartes, Avalara, DMSi Agility, ERP, CRM, healthcare, payment, and custom platforms through secure, synchronized integrations.',
+    primaryCta: 'Discuss Your Integration',
+    secondaryCta: 'Explore Integrations',
   },
   {
     image: '/images/slider-4.jpg',
@@ -53,8 +53,8 @@ const slides: SlideData[] = [
     headlineLine2Prefix: '',
     headlineLine2Highlight: 'bring new products to life.',
     paragraph:
-      'We modernize outdated applications and help startups create functional, investor-ready prototypes for validation and fundraising.',
-    primaryCta: 'Start a Conversation',
+      'We modernize outdated applications and help businesses turn new ideas into functional, production-ready products for validation, growth, and long-term use.',
+    primaryCta: 'Discuss Your Requirements',
     secondaryCta: 'View Our Work',
   },
 ];
@@ -135,10 +135,10 @@ export default function HeroSection() {
 
             {/* Headline Typography */}
             <div className="w-full min-w-0 flex flex-col gap-3 md:gap-4 font-display font-extrabold tracking-tight text-[#f5f3ef]">
-              <h1 className="text-4xl sm:text-5xl md:text-[6.5rem] leading-[0.95] text-center self-center text-[#f5f3ef] text-balance max-w-full px-1">
+              <h1 className="text-3xl sm:text-4xl md:text-[5.5rem] leading-[0.95] text-center self-center text-[#f5f3ef] text-balance max-w-full px-1">
                 {slide.headlineLine1}
               </h1>
-              <h1 className="text-4xl sm:text-5xl md:text-[6.25rem] leading-[0.95] text-center self-center text-[#f5f3ef] text-balance max-w-full px-1">
+              <h1 className="text-3xl sm:text-4xl md:text-[5.25rem] leading-[0.95] text-center self-center text-[#f5f3ef] text-balance max-w-full px-1">
                 {slide.headlineLine2Prefix}
                 <span className="text-[#df012a]">{slide.headlineLine2Highlight}</span>
               </h1>

@@ -128,21 +128,21 @@ const stages: DeliveryStage[] = [
     id: '01',
     title: 'Understand the Operation',
     description:
-      'Study users, workflows, business rules, existing systems, risks, and expected outcomes.',
+      'Map users, workflows, business rules, systems, risks, and expected outcomes.',
     Illustration: UnderstandIllustration,
   },
   {
     id: '02',
     title: 'Design the Solution',
     description:
-      'Define the architecture, user experience, integrations, data flow, security, and delivery roadmap.',
+      'Define the architecture, experience, integrations, data flow, security, and delivery roadmap.',
     Illustration: DesignIllustration,
   },
   {
     id: '03',
     title: 'Build and Validate',
     description:
-      'Develop working functionality in focused releases and validate it with real users and operational scenarios.',
+      'Develop working functionality in focused releases and validate it against real operational scenarios.',
     Illustration: BuildIllustration,
   },
   {
@@ -573,7 +573,7 @@ export default function HowWeDeliverSection() {
               HOW WE DELIVER
             </p>
             <p className="text-base md:text-lg text-neutral-400 leading-[1.65]">
-              We combine business understanding, practical architecture, rapid engineering, enterprise
+              We combine business understanding, practical architecture, focused engineering, enterprise
               integration, and continuous improvement to deliver technology that works in real operations.
             </p>
           </div>
@@ -582,7 +582,7 @@ export default function HowWeDeliverSection() {
               id="how-we-deliver-heading"
               className="font-display font-extrabold text-[1.75rem] sm:text-4xl md:text-[2.65rem] lg:text-[2.85rem] leading-[1.08] tracking-[-0.03em] text-[#f5f3ef] text-balance max-w-4xl"
             >
-              From complex business challenge to production-ready solution.
+              From a complex business challenge to a production-ready solution.
             </h2>
           </div>
         </div>

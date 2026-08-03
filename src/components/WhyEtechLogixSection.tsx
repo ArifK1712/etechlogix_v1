@@ -11,7 +11,7 @@ const differentiators = [
     id: '01',
     title: 'Engineering Ownership',
     description:
-      'Senior engineers take responsibility for outcomes, not only assigned development tasks.',
+      'Senior engineers take responsibility for delivery outcomes—not only assigned development tasks.',
     Icon: UserRound,
   },
   {
@@ -25,14 +25,14 @@ const differentiators = [
     id: '03',
     title: 'Enterprise Integration Experience',
     description:
-      'Experience connecting ERP, CRM, healthcare, payment, distribution, and custom enterprise platforms.',
+      'Experience connecting ERP, CRM, healthcare, payment, logistics, distribution, and custom enterprise platforms.',
     Icon: Network,
   },
   {
     id: '04',
     title: 'Long-Term Delivery Partnership',
     description:
-      'Support from early strategy and prototyping through implementation, modernization, scaling, and continuous improvement.',
+      'Support from early strategy and prototyping through implementation, modernization, scaling, and continuous improvement after launch.',
     Icon: BarChart3,
   },
 ] as const;
@@ -210,8 +210,8 @@ export default function WhyEtechLogixSection() {
               ref={descriptionRef}
               className="mt-6 max-w-md text-base leading-[1.65] text-[#555555] md:text-lg"
             >
-              We combine enterprise delivery experience, business understanding, technical ownership, and
-              practical AI expertise to build solutions that remain dependable after launch.
+              We combine enterprise delivery experience, business understanding, engineering ownership, and
+              practical technology expertise to build solutions that remain dependable long after launch.
             </p>
           </div>
 
@@ -286,7 +286,7 @@ export default function WhyEtechLogixSection() {
                 Let&apos;s solve your next business challenge together.
               </p>
               <p className="mt-2 text-sm leading-relaxed text-[#555555] md:text-[0.95rem]">
-                Book a consultation with our experts and explore what we can build for you.
+                Discuss your operational challenge, integration requirement, modernization initiative, or AI automation opportunity with our team.
               </p>
             </div>
           </div>
@@ -295,7 +295,7 @@ export default function WhyEtechLogixSection() {
             href="#contact"
             className="group mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#df012a] px-6 py-3.5 text-sm font-semibold text-white transition-[transform,background-color] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-[#c80126] active:scale-[0.98] md:mt-0 md:w-auto md:shrink-0"
           >
-            Book a Consultation
+            Discuss Your Requirements
             <ArrowRight
               className="h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5"
               strokeWidth={1.75}

@@ -62,55 +62,50 @@ interface ServiceItem {
 const servicesItems: ServiceItem[] = [
   {
     title: 'Enterprise Custom Software',
-    href: '#services',
+    href: '/services/enterprise-custom-software',
     description: 'Custom platforms built around complex business operations.',
   },
   {
-    title: 'Legacy System Modernization',
-    href: '#modernization',
-    description: 'Modernize aging applications without disrupting operations.',
-  },
-  {
-    title: 'Agentic AI & Workflow Automation',
-    href: '#ai-solutions',
-    description: 'AI agents that execute and coordinate operational workflows.',
-  },
-  {
-    title: 'Product Prototyping',
-    href: '#prototyping',
-    description: 'Working prototypes for validation, demonstrations, and investment.',
-  },
-  {
     title: 'Enterprise Integrations',
-    href: '#integrations',
+    href: '/services/enterprise-integrations',
     description: 'Connect ERP, CRM, cloud platforms, and custom systems.',
   },
   {
+    title: 'Legacy System Modernization',
+    href: '/services/legacy-modernization',
+    description: 'Modernize aging applications without disrupting operations.',
+  },
+  {
+    title: 'Product Prototyping',
+    href: '/services/product-prototyping',
+    description: 'Working prototypes for validation, demonstrations, and investment.',
+  },
+  {
     title: 'Dedicated Engineering Teams',
-    href: '#teams',
+    href: '/services/dedicated-engineering-teams',
     description: 'Experienced engineers who take product and delivery ownership.',
   },
 ];
 
 const aiItems: ServiceItem[] = [
   {
-    title: 'Agentic AI',
-    href: '#agentic-ai',
-    description: 'Autonomous agents that process data, route tasks, and execute logic.',
+    title: 'Agentic AI & Workflow Automation',
+    href: '/ai-automation/agentic-ai-workflow-automation',
+    description: 'AI agents that execute and coordinate operational workflows.',
   },
   {
     title: 'Document Automation',
-    href: '#doc-automation',
+    href: '/ai-automation/document-automation',
     description: 'Intelligent parsing and extraction for complex enterprise documents.',
   },
   {
-    title: 'Intelligent Workflow Automation',
-    href: '#workflow-automation',
+    title: 'Intelligent Process Automation',
+    href: '/ai-automation/intelligent-process-automation',
     description: 'Automated policy checks, approvals, and system notifications.',
   },
   {
     title: 'AI-Powered Enterprise Applications',
-    href: '#ai-apps',
+    href: '/ai-automation/ai-powered-enterprise-applications',
     description: 'Custom applications integrated with enterprise LLMs & RAG engines.',
   },
 ];
@@ -118,23 +113,41 @@ const aiItems: ServiceItem[] = [
 const industryItems: ServiceItem[] = [
   {
     title: 'Events & Conferences',
-    href: '#events',
+    href: '/industries/events-conferences',
     description: 'Registration, attendee check-in, venue ops, and real-time reporting.',
   },
   {
     title: 'Healthcare',
-    href: '#healthcare',
+    href: '/industries/healthcare',
     description: 'HIPAA-compliant records synchronization and care pathway coordination.',
   },
   {
-    title: 'ERP & Distribution',
-    href: '#erp',
+    title: 'ERP, Distribution & Supply Chain',
+    href: '/industries/erp-distribution-supply-chain',
     description: 'Multi-warehouse inventory sync, order routing, and supply chain automation.',
   },
   {
     title: 'Enterprise Operations',
-    href: '#operations',
+    href: '/industries/enterprise-operations',
     description: 'Operational telemetry dashboards and decision support systems.',
+  },
+];
+
+const companyItems: ServiceItem[] = [
+  {
+    title: 'About eTechLogix',
+    href: '/company/about',
+    description: 'Our story, engineering philosophy, and long-term partnership approach.',
+  },
+  {
+    title: 'How We Deliver',
+    href: '/company/how-we-deliver',
+    description: 'From complex challenge to production-ready, dependable solutions.',
+  },
+  {
+    title: 'Contact',
+    href: '/contact',
+    description: 'Discuss operational challenges, integrations, modernization, and AI automation.',
   },
 ];
 
@@ -296,7 +309,7 @@ export default function Header() {
                       WHAT WE BUILD
                     </span>
                     <p className="text-xs text-neutral-500 mt-0.5">
-                      Enterprise software and AI solutions designed around real operations.
+                      Enterprise software and engineering services designed around complex business operations.
                     </p>
                   </div>
                   <Layers className="w-4 h-4 text-[#df012a]" />
@@ -327,51 +340,53 @@ export default function Header() {
             )}
           </div>
 
-          {/* AI Solutions Link with Dropdown */}
+          {/* AI & Automation Link with Dropdown */}
           <div
             className="relative h-full flex items-center overflow-visible"
-            onMouseEnter={() => setActiveDropdown('AI Solutions')}
+            onMouseEnter={() => setActiveDropdown('AI & Automation')}
             onMouseLeave={() => setActiveDropdown(null)}
           >
             <button
               type="button"
-              aria-expanded={activeDropdown === 'AI Solutions'}
+              aria-expanded={activeDropdown === 'AI & Automation'}
               aria-controls="ai-dropdown"
-              onClick={() => setActiveDropdown(activeDropdown === 'AI Solutions' ? null : 'AI Solutions')}
+              onClick={() =>
+                setActiveDropdown(activeDropdown === 'AI & Automation' ? null : 'AI & Automation')
+              }
               className={`group relative whitespace-nowrap text-[15px] font-medium transition-colors duration-200 flex items-center gap-1.5 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${
-                activeDropdown === 'AI Solutions' ? 'text-[#df012a]' : navLinkTone
+                activeDropdown === 'AI & Automation' ? 'text-[#df012a]' : navLinkTone
               }`}
             >
-              <span>AI Solutions</span>
+              <span>AI & Automation</span>
               <ChevronDown
                 className={`w-4 h-4 transition-transform duration-200 ${
-                  activeDropdown === 'AI Solutions'
+                  activeDropdown === 'AI & Automation'
                     ? 'rotate-180 text-[#df012a]'
                     : 'text-neutral-400 group-hover:text-[#df012a]'
                 }`}
               />
               <span
                 className={`absolute bottom-0 left-0 h-[2px] bg-[#df012a] transition-all duration-300 ${
-                  activeDropdown === 'AI Solutions' ? 'w-full' : 'w-0 group-hover:w-full'
+                  activeDropdown === 'AI & Automation' ? 'w-full' : 'w-0 group-hover:w-full'
                 }`}
               />
             </button>
 
-            {/* AI Solutions Dropdown */}
-            {activeDropdown === 'AI Solutions' && (
+            {/* AI & Automation Dropdown */}
+            {activeDropdown === 'AI & Automation' && (
               <div
                 id="ai-dropdown"
                 role="menu"
-                aria-label="AI Solutions Dropdown"
+                aria-label="AI and Automation Dropdown"
                 className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 w-[480px] max-w-[calc(100vw-48px)] bg-white border border-neutral-200 rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.08)] p-4 z-[60] animate-in fade-in slide-in-from-top-2 duration-150 before:absolute before:-top-4 before:left-0 before:w-full before:h-4"
               >
                 <div className="px-3 pt-2 pb-3 mb-2 border-b border-neutral-200 flex items-center justify-between">
                   <div>
                     <span className="text-[10px] font-mono font-bold text-[#df012a] uppercase tracking-wider block">
-                      WORKFLOW AUTOMATION
+                      OPERATIONAL AI
                     </span>
                     <p className="text-xs text-neutral-500 mt-0.5">
-                      Autonomous agents that do the work — not just generate answers.
+                      AI agents and automation systems that execute real business workflows.
                     </p>
                   </div>
                   <Cpu className="w-4 h-4 text-[#df012a]" />
@@ -443,10 +458,10 @@ export default function Header() {
                 <div className="px-3 pt-2 pb-3 mb-2 border-b border-neutral-200 flex items-center justify-between">
                   <div>
                     <span className="text-[10px] font-mono font-bold text-[#df012a] uppercase tracking-wider block">
-                      INDUSTRY DEPLOYMENTS
+                      INDUSTRY EXPERIENCE
                     </span>
                     <p className="text-xs text-neutral-500 mt-0.5">
-                      Software engineered for high operational complexity.
+                      Enterprise technology designed for operationally complex environments.
                     </p>
                   </div>
                   <Building2 className="w-4 h-4 text-[#df012a]" />
@@ -477,29 +492,95 @@ export default function Header() {
             )}
           </div>
 
-          {/* Direct Links */}
+          {/* Direct Work Link */}
           <a
-            href="#work"
+            href="/work"
             className={`group relative whitespace-nowrap text-[15px] font-medium transition-colors duration-200 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${navLinkTone}`}
           >
             <span>Work</span>
             <span className="absolute bottom-0 left-0 h-[2px] bg-[#df012a] w-0 group-hover:w-full transition-all duration-300" />
           </a>
 
-          <a
-            href="#company"
-            className={`group relative whitespace-nowrap text-[15px] font-medium transition-colors duration-200 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${navLinkTone}`}
+          {/* Company Link with Dropdown */}
+          <div
+            className="relative h-full flex items-center overflow-visible"
+            onMouseEnter={() => setActiveDropdown('Company')}
+            onMouseLeave={() => setActiveDropdown(null)}
           >
-            <span>Company</span>
-            <span className="absolute bottom-0 left-0 h-[2px] bg-[#df012a] w-0 group-hover:w-full transition-all duration-300" />
-          </a>
+            <button
+              type="button"
+              aria-expanded={activeDropdown === 'Company'}
+              aria-controls="company-dropdown"
+              onClick={() => setActiveDropdown(activeDropdown === 'Company' ? null : 'Company')}
+              className={`group relative whitespace-nowrap text-[15px] font-medium transition-colors duration-200 flex items-center gap-1.5 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${
+                activeDropdown === 'Company' ? 'text-[#df012a]' : navLinkTone
+              }`}
+            >
+              <span>Company</span>
+              <ChevronDown
+                className={`w-4 h-4 transition-transform duration-200 ${
+                  activeDropdown === 'Company'
+                    ? 'rotate-180 text-[#df012a]'
+                    : 'text-neutral-400 group-hover:text-[#df012a]'
+                }`}
+              />
+              <span
+                className={`absolute bottom-0 left-0 h-[2px] bg-[#df012a] transition-all duration-300 ${
+                  activeDropdown === 'Company' ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}
+              />
+            </button>
+
+            {activeDropdown === 'Company' && (
+              <div
+                id="company-dropdown"
+                role="menu"
+                aria-label="Company Dropdown"
+                className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 w-[460px] max-w-[calc(100vw-48px)] bg-white border border-neutral-200 rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.08)] p-4 z-[60] animate-in fade-in slide-in-from-top-2 duration-150 before:absolute before:-top-4 before:left-0 before:w-full before:h-4"
+              >
+                <div className="px-3 pt-2 pb-3 mb-2 border-b border-neutral-200 flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] font-mono font-bold text-[#df012a] uppercase tracking-wider block">
+                      ABOUT ETECHLOGIX
+                    </span>
+                    <p className="text-xs text-neutral-500 mt-0.5">
+                      Learn about our company, delivery approach, and long-term engineering partnerships.
+                    </p>
+                  </div>
+                  <Building2 className="w-4 h-4 text-[#df012a]" />
+                </div>
+
+                <div className="space-y-1">
+                  {companyItems.map((item) => (
+                    <a
+                      key={item.title}
+                      href={item.href}
+                      role="menuitem"
+                      onClick={() => setActiveDropdown(null)}
+                      className="group flex flex-col justify-center p-3 rounded-xl hover:bg-neutral-50 transition-colors duration-150 focus:outline-none focus:bg-neutral-50"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-[14px] font-semibold text-[#111111] group-hover:text-[#df012a] transition-colors">
+                          {item.title}
+                        </span>
+                        <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-[#df012a]" />
+                      </div>
+                      <p className="text-[12px] text-neutral-600 mt-1 leading-[1.45]">
+                        {item.description}
+                      </p>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </nav>
 
         {/* Right Column: Premium Modular Brand Button (Ghost Variant filling with Red on Hover) */}
         <div className="flex items-center gap-3 shrink-0">
           <div className="hidden lg:block">
-            <Button href="#contact" variant="ghost" size="md" icon={<ArrowRight className="w-4 h-4" />}>
-              Get Started
+            <Button href="/contact" variant="ghost" size="md" icon={<ArrowRight className="w-4 h-4" />}>
+              Discuss Your Requirements
             </Button>
           </div>
 
@@ -563,25 +644,25 @@ export default function Header() {
                 )}
               </div>
 
-              {/* AI Solutions Mobile Category */}
+              {/* AI & Automation Mobile Category */}
               <div className="border-b border-white/10 pb-4">
                 <button
                   type="button"
                   onClick={() =>
                     setExpandedMobileCategory(
-                      expandedMobileCategory === 'AI Solutions' ? null : 'AI Solutions',
+                      expandedMobileCategory === 'AI & Automation' ? null : 'AI & Automation',
                     )
                   }
                   className="w-full flex items-center justify-between py-2 text-left font-display font-semibold text-lg text-white"
                 >
-                  <span>AI Solutions</span>
+                  <span>AI & Automation</span>
                   <ChevronDown
                     className={`w-5 h-5 text-neutral-400 transition-transform duration-200 ${
-                      expandedMobileCategory === 'AI Solutions' ? 'rotate-180 text-[#df012a]' : ''
+                      expandedMobileCategory === 'AI & Automation' ? 'rotate-180 text-[#df012a]' : ''
                     }`}
                   />
                 </button>
-                {expandedMobileCategory === 'AI Solutions' && (
+                {expandedMobileCategory === 'AI & Automation' && (
                   <div className="mt-3 pl-3 space-y-3 border-l-2 border-[#df012a]">
                     {aiItems.map((item) => (
                       <a
@@ -631,10 +712,10 @@ export default function Header() {
                 )}
               </div>
 
-              {/* Direct Work & Company Links */}
+              {/* Direct Work Link */}
               <div className="border-b border-white/10 pb-4">
                 <a
-                  href="#work"
+                  href="/work"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block py-2 font-display font-semibold text-lg text-white hover:text-[#df012a]"
                 >
@@ -642,28 +723,50 @@ export default function Header() {
                 </a>
               </div>
 
+              {/* Company Mobile Category */}
               <div className="border-b border-white/10 pb-4">
-                <a
-                  href="#company"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block py-2 font-display font-semibold text-lg text-white hover:text-[#df012a]"
+                <button
+                  type="button"
+                  onClick={() =>
+                    setExpandedMobileCategory(expandedMobileCategory === 'Company' ? null : 'Company')
+                  }
+                  className="w-full flex items-center justify-between py-2 text-left font-display font-semibold text-lg text-white"
                 >
-                  Company
-                </a>
+                  <span>Company</span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-neutral-400 transition-transform duration-200 ${
+                      expandedMobileCategory === 'Company' ? 'rotate-180 text-[#df012a]' : ''
+                    }`}
+                  />
+                </button>
+                {expandedMobileCategory === 'Company' && (
+                  <div className="mt-3 pl-3 space-y-3 border-l-2 border-[#df012a]">
+                    {companyItems.map((item) => (
+                      <a
+                        key={item.title}
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block text-sm font-medium text-neutral-300 hover:text-[#df012a] transition-colors py-1"
+                      >
+                        {item.title}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
 
             {/* Mobile Bottom CTA */}
             <div className="p-6 bg-[#060b17] border-t border-white/10 mt-auto">
               <Button
-                href="#contact"
+                href="/contact"
                 variant="primary"
                 size="lg"
                 className="w-full"
                 onClick={() => setMobileMenuOpen(false)}
                 icon={<ArrowRight className="w-5 h-5" />}
               >
-                Get Started
+                Discuss Your Requirements
               </Button>
             </div>
           </div>,
