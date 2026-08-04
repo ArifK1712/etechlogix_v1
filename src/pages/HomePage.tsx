@@ -2,6 +2,7 @@ import { useLenis } from '../hooks/useLenis';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
+import EnterpriseIntegrationSection from '../components/EnterpriseIntegrationSection/EnterpriseIntegrationSection';
 import HowWeDeliverSection from '../components/HowWeDeliverSection';
 import ProvenBusinessImpactSection from '../components/ProvenBusinessImpactSection';
 import IndustriesWeUnderstandSection from '../components/IndustriesWeUnderstandSection';
@@ -19,6 +20,7 @@ export default function HomePage() {
       <main className="overflow-x-clip">
         <HeroSection />
         <ServicesSection />
+        <EnterpriseIntegrationSection />
         <ProvenBusinessImpactSection />
         <IndustriesWeUnderstandSection />
         <SelectedClientOutcomesSection />
