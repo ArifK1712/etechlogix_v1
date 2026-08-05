@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { InternalLink } from './InternalLink';
 
 const LOGO_SRC = '/images/etechlogix-logo.png';
 
@@ -67,8 +68,8 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-[1440px] px-5 py-14 md:px-6 md:py-16 lg:py-20">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-x-10 xl:gap-x-14">
           <div className="lg:col-span-4">
-            <a
-              href="#"
+            <InternalLink
+              href="/"
               className="inline-flex items-center gap-3 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
               aria-label="eTechLogix home"
             >
@@ -81,7 +82,7 @@ export default function Footer() {
                 loading="lazy"
                 decoding="async"
               />
-            </a>
+            </InternalLink>
             <p className="mt-5 max-w-sm text-sm leading-[1.65] text-neutral-400">
               Enterprise software, Agentic AI, integrations, and modernization for complex business
               operations.
@@ -114,9 +115,9 @@ export default function Footer() {
               <ul className="flex flex-col gap-3.5">
                 {exploreLinks.map((item) => (
                   <li key={item.label}>
-                    <a href={item.href} className={linkClass}>
+                    <InternalLink href={item.href} className={linkClass}>
                       {item.label}
-                    </a>
+                    </InternalLink>
                   </li>
                 ))}
               </ul>
@@ -127,9 +128,9 @@ export default function Footer() {
               <ul className="flex flex-col gap-3.5">
                 {capabilityLinks.map((item) => (
                   <li key={item.label}>
-                    <a href={item.href} className={`${linkClass} text-[0.8125rem] leading-snug md:text-sm`}>
+                    <InternalLink href={item.href} className={`${linkClass} text-[0.8125rem] leading-snug md:text-sm`}>
                       {item.label}
-                    </a>
+                    </InternalLink>
                   </li>
                 ))}
               </ul>
@@ -145,10 +146,10 @@ export default function Footer() {
               >
                 hello@etechlogix.com
               </a>
-              <a href="#contact" className={linkClass}>
+              <InternalLink href="#contact" className={linkClass}>
                 Contact Us
-              </a>
-              <a
+              </InternalLink>
+              <InternalLink
                 href="#contact"
                 className="group inline-flex items-center gap-2 text-sm font-semibold text-[#df012a] transition-[gap,color] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:gap-2.5 hover:text-[#f5f3ef] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
               >
@@ -158,7 +159,7 @@ export default function Footer() {
                   strokeWidth={1.75}
                   aria-hidden="true"
                 />
-              </a>
+              </InternalLink>
             </div>
           </div>
         </div>
@@ -168,18 +169,18 @@ export default function Footer() {
             © {year} eTechLogix. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <a
+            <InternalLink
               href="#privacy-policy"
               className="text-xs text-neutral-500 transition-colors duration-300 hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
             >
               Privacy Policy
-            </a>
-            <a
+            </InternalLink>
+            <InternalLink
               href="#terms-of-use"
               className="text-xs text-neutral-500 transition-colors duration-300 hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
             >
               Terms of Use
-            </a>
+            </InternalLink>
           </div>
         </div>
       </div>

@@ -195,4 +195,30 @@
     animation: none;
     opacity: 0.3;
   }
+
+  .integration-connector-flow {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* Enterprise integration hub — subtle continuous data flow on connector lines */
+.integration-connector-flow {
+  opacity: 0.92;
+  pointer-events: none;
+  animation: integrationConnectorFlow 3.2s linear infinite;
+  will-change: stroke-dashoffset;
+}
+
+.integration-connector-flow--reverse {
+  animation-direction: reverse;
+}
+
+@keyframes integrationConnectorFlow {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -100;
+  }
 }

@@ -237,12 +237,10 @@ export function IntegrationHubMap({
   pathRefs,
   nodeRefs,
   engineRef,
-  pulseRefs,
 }: {
   pathRefs: MutableRefObject<(SVGPathElement | null)[]>;
   nodeRefs: MutableRefObject<(HTMLDivElement | null)[]>;
   engineRef: MutableRefObject<HTMLDivElement | null>;
-  pulseRefs: MutableRefObject<(SVGCircleElement | null)[]>;
 }) {
   const patternId = 'integration-dot-grid-ref';
 
@@ -263,6 +261,9 @@ export function IntegrationHubMap({
 
         {mapNodes.map((node, index) => {
           const { d, enginePt, cardPt } = pathForNode(node);
+          const flowReverse = index % 2 === 1;
+          const flowDelay = index * 0.45;
+          const flowDuration = 3.1 + (index % 3) * 0.35;
           return (
             <g key={`connector-${node.id}`}>
               <path
@@ -276,16 +277,23 @@ export function IntegrationHubMap({
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
+              <path
+                d={d}
+                fill="none"
+                stroke="#5a5a54"
+                strokeWidth="2.25"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                pathLength={100}
+                strokeDasharray="8 92"
+                className={`integration-connector-flow${flowReverse ? ' integration-connector-flow--reverse' : ''}`}
+                style={{
+                  animationDuration: `${flowDuration}s`,
+                  animationDelay: `${flowDelay}s`,
+                }}
+              />
               <circle cx={enginePt.x} cy={enginePt.y} r="3" fill="#a8a8a1" />
               <circle cx={cardPt.x} cy={cardPt.y} r="3" fill="#a8a8a1" />
-              <circle
-                ref={(el) => {
-                  pulseRefs.current[index] = el;
-                }}
-                r="3"
-                fill="#df012a"
-                opacity="0"
-              />
             </g>
           );
         })}

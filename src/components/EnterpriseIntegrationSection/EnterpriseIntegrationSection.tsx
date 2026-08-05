@@ -3,13 +3,12 @@ import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight } from 'lucide-react';
+import { InternalLink } from '../InternalLink';
 import { IntegrationHubMap } from './IntegrationHubMap';
 
 gsap.registerPlugin(ScrollTrigger);
 
-/** Minimal pulse on two connector paths only */
-const PULSE_INDICES = new Set([0, 3]);
-
+/** Scroll entrance only — continuous line flow runs via CSS on overlay paths */
 export default function EnterpriseIntegrationSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const introRef = useRef<HTMLDivElement>(null);
@@ -17,7 +16,6 @@ export default function EnterpriseIntegrationSection() {
   const pathRefs = useRef<(SVGPathElement | null)[]>([]);
   const nodeRefs = useRef<(HTMLDivElement | null)[]>([]);
   const engineRef = useRef<HTMLDivElement>(null);
-  const pulseRefs = useRef<(SVGCircleElement | null)[]>([]);
 
   useGSAP(
     () => {
@@ -36,26 +34,31 @@ export default function EnterpriseIntegrationSection() {
 
       const tl = gsap.timeline({
         scrollTrigger: { trigger: section, start: 'top 85%', once: true },
-        defaults: { ease: 'power3.out' },
+        defaults: { ease: 'power3.out', immediateRender: false },
       });
 
       tl.fromTo(
         introRef.current?.children ?? [],
         { opacity: 0, y: 18 },
-        { opacity: 1, y: 0, duration: 0.6, stagger: 0.07 },
-      ).fromTo(mapAreaRef.current, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.55 }, '-=0.3');
+        { opacity: 1, y: 0, duration: 0.6, stagger: 0.07, immediateRender: false },
+      ).fromTo(
+        mapAreaRef.current,
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.55, immediateRender: false },
+        '-=0.3',
+      );
 
       tl.fromTo(
         engineRef.current,
         { opacity: 0, scale: 0.96 },
-        { opacity: 1, scale: 1, duration: 0.55, ease: 'power2.out' },
+        { opacity: 1, scale: 1, duration: 0.55, ease: 'power2.out', immediateRender: false },
         '-=0.15',
       );
 
       tl.fromTo(
         nodeRefs.current,
         { opacity: 0, y: 10 },
-        { opacity: 1, y: 0, duration: 0.42, stagger: 0.06, ease: 'power2.out' },
+        { opacity: 1, y: 0, duration: 0.42, stagger: 0.06, ease: 'power2.out', immediateRender: false },
         '-=0.25',
       );
 
@@ -74,32 +77,13 @@ export default function EnterpriseIntegrationSection() {
             opacity: 1,
             duration: 0.65,
             ease: 'power2.inOut',
+            onComplete: () => {
+              path.removeAttribute('stroke-dasharray');
+              path.removeAttribute('stroke-dashoffset');
+            },
           },
           index === 0 ? '-=0.35' : `-=${0.58}`,
         );
-
-        if (PULSE_INDICES.has(index)) {
-          const pulse = pulseRefs.current[index];
-          if (pulse) {
-            const proxy = { t: 0 };
-            tl.to(
-              proxy,
-              {
-                t: 1,
-                duration: 1,
-                ease: 'none',
-                onUpdate: () => {
-                  const pt = path.getPointAtLength(proxy.t * length);
-                  pulse.setAttribute('cx', String(pt.x));
-                  pulse.setAttribute('cy', String(pt.y));
-                  gsap.set(pulse, { opacity: 0.85 });
-                },
-                onComplete: () => gsap.set(pulse, { opacity: 0 }),
-              },
-              '-=0.45',
-            );
-          }
-        }
       });
     },
     { scope: sectionRef },
@@ -125,10 +109,9 @@ export default function EnterpriseIntegrationSection() {
             <span className="block">your business depends on.</span>
           </h2>
           <p className="mt-3 max-w-[420px] text-[15px] leading-[1.65] text-[#555555] md:text-base">
-            We engineer secure enterprise integrations that connect applications, synchronize critical data,
-            automate cross-platform workflows, and eliminate operational silos.
+          We engineer secure enterprise integrations across CRM, ERP, logistics, tax, healthcare, payment, and custom platforms—synchronizing critical data, automating cross-system workflows, and eliminating operational silos.
           </p>
-          <a
+          <InternalLink
             href="/contact"
             className="group mt-6 inline-flex w-full sm:w-auto items-center justify-between gap-3 bg-[#df012a] hover:bg-[#b80122] text-white font-semibold text-[14px] min-h-[48px] pl-5 pr-1.5 rounded-full transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f7f6f2]"
           >
@@ -136,7 +119,7 @@ export default function EnterpriseIntegrationSection() {
             <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-[#df012a] transition-transform duration-700 group-hover:translate-x-0.5">
               <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
             </span>
-          </a>
+          </InternalLink>
         </div>
 
         <div ref={mapAreaRef} className="flex w-full items-center justify-center py-2 md:py-0">
@@ -144,7 +127,6 @@ export default function EnterpriseIntegrationSection() {
             pathRefs={pathRefs}
             nodeRefs={nodeRefs}
             engineRef={engineRef}
-            pulseRefs={pulseRefs}
           />
         </div>
       </div>

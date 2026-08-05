@@ -14,10 +14,27 @@ interface Capability {
   caption: string;
   label: string;
   image: string;
+  /** When set, replaces the still image in the media panel (poster uses `image`). */
+  video?: string;
   operationalFocus: [string, string, string];
 }
 
-function CapabilityImage({ cap, priority = false }: { cap: Capability; priority?: boolean }) {
+function CapabilityMedia({ cap, priority = false }: { cap: Capability; priority?: boolean }) {
+  if (cap.video) {
+    return (
+      <video
+        src={cap.video}
+        poster={cap.image}
+        autoPlay
+        loop
+        muted
+        playsInline
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover object-center"
+      />
+    );
+  }
+
   return (
     <img
       src={cap.image}
@@ -35,17 +52,6 @@ function CapabilityImage({ cap, priority = false }: { cap: Capability; priority?
 const capabilities: Capability[] = [
   {
     id: '01',
-    title: 'Enterprise Custom Software',
-    desc:
-      'Custom platforms designed around specific operational processes, users, systems, and business requirements. We map how work actually moves through your organization—roles, approvals, data sources, and edge cases—and translate that into software your teams can run every day. From modular services and secure APIs to cloud-ready deployment, we build for reliability, auditability, and long-term change without forcing a generic product to fit.',
-    keywords: ['Architecture', 'Full-Stack', 'Cloud-Native'],
-    caption: 'Application architecture across cloud, APIs, and operational systems.',
-    label: 'Enterprise platforms',
-    operationalFocus: ['Business Process', 'Custom Platform', 'Scalable Operations'],
-    image: '/images/custom-software.webp',
-  },
-  {
-    id: '02',
     title: 'Agentic AI & Workflow Automation',
     desc:
       'AI agents that process information, apply business rules, update systems, manage exceptions, and support approvals. We design workflows where documents, forms, and operational signals enter a defined path: data is interpreted, business logic is applied, downstream systems are updated, and people step in only when judgment is required. The result is faster throughput, fewer manual handoffs, and traceable automation that fits compliance and operational controls.',
@@ -58,6 +64,18 @@ const capabilities: Capability[] = [
       'Human Reviews Exceptions',
     ],
     image: '/images/service-ai.jpg',
+    video: '/videos/agentic-ai-workflow-automation.mp4',
+  },
+  {
+    id: '02',
+    title: 'Enterprise Custom Software',
+    desc:
+      'Custom platforms designed around specific operational processes, users, systems, and business requirements. We map how work actually moves through your organization—roles, approvals, data sources, and edge cases—and translate that into software your teams can run every day. From modular services and secure APIs to cloud-ready deployment, we build for reliability, auditability, and long-term change without forcing a generic product to fit.',
+    keywords: ['Architecture', 'Full-Stack', 'Cloud-Native'],
+    caption: 'Application architecture across cloud, APIs, and operational systems.',
+    label: 'Enterprise platforms',
+    operationalFocus: ['Business Process', 'Custom Platform', 'Scalable Operations'],
+    image: '/images/custom-software.webp',
   },
   {
     id: '03',
@@ -69,6 +87,7 @@ const capabilities: Capability[] = [
     label: 'Integration layer',
     operationalFocus: ['Connected Systems', 'Synchronized Data', 'Unified Operations'],
     image: '/images/enterprise-integrations.webp',
+    video: '/videos/enterprise-integrations.mp4',
   },
   {
     id: '04',
@@ -102,6 +121,7 @@ const capabilities: Capability[] = [
     label: 'Modernization',
     operationalFocus: ['Legacy Environment', 'Controlled Transition', 'Modern Platform'],
     image: '/images/legacy-systems.webp',
+    video: '/videos/legacy-system-modernization.mp4',
   },
 ];
 
@@ -487,7 +507,7 @@ export default function ServicesSection() {
                       }`}
                       aria-hidden={activeIndex !== index}
                     >
-                      <CapabilityImage cap={item} priority={index === 0} />
+                      <CapabilityMedia cap={item} priority={index === 0} />
                       <div className="absolute inset-0 border border-black/[0.06] pointer-events-none rounded-[16px]" />
                     </div>
                   ))}
@@ -577,7 +597,7 @@ export default function ServicesSection() {
           {capabilities.map((item) => (
             <article key={item.id} className="border-t border-neutral-200/80 pt-8">
               <div className="relative aspect-[16/11] w-full overflow-hidden rounded-[14px] border border-neutral-200 bg-neutral-100 mb-7">
-                <CapabilityImage cap={item} />
+                <CapabilityMedia cap={item} />
                 <div className="absolute inset-0 border border-black/[0.05] pointer-events-none rounded-[14px]" />
                 <span className="absolute top-4 left-4 text-[10px] font-mono uppercase tracking-[0.16em] text-neutral-600 bg-white/95 px-2 py-1 border border-neutral-200">
                   {item.label}

@@ -1,5 +1,3 @@
-import { useLenis } from '../hooks/useLenis';
-import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
 import EnterpriseIntegrationSection from '../components/EnterpriseIntegrationSection/EnterpriseIntegrationSection';
@@ -9,14 +7,10 @@ import IndustriesWeUnderstandSection from '../components/IndustriesWeUnderstandS
 import SelectedClientOutcomesSection from '../components/SelectedClientOutcomesSection';
 import StartConversationSection from '../components/StartConversationSection';
 import WhyEtechLogixSection from '../components/WhyEtechLogixSection';
-import Footer from '../components/Footer';
 
 export default function HomePage() {
-  useLenis();
-
   return (
     <div className="bg-[#ffffff] text-[#171717] min-h-screen font-body selection:bg-[#df012a] selection:text-[#ffffff] overflow-x-clip">
-      <Header />
       <main className="overflow-x-clip">
         <HeroSection />
         <ServicesSection />
@@ -28,7 +22,6 @@ export default function HomePage() {
         <WhyEtechLogixSection />
         <StartConversationSection />
       </main>
-      <Footer />
     </div>
   );
 }

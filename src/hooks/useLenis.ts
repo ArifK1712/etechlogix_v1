@@ -23,10 +23,15 @@ export function useLenis() {
 
     animationFrameId = requestAnimationFrame(raf);
 
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
+
     return () => {
       cancelAnimationFrame(animationFrameId);
       ScrollTrigger.removeEventListener('refresh', refreshHandler);
       lenis.destroy();
+      ScrollTrigger.refresh();
     };
   }, []);
 }

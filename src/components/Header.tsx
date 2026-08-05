@@ -1,15 +1,18 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ChevronDown, ArrowRight, Menu, X, Layers, Cpu, Building2 } from 'lucide-react';
+import { isExternalLink, toInternalTo } from './InternalLink';
 
 /* ─── Reusable Modular Button Component Architecture ─── */
-export interface ButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface ButtonProps extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> {
   variant?: 'primary' | 'ghost' | 'outline';
   size?: 'sm' | 'md' | 'lg';
   children: React.ReactNode;
   icon?: React.ReactNode;
   className?: string;
+  href?: string;
 }
 
 const variantStyles: Record<NonNullable<ButtonProps['variant']>, string> = {
@@ -33,20 +36,43 @@ export function Button({
   children,
   icon,
   className = '',
+  href,
   ...props
 }: ButtonProps) {
-  return (
-    <a
-      style={{ paddingLeft: '24px', paddingRight: '24px' }}
-      className={`group relative inline-flex items-center justify-center gap-2.5 whitespace-nowrap overflow-hidden transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] shrink-0 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
-      {...props}
-    >
+  const classes = `group relative inline-flex items-center justify-center gap-2.5 whitespace-nowrap overflow-hidden transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] shrink-0 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+
+  const content = (
+    <>
       <span className="relative z-10 whitespace-nowrap">{children}</span>
       {icon && (
         <span className="relative z-10 w-4 h-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5">
           {icon}
         </span>
       )}
+    </>
+  );
+
+  if (href && !isExternalLink(href)) {
+    return (
+      <Link
+        to={toInternalTo(href)}
+        style={{ paddingLeft: '24px', paddingRight: '24px' }}
+        className={classes}
+        {...props}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <a
+      href={href}
+      style={{ paddingLeft: '24px', paddingRight: '24px' }}
+      className={classes}
+      {...props}
+    >
+      {content}
     </a>
   );
 }
@@ -236,8 +262,8 @@ export default function Header() {
       >
         {/* Left Column: Official Brand Logo */}
         <div className="flex items-center shrink-0">
-          <a
-            href="/"
+          <Link
+            to="/"
             aria-label="eTechLogix Homepage"
             className="flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md py-1"
             onClick={() => {
@@ -257,7 +283,7 @@ export default function Header() {
               }
               decoding="async"
             />
-          </a>
+          </Link>
         </div>
 
         {/* Center Column: TRUE VISUAL CENTER NAVIGATION (Anchored at 50% center axis) */}
@@ -317,9 +343,9 @@ export default function Header() {
 
                 <div className="grid grid-cols-2 gap-x-2 gap-y-1">
                   {servicesItems.map((item) => (
-                    <a
+                    <Link
                       key={item.title}
-                      href={item.href}
+                      to={toInternalTo(item.href)}
                       role="menuitem"
                       onClick={() => setActiveDropdown(null)}
                       className="group flex flex-col justify-center p-3 rounded-xl hover:bg-neutral-50 transition-colors duration-150 focus:outline-none focus:bg-neutral-50"
@@ -333,7 +359,7 @@ export default function Header() {
                       <p className="text-[12px] text-neutral-600 mt-1 leading-[1.45] line-clamp-2">
                         {item.description}
                       </p>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -394,9 +420,9 @@ export default function Header() {
 
                 <div className="space-y-1">
                   {aiItems.map((item) => (
-                    <a
+                    <Link
                       key={item.title}
-                      href={item.href}
+                      to={toInternalTo(item.href)}
                       role="menuitem"
                       onClick={() => setActiveDropdown(null)}
                       className="group flex flex-col justify-center p-3 rounded-xl hover:bg-neutral-50 transition-colors duration-150 focus:outline-none focus:bg-neutral-50"
@@ -410,7 +436,7 @@ export default function Header() {
                       <p className="text-[12px] text-neutral-600 mt-1 leading-[1.45]">
                         {item.description}
                       </p>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -469,9 +495,9 @@ export default function Header() {
 
                 <div className="space-y-1">
                   {industryItems.map((item) => (
-                    <a
+                    <Link
                       key={item.title}
-                      href={item.href}
+                      to={toInternalTo(item.href)}
                       role="menuitem"
                       onClick={() => setActiveDropdown(null)}
                       className="group flex flex-col justify-center p-3 rounded-xl hover:bg-neutral-50 transition-colors duration-150 focus:outline-none focus:bg-neutral-50"
@@ -485,7 +511,7 @@ export default function Header() {
                       <p className="text-[12px] text-neutral-600 mt-1 leading-[1.45]">
                         {item.description}
                       </p>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -493,13 +519,13 @@ export default function Header() {
           </div>
 
           {/* Direct Work Link */}
-          <a
-            href="/work"
+          <Link
+            to="/work"
             className={`group relative whitespace-nowrap text-[15px] font-medium transition-colors duration-200 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${navLinkTone}`}
           >
             <span>Work</span>
             <span className="absolute bottom-0 left-0 h-[2px] bg-[#df012a] w-0 group-hover:w-full transition-all duration-300" />
-          </a>
+          </Link>
 
           {/* Company Link with Dropdown */}
           <div
@@ -552,9 +578,9 @@ export default function Header() {
 
                 <div className="space-y-1">
                   {companyItems.map((item) => (
-                    <a
+                    <Link
                       key={item.title}
-                      href={item.href}
+                      to={toInternalTo(item.href)}
                       role="menuitem"
                       onClick={() => setActiveDropdown(null)}
                       className="group flex flex-col justify-center p-3 rounded-xl hover:bg-neutral-50 transition-colors duration-150 focus:outline-none focus:bg-neutral-50"
@@ -568,7 +594,7 @@ export default function Header() {
                       <p className="text-[12px] text-neutral-600 mt-1 leading-[1.45]">
                         {item.description}
                       </p>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -631,14 +657,14 @@ export default function Header() {
                 {expandedMobileCategory === 'Services' && (
                   <div className="mt-3 pl-3 space-y-3 border-l-2 border-[#df012a]">
                     {servicesItems.map((item) => (
-                      <a
+                      <Link
                         key={item.title}
-                        href={item.href}
+                        to={toInternalTo(item.href)}
                         onClick={() => setMobileMenuOpen(false)}
                         className="block text-sm font-medium text-neutral-300 hover:text-[#df012a] transition-colors py-1"
                       >
                         {item.title}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -665,14 +691,14 @@ export default function Header() {
                 {expandedMobileCategory === 'AI & Automation' && (
                   <div className="mt-3 pl-3 space-y-3 border-l-2 border-[#df012a]">
                     {aiItems.map((item) => (
-                      <a
+                      <Link
                         key={item.title}
-                        href={item.href}
+                        to={toInternalTo(item.href)}
                         onClick={() => setMobileMenuOpen(false)}
                         className="block text-sm font-medium text-neutral-300 hover:text-[#df012a] transition-colors py-1"
                       >
                         {item.title}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -699,14 +725,14 @@ export default function Header() {
                 {expandedMobileCategory === 'Industries' && (
                   <div className="mt-3 pl-3 space-y-3 border-l-2 border-[#df012a]">
                     {industryItems.map((item) => (
-                      <a
+                      <Link
                         key={item.title}
-                        href={item.href}
+                        to={toInternalTo(item.href)}
                         onClick={() => setMobileMenuOpen(false)}
                         className="block text-sm font-medium text-neutral-300 hover:text-[#df012a] transition-colors py-1"
                       >
                         {item.title}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -714,13 +740,13 @@ export default function Header() {
 
               {/* Direct Work Link */}
               <div className="border-b border-white/10 pb-4">
-                <a
-                  href="/work"
+                <Link
+                  to="/work"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block py-2 font-display font-semibold text-lg text-white hover:text-[#df012a]"
                 >
                   Work
-                </a>
+                </Link>
               </div>
 
               {/* Company Mobile Category */}
@@ -742,14 +768,14 @@ export default function Header() {
                 {expandedMobileCategory === 'Company' && (
                   <div className="mt-3 pl-3 space-y-3 border-l-2 border-[#df012a]">
                     {companyItems.map((item) => (
-                      <a
+                      <Link
                         key={item.title}
-                        href={item.href}
+                        to={toInternalTo(item.href)}
                         onClick={() => setMobileMenuOpen(false)}
                         className="block text-sm font-medium text-neutral-300 hover:text-[#df012a] transition-colors py-1"
                       >
                         {item.title}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}

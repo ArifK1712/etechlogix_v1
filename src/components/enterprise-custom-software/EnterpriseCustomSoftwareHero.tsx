@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ArrowRight } from 'lucide-react';
+import { InternalLink } from '../InternalLink';
 
 const HERO_IMAGE = '/images/enterprise-custom-software-hero-dark.jpg';
 const HERO_IMAGE_FALLBACK = '/images/enterprise-custom-software-hero.jpg';
@@ -87,7 +88,7 @@ export default function EnterpriseCustomSoftwareHero() {
               </p>
 
               <div className="flex flex-col gap-3 sm:flex-row md:flex-col lg:flex-row md:shrink-0">
-                <a
+                <InternalLink
                   href="/contact"
                   className="group inline-flex w-full sm:w-auto items-center justify-between gap-4 bg-[#df012a] hover:bg-[#b80122] text-white font-semibold text-[15px] h-[52px] pl-6 pr-2 rounded-full transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a]"
                 >
@@ -95,13 +96,13 @@ export default function EnterpriseCustomSoftwareHero() {
                   <span className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:bg-white/30">
                     <ArrowRight className="w-4 h-4" strokeWidth={1.75} aria-hidden="true" />
                   </span>
-                </a>
-                <a
-                  href="#approach"
+                </InternalLink>
+                <InternalLink
+                  href="/#approach"
                   className="inline-flex w-full sm:w-auto items-center justify-center px-6 h-[52px] rounded-full border border-white/18 bg-white/[0.04] text-[#f5f3ef] font-medium text-[15px] transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-white/30 hover:bg-white/[0.08] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/45"
                 >
                   Explore the Approach
-                </a>
+                </InternalLink>
               </div>
             </div>
           </div>
