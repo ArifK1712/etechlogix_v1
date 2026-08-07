@@ -171,7 +171,7 @@ function OperationalFocusTrack({
                 data-op-point
                 className="flex min-w-0 flex-col items-center px-1 text-center"
               >
-                <span className="relative z-10 flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-neutral-200 bg-[#fafaf8] text-[11px] font-mono font-semibold tabular-nums text-[#df012a] shadow-[0_1px_0_rgba(0,0,0,0.04)]">
+                <span className="relative z-10 flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-neutral-200 bg-[#fafaf8] text-[11px] font-mono font-normal tabular-nums text-[#df012a] shadow-[0_1px_0_rgba(0,0,0,0.04)]">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <span className="mt-3 text-xs sm:text-[13px] font-medium leading-snug text-[#2F3437]">
@@ -516,7 +516,7 @@ export default function ServicesSection() {
               </div>
 
               <div className="mt-4 flex items-center justify-between gap-4">
-                <span className="text-xs font-mono font-semibold tabular-nums text-[#111111]">
+                <span className="text-xs font-mono font-normal tabular-nums text-[#111111]">
                   {progressLabel}
                 </span>
                 <div className="flex items-center gap-1.5 flex-1 max-w-[280px] justify-end">
@@ -539,7 +539,7 @@ export default function ServicesSection() {
 
                 <h3
                   ref={contentTitleRef}
-                  className="font-display font-extrabold text-[1.65rem] xl:text-[2rem] leading-tight text-[#111111] mb-4"
+                  className="font-display font-semibold text-[1.65rem] xl:text-[2rem] leading-tight text-[#111111] mb-4"
                 >
                   {cap.title}
                 </h3>
@@ -569,7 +569,7 @@ export default function ServicesSection() {
                 <a
                   ref={contentLinkRef}
                   href="#contact"
-                  className="group inline-flex items-center gap-3 mt-8 text-[13px] font-bold uppercase tracking-[0.14em] text-[#111111] hover:text-[#df012a] transition-colors"
+                  className="group inline-flex items-center gap-3 mt-8 text-[13px] font-normal uppercase tracking-[0.14em] text-[#111111] hover:text-[#df012a] transition-colors"
                 >
                   Explore This Capability
                   <span className="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center group-hover:border-[#df012a] transition-colors">
@@ -592,7 +592,7 @@ export default function ServicesSection() {
                   {item.label}
                 </span>
               </div>
-              <h3 className="font-display font-extrabold text-2xl md:text-3xl text-[#111111] mb-4 leading-tight max-w-xl">
+              <h3 className="font-display font-semibold text-2xl md:text-3xl text-[#111111] mb-4 leading-tight max-w-xl">
                 {item.title}
               </h3>
               <p className="type-body text-neutral-600 leading-relaxed mb-5 max-w-xl">{item.desc}</p>
@@ -606,7 +606,7 @@ export default function ServicesSection() {
               <OperationalFocusStatic points={item.operationalFocus} />
               <a
                 href="#contact"
-                className="group inline-flex items-center gap-3 mt-8 text-[13px] font-bold uppercase tracking-[0.14em] text-[#111111] hover:text-[#df012a] transition-colors"
+                className="group inline-flex items-center gap-3 mt-8 text-[13px] font-normal uppercase tracking-[0.14em] text-[#111111] hover:text-[#df012a] transition-colors"
               >
                 Explore This Capability
                 <span className="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center group-hover:border-[#df012a] transition-colors">

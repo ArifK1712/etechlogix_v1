@@ -181,7 +181,7 @@ function IndustryCard({ industry }: { industry: Industry }) {
           <IndustryIcon type={industry.icon} />
         </div>
       </div>
-      <h3 className="font-display font-extrabold text-xl leading-tight text-[#0a0a0a] mb-3">
+      <h3 className="font-display font-semibold text-xl leading-tight text-[#0a0a0a] mb-3">
         {industry.title}
       </h3>
       <p className="type-body text-neutral-600 leading-snug mb-5">{industry.summary}</p>

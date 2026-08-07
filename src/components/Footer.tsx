@@ -150,7 +150,7 @@ export default function Footer() {
               </InternalLink>
               <InternalLink
                 href="#contact"
-                className="group inline-flex items-center gap-2 text-sm font-semibold text-[#df012a] transition-[gap,color] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:gap-2.5 hover:text-[#b80122] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
+                className="group inline-flex items-center gap-2 text-sm font-normal text-[#df012a] transition-[gap,color] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:gap-2.5 hover:text-[#b80122] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
               >
                 Let&apos;s Talk
                 <ArrowRight

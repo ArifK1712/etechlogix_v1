@@ -125,7 +125,7 @@ export default function ProvenBusinessImpactSection() {
             >
               Proven Business Impact
             </p>
-                <p className="font-display font-extrabold text-[2rem] sm:text-[2.5rem] md:text-[2.85rem] lg:text-[3.1rem] leading-[1.06] tracking-tight">
+                <p className="font-display font-semibold text-[2rem] sm:text-[2.5rem] md:text-[2.85rem] lg:text-[3.1rem] leading-[1.06] tracking-tight">
                   <span className="text-[#df012a]">Millions saved</span>
                   <span className="text-[#0a0a0a]"> through agentic AI workflow automation.</span>
                 </p>
@@ -176,7 +176,7 @@ export default function ProvenBusinessImpactSection() {
                           />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <h3 className="font-display font-bold text-lg sm:text-xl text-[#0a0a0a] leading-snug mb-2">
+                          <h3 className="font-display font-semibold text-lg sm:text-xl text-[#0a0a0a] leading-snug mb-2">
                             {outcome.title}
                           </h3>
                           <p className="type-body text-neutral-600 max-w-lg">

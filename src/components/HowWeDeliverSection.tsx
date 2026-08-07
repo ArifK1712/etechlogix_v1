@@ -591,7 +591,7 @@ export default function HowWeDeliverSection() {
           >
             <span className="shrink-0 whitespace-nowrap">
               Active stage{' '}
-              <span ref={progressIdRef} className="text-[#df012a] font-bold">
+              <span ref={progressIdRef} className="text-[#df012a] font-normal">
                 01
               </span>
             </span>
@@ -645,7 +645,7 @@ export default function HowWeDeliverSection() {
                 />
                 <h3
                   data-stage-title
-                  className="font-display font-bold text-xl leading-tight tracking-[-0.02em] text-[#0a0a0a] mb-3"
+                  className="font-display font-semibold text-xl leading-tight tracking-[-0.02em] text-[#0a0a0a] mb-3"
                 >
                   {stage.title}
                 </h3>

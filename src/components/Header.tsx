@@ -256,7 +256,7 @@ export default function Header() {
               >
                 <div className="px-3 pt-2 pb-3 mb-2 border-b border-neutral-200 flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] font-mono font-bold text-[#df012a] uppercase tracking-wider block">
+                    <span className="text-[10px] font-mono font-normal text-[#df012a] uppercase tracking-wider block">
                       WHAT WE BUILD
                     </span>
                     <p className="text-xs text-neutral-500 mt-0.5">
@@ -276,7 +276,7 @@ export default function Header() {
                       className="group flex flex-col justify-center p-3 rounded-xl hover:bg-neutral-50 transition-colors duration-150 focus:outline-none focus:bg-neutral-50"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-[14px] font-semibold text-[#111111] group-hover:text-[#df012a] transition-colors">
+                        <span className="text-[14px] font-normal text-[#111111] group-hover:text-[#df012a] transition-colors">
                           {item.title}
                         </span>
                         <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-[#df012a]" />
@@ -328,7 +328,7 @@ export default function Header() {
               >
                 <div className="px-3 pt-2 pb-3 mb-2 border-b border-neutral-200 flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] font-mono font-bold text-[#df012a] uppercase tracking-wider block">
+                    <span className="text-[10px] font-mono font-normal text-[#df012a] uppercase tracking-wider block">
                       OPERATIONAL AI
                     </span>
                     <p className="text-xs text-neutral-500 mt-0.5">
@@ -348,7 +348,7 @@ export default function Header() {
                       className="group flex flex-col justify-center p-3 rounded-xl hover:bg-neutral-50 transition-colors duration-150 focus:outline-none focus:bg-neutral-50"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-[14px] font-semibold text-[#111111] group-hover:text-[#df012a] transition-colors">
+                        <span className="text-[14px] font-normal text-[#111111] group-hover:text-[#df012a] transition-colors">
                           {item.title}
                         </span>
                         <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-[#df012a]" />
@@ -398,7 +398,7 @@ export default function Header() {
               >
                 <div className="px-3 pt-2 pb-3 mb-2 border-b border-neutral-200 flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] font-mono font-bold text-[#df012a] uppercase tracking-wider block">
+                    <span className="text-[10px] font-mono font-normal text-[#df012a] uppercase tracking-wider block">
                       INDUSTRY EXPERIENCE
                     </span>
                     <p className="text-xs text-neutral-500 mt-0.5">
@@ -418,7 +418,7 @@ export default function Header() {
                       className="group flex flex-col justify-center p-3 rounded-xl hover:bg-neutral-50 transition-colors duration-150 focus:outline-none focus:bg-neutral-50"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-[14px] font-semibold text-[#111111] group-hover:text-[#df012a] transition-colors">
+                        <span className="text-[14px] font-normal text-[#111111] group-hover:text-[#df012a] transition-colors">
                           {item.title}
                         </span>
                         <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-[#df012a]" />
@@ -475,7 +475,7 @@ export default function Header() {
               >
                 <div className="px-3 pt-2 pb-3 mb-2 border-b border-neutral-200 flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] font-mono font-bold text-[#df012a] uppercase tracking-wider block">
+                    <span className="text-[10px] font-mono font-normal text-[#df012a] uppercase tracking-wider block">
                       ABOUT ETECHLOGIX
                     </span>
                     <p className="text-xs text-neutral-500 mt-0.5">
@@ -495,7 +495,7 @@ export default function Header() {
                       className="group flex flex-col justify-center p-3 rounded-xl hover:bg-neutral-50 transition-colors duration-150 focus:outline-none focus:bg-neutral-50"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-[14px] font-semibold text-[#111111] group-hover:text-[#df012a] transition-colors">
+                        <span className="text-[14px] font-normal text-[#111111] group-hover:text-[#df012a] transition-colors">
                           {item.title}
                         </span>
                         <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-[#df012a]" />
@@ -553,7 +553,7 @@ export default function Header() {
                   onClick={() =>
                     setExpandedMobileCategory(expandedMobileCategory === 'Services' ? null : 'Services')
                   }
-                  className="w-full flex items-center justify-between py-2 text-left font-display font-semibold text-lg text-[#0a0a0a]"
+                  className="w-full flex items-center justify-between py-2 text-left font-display font-normal text-lg text-[#0a0a0a]"
                 >
                   <span>Services</span>
                   <ChevronDown
@@ -587,7 +587,7 @@ export default function Header() {
                       expandedMobileCategory === 'AI & Automation' ? null : 'AI & Automation',
                     )
                   }
-                  className="w-full flex items-center justify-between py-2 text-left font-display font-semibold text-lg text-[#0a0a0a]"
+                  className="w-full flex items-center justify-between py-2 text-left font-display font-normal text-lg text-[#0a0a0a]"
                 >
                   <span>AI & Automation</span>
                   <ChevronDown
@@ -621,7 +621,7 @@ export default function Header() {
                       expandedMobileCategory === 'Industries' ? null : 'Industries',
                     )
                   }
-                  className="w-full flex items-center justify-between py-2 text-left font-display font-semibold text-lg text-[#0a0a0a]"
+                  className="w-full flex items-center justify-between py-2 text-left font-display font-normal text-lg text-[#0a0a0a]"
                 >
                   <span>Industries</span>
                   <ChevronDown
@@ -651,7 +651,7 @@ export default function Header() {
                 <Link
                   to="/work"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block py-2 font-display font-semibold text-lg text-[#0a0a0a] hover:text-[#df012a]"
+                  className="block py-2 font-display font-normal text-lg text-[#0a0a0a] hover:text-[#df012a]"
                 >
                   Work
                 </Link>
@@ -664,7 +664,7 @@ export default function Header() {
                   onClick={() =>
                     setExpandedMobileCategory(expandedMobileCategory === 'Company' ? null : 'Company')
                   }
-                  className="w-full flex items-center justify-between py-2 text-left font-display font-semibold text-lg text-[#0a0a0a]"
+                  className="w-full flex items-center justify-between py-2 text-left font-display font-normal text-lg text-[#0a0a0a]"
                 >
                   <span>Company</span>
                   <ChevronDown

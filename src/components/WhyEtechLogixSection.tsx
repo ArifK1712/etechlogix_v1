@@ -148,7 +148,7 @@ export default function WhyEtechLogixSection() {
       <div
         ref={ownershipRef}
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[18%] left-[-2%] z-0 select-none font-display font-extrabold text-[clamp(4.5rem,18vw,11rem)] leading-none tracking-[-0.04em] text-[#0a0a0a]/[0.045] uppercase"
+        className="pointer-events-none absolute bottom-[18%] left-[-2%] z-0 select-none font-display font-normal text-[clamp(4.5rem,18vw,11rem)] leading-none tracking-[-0.04em] text-[#0a0a0a]/[0.045] uppercase"
       >
         OWNERSHIP
       </div>
@@ -214,7 +214,7 @@ export default function WhyEtechLogixSection() {
                     </div>
 
                     <div className="col-span-2 col-start-2 row-start-2 pb-10 sm:col-span-1 sm:col-start-3 sm:row-start-1 sm:pb-12">
-                      <h3 className="font-display text-lg font-bold tracking-[-0.02em] text-[#0a0a0a] md:text-xl">
+                      <h3 className="font-display text-lg font-semibold tracking-[-0.02em] text-[#0a0a0a] md:text-xl">
                         {item.title}
                       </h3>
                       <p className="type-body mt-2 max-w-xl text-[#555555]">

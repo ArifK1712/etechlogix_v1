@@ -60,7 +60,7 @@ export default function EnterpriseCustomSoftwareHero() {
         <div ref={introRef} className="relative max-w-[920px]">
           <div className="flex flex-col gap-6 md:gap-7">
             <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
-              <p className="inline-flex w-fit items-center gap-2 rounded-full border border-[#df012a]/35 bg-[#df012a]/10 px-4 py-1.5 text-[10px] font-mono font-semibold uppercase tracking-[0.22em] text-[#fbeaec] md:text-[11px]">
+              <p className="inline-flex w-fit items-center gap-2 rounded-full border border-[#df012a]/35 bg-[#df012a]/10 px-4 py-1.5 text-[10px] font-mono font-normal uppercase tracking-[0.22em] text-[#fbeaec] md:text-[11px]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#df012a]" aria-hidden="true" />
                 Enterprise Custom Software
               </p>
@@ -74,7 +74,7 @@ export default function EnterpriseCustomSoftwareHero() {
 
             <h1
               id="ecs-hero-heading"
-              className="font-display text-[1.95rem] font-extrabold leading-[1.06] tracking-[-0.035em] text-[#f5f3ef] text-balance sm:text-[2.45rem] md:text-[2.85rem] lg:text-[3rem]"
+              className="font-display text-[1.95rem] font-normal leading-[1.06] tracking-[-0.035em] text-[#f5f3ef] text-balance sm:text-[2.45rem] md:text-[2.85rem] lg:text-[3rem]"
             >
               Build software around your operation—
               <span className="text-[#df012a]">not around the limits</span> of an off-the-shelf product.
@@ -90,7 +90,7 @@ export default function EnterpriseCustomSoftwareHero() {
               <div className="flex flex-col gap-3 sm:flex-row md:flex-col lg:flex-row md:shrink-0">
                 <InternalLink
                   href="/contact"
-                  className="group inline-flex w-full sm:w-auto items-center justify-between gap-4 bg-[#df012a] hover:bg-[#b80122] text-white font-semibold text-[15px] h-[52px] pl-6 pr-2 rounded-full transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a]"
+                  className="group inline-flex w-full sm:w-auto items-center justify-between gap-4 bg-[#df012a] hover:bg-[#b80122] text-white font-medium text-[15px] h-[52px] pl-6 pr-2 rounded-full transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a]"
                 >
                   <span className="px-2 whitespace-nowrap">Discuss Your Requirements</span>
                   <span className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:bg-white/30">

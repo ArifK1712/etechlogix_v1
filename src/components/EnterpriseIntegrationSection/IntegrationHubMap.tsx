@@ -194,7 +194,7 @@ function BrandLogo({
 
   if (failed || !src) {
     return (
-      <span className="font-display text-xs font-semibold tracking-[-0.02em] text-[#0a0a0a]">{label}</span>
+      <span className="font-display text-xs font-normal tracking-[-0.02em] text-[#0a0a0a]">{label}</span>
     );
   }
 
@@ -250,7 +250,7 @@ function IntegrationHubMobileFlow({
                 />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="font-display text-base font-bold tracking-[-0.02em] text-[#0a0a0a]">
+                <p className="font-display text-base font-normal tracking-[-0.02em] text-[#0a0a0a]">
                   {node.label}
                 </p>
                 <p className="type-body-sm mt-1.5 text-[#555555] leading-snug">{node.description}</p>

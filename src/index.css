@@ -29,8 +29,8 @@
   --color-accent-cyan-glow: #67e8f9;
   --color-accent-gold: #fbbf24;
 
-  --font-display: "Manrope", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-display: Poppins, Inter, system-ui, sans-serif;
+  --font-body: Poppins, Inter, system-ui, sans-serif;
 
   --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -47,6 +47,10 @@
 
   body {
     overflow-x: clip;
+  }
+
+  h3 {
+    font-weight: 600;
   }
 
   html.lenis,
@@ -104,7 +108,7 @@
     font-size: clamp(2.75rem, 7vw, 6.5rem);
     line-height: 1.05;
     letter-spacing: -0.03em;
-    font-weight: 800;
+    font-weight: 400;
   }
 
   .title-section-large {
@@ -112,7 +116,7 @@
     font-size: clamp(2.25rem, 5vw, 4.5rem);
     line-height: 1.1;
     letter-spacing: -0.025em;
-    font-weight: 700;
+    font-weight: 400;
   }
 
   .title-section {
@@ -120,7 +124,7 @@
     font-size: clamp(1.75rem, 3.5vw, 3rem);
     line-height: 1.15;
     letter-spacing: -0.02em;
-    font-weight: 700;
+    font-weight: 400;
   }
 
   .gradient-text-cyan-gold {
@@ -153,7 +157,7 @@
   .type-eyebrow {
     font-size: 0.6875rem;
     letter-spacing: 0.12em;
-    font-weight: 600;
+    font-weight: 400;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     text-transform: uppercase;
   }
@@ -162,7 +166,7 @@
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.75rem;
     line-height: 1.25rem;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--color-brand-red);
@@ -177,7 +181,7 @@
 
   .type-section-heading {
     font-family: var(--font-display);
-    font-weight: 800;
+    font-weight: 600;
     font-size: clamp(1.65rem, 4vw, 2.35rem);
     line-height: 1.1;
     letter-spacing: -0.03em;
@@ -186,7 +190,7 @@
 
   .type-section-heading-xl {
     font-family: var(--font-display);
-    font-weight: 800;
+    font-weight: 600;
     font-size: clamp(1.85rem, 5vw, 3.25rem);
     line-height: 1.1;
     letter-spacing: -0.025em;
@@ -195,7 +199,7 @@
 
   .type-section-heading-lg {
     font-family: var(--font-display);
-    font-weight: 800;
+    font-weight: 600;
     font-size: clamp(1.85rem, 4vw, 2.75rem);
     line-height: 1.1;
     letter-spacing: -0.03em;
@@ -204,7 +208,7 @@
 
   .type-section-heading-panel {
     font-family: var(--font-display);
-    font-weight: 800;
+    font-weight: 600;
     font-size: clamp(1.75rem, 4vw, 2.55rem);
     line-height: 1.12;
     letter-spacing: -0.03em;
@@ -231,7 +235,7 @@
 
   .type-section-heading-editorial {
     font-family: var(--font-display);
-    font-weight: 800;
+    font-weight: 600;
     font-size: clamp(1.75rem, 4vw, 2.85rem);
     line-height: 1.08;
     letter-spacing: -0.03em;
@@ -297,7 +301,7 @@
 
   .type-button {
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.25rem;
   }
 
@@ -323,7 +327,7 @@
   .type-eyebrow {
     font-size: 0.6875rem;
     letter-spacing: 0.12em;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .nav-link-premium,
@@ -342,7 +346,7 @@
 
   /* ─── Buttons (homepage source of truth) ─── */
   .btn-etech {
-    @apply relative inline-flex items-center justify-center whitespace-nowrap transition-colors duration-300 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 shadow-none;
+    @apply relative inline-flex items-center justify-center whitespace-nowrap font-medium transition-colors duration-300 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 shadow-none;
   }
 
   .btn-etech--primary {
@@ -358,7 +362,7 @@
   }
 
   .btn-etech--secondary-inverse {
-    @apply rounded-full border border-[#e5e7eb] bg-white/80 font-semibold text-[#0a0a0a] hover:border-neutral-300 hover:bg-white focus-visible:ring-neutral-400 focus-visible:ring-offset-[#f7f6f2];
+    @apply rounded-full border border-[#e5e7eb] bg-white/80 font-medium text-[#0a0a0a] hover:border-neutral-300 hover:bg-white focus-visible:ring-neutral-400 focus-visible:ring-offset-[#f7f6f2];
   }
 
   .btn-etech--primary.btn-etech--section {
@@ -370,27 +374,27 @@
   }
 
   .btn-etech--ghost {
-    @apply rounded-full border border-[#e5e7eb] bg-transparent font-semibold text-neutral-700 hover:border-[#0a0a0a] hover:bg-[#0a0a0a] hover:text-white focus-visible:ring-[#0a0a0a];
+    @apply rounded-full border border-[#e5e7eb] bg-transparent font-medium text-neutral-700 hover:border-[#0a0a0a] hover:bg-[#0a0a0a] hover:text-white focus-visible:ring-[#0a0a0a];
   }
 
   .btn-etech--outline {
-    @apply rounded-full border border-[#e5e7eb] bg-white font-semibold text-neutral-800 hover:border-neutral-300 hover:bg-[#fafafa] focus-visible:ring-[#0a0a0a];
+    @apply rounded-full border border-[#e5e7eb] bg-white font-medium text-neutral-800 hover:border-neutral-300 hover:bg-[#fafafa] focus-visible:ring-[#0a0a0a];
   }
 
   .btn-etech--sm {
-    @apply h-9 gap-2 px-4 text-xs font-semibold;
+    @apply h-9 gap-2 px-4 text-xs font-medium;
   }
 
   .btn-etech--md {
-    @apply h-10 gap-2.5 px-5 text-[13px] font-semibold md:h-11 md:px-6 md:text-sm;
+    @apply h-10 gap-2.5 px-5 text-[13px] font-medium md:h-11 md:px-6 md:text-sm;
   }
 
   .btn-etech--lg {
-    @apply h-11 gap-2.5 px-6 text-sm font-semibold md:h-12 md:px-7;
+    @apply h-11 gap-2.5 px-6 text-sm font-medium md:h-12 md:px-7;
   }
 
   .btn-etech--hero {
-    @apply h-12 w-full gap-2.5 px-8 text-sm font-semibold sm:w-auto md:h-[3.25rem] md:px-9;
+    @apply h-12 w-full gap-2.5 px-8 text-sm font-medium sm:w-auto md:h-[3.25rem] md:px-9;
   }
 
   /* Legacy */
@@ -399,7 +403,7 @@
     font-size: clamp(2.125rem, 5.2vw, 4.25rem);
     line-height: 1.08;
     letter-spacing: -0.035em;
-    font-weight: 700;
+    font-weight: 400;
   }
 
   .hero-lead {
@@ -411,7 +415,7 @@
   }
 
   .btn-etech--section {
-    @apply min-h-[48px] gap-2 px-6 py-3.5 text-sm font-semibold;
+    @apply min-h-[48px] gap-2 px-6 py-3.5 text-sm font-medium;
   }
 
   .btn-float-primary {
