@@ -215,12 +215,6 @@ export default function WhyEtechLogixSection() {
 
                     <div className="col-span-2 col-start-2 row-start-2 pb-10 sm:col-span-1 sm:col-start-3 sm:row-start-1 sm:pb-12">
                       <h3 className="font-display text-lg font-bold tracking-[-0.02em] text-[#0a0a0a] md:text-xl">
-                        <span className="font-mono text-sm font-semibold text-[#df012a] md:text-base">
-                          {item.id}
-                        </span>
-                        <span className="mx-2 text-neutral-300" aria-hidden="true">
-                          —
-                        </span>
                         {item.title}
                       </h3>
                       <p className="type-body mt-2 max-w-xl text-[#555555]">

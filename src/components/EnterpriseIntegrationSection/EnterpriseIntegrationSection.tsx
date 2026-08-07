@@ -16,6 +16,7 @@ export default function EnterpriseIntegrationSection() {
   const mapAreaRef = useRef<HTMLDivElement>(null);
   const pathRefs = useRef<(SVGPathElement | null)[]>([]);
   const nodeRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const mobileNodeRefs = useRef<(HTMLDivElement | null)[]>([]);
   const engineRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -24,11 +25,13 @@ export default function EnterpriseIntegrationSection() {
       if (!section) return;
 
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isMobileLayout = window.matchMedia('(max-width: 767px)').matches;
+      const activeNodes = isMobileLayout ? mobileNodeRefs.current : nodeRefs.current;
 
       if (reducedMotion) {
         gsap.set(introRef.current?.children ?? [], { opacity: 1, y: 0 });
         gsap.set(engineRef.current, { opacity: 1, scale: 1 });
-        gsap.set(nodeRefs.current, { opacity: 1, y: 0 });
+        gsap.set(activeNodes, { opacity: 1, y: 0 });
         pathRefs.current.forEach((path) => path && gsap.set(path, { strokeDashoffset: 0, opacity: 1 }));
         return;
       }
@@ -49,43 +52,47 @@ export default function EnterpriseIntegrationSection() {
         '-=0.3',
       );
 
-      tl.fromTo(
-        engineRef.current,
-        { opacity: 0, scale: 0.96 },
-        { opacity: 1, scale: 1, duration: 0.55, ease: 'power2.out', immediateRender: false },
-        '-=0.15',
-      );
+      if (!isMobileLayout) {
+        tl.fromTo(
+          engineRef.current,
+          { opacity: 0, scale: 0.96 },
+          { opacity: 1, scale: 1, duration: 0.55, ease: 'power2.out', immediateRender: false },
+          '-=0.15',
+        );
+      }
 
       tl.fromTo(
-        nodeRefs.current,
+        activeNodes,
         { opacity: 0, y: 10 },
         { opacity: 1, y: 0, duration: 0.42, stagger: 0.06, ease: 'power2.out', immediateRender: false },
-        '-=0.25',
+        isMobileLayout ? '-=0.35' : '-=0.25',
       );
 
-      pathRefs.current.forEach((path, index) => {
-        if (!path) return;
-        const length = path.getTotalLength();
-        gsap.set(path, {
-          strokeDasharray: `${length} ${length}`,
-          strokeDashoffset: length,
-          opacity: 0.45,
-        });
-        tl.to(
-          path,
-          {
-            strokeDashoffset: 0,
-            opacity: 1,
-            duration: 0.65,
-            ease: 'power2.inOut',
-            onComplete: () => {
-              path.removeAttribute('stroke-dasharray');
-              path.removeAttribute('stroke-dashoffset');
+      if (!isMobileLayout) {
+        pathRefs.current.forEach((path, index) => {
+          if (!path) return;
+          const length = path.getTotalLength();
+          gsap.set(path, {
+            strokeDasharray: `${length} ${length}`,
+            strokeDashoffset: length,
+            opacity: 0.45,
+          });
+          tl.to(
+            path,
+            {
+              strokeDashoffset: 0,
+              opacity: 1,
+              duration: 0.65,
+              ease: 'power2.inOut',
+              onComplete: () => {
+                path.removeAttribute('stroke-dasharray');
+                path.removeAttribute('stroke-dashoffset');
+              },
             },
-          },
-          index === 0 ? '-=0.35' : `-=${0.58}`,
-        );
-      });
+            index === 0 ? '-=0.35' : `-=${0.58}`,
+          );
+        });
+      }
     },
     { scope: sectionRef },
   );
@@ -129,6 +136,7 @@ export default function EnterpriseIntegrationSection() {
           <IntegrationHubMap
             pathRefs={pathRefs}
             nodeRefs={nodeRefs}
+            mobileNodeRefs={mobileNodeRefs}
             engineRef={engineRef}
           />
         </div>
