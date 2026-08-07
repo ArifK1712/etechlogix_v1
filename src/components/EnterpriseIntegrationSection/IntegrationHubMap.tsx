@@ -381,7 +381,7 @@ export function IntegrationHubMap({
               aspectRatio: `${NODE_CARD_W} / ${NODE_CARD_H}`,
             }}
           >
-            <div className="flex h-full w-full items-center justify-center rounded-2xl border border-neutral-200/80 bg-white px-[6%] py-[8%] shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
+            <div className="flex h-full w-full items-center justify-center rounded-2xl border border-neutral-200/80 bg-white px-[8%] py-[8%] shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
               <BrandLogo
                 src={node.logoSrc}
                 alt={`${node.label} logo`}
