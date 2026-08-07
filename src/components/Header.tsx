@@ -1,81 +1,13 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ChevronDown, ArrowRight, Menu, X, Layers, Cpu, Building2 } from 'lucide-react';
-import { isExternalLink, toInternalTo } from './InternalLink';
+import { toInternalTo } from './InternalLink';
+import { Button, buttonClassName } from './ui/Button';
 
-/* ─── Reusable Modular Button Component Architecture ─── */
-export interface ButtonProps extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> {
-  variant?: 'primary' | 'ghost' | 'outline';
-  size?: 'sm' | 'md' | 'lg';
-  children: React.ReactNode;
-  icon?: React.ReactNode;
-  className?: string;
-  href?: string;
-}
-
-const variantStyles: Record<NonNullable<ButtonProps['variant']>, string> = {
-  primary:
-    'bg-[#df012a] hover:bg-[#b80122] text-white border border-[#df012a] shadow-sm hover:shadow-[0_8px_25px_rgba(223,1,42,0.35)] rounded-full',
-  ghost:
-    'bg-transparent text-white border border-white/20 hover:border-[#df012a] hover:bg-[#df012a] rounded-full shadow-sm hover:shadow-[0_8px_25px_rgba(223,1,42,0.35)]',
-  outline:
-    'bg-transparent text-white border border-white/20 hover:border-white hover:bg-white/10 rounded-full',
-};
-
-const sizeStyles: Record<NonNullable<ButtonProps['size']>, string> = {
-  sm: 'h-9 px-4 text-xs font-semibold rounded-full',
-  md: 'h-11 px-6 text-[14px] font-semibold rounded-full',
-  lg: 'h-12 px-7 text-[15px] font-semibold rounded-full',
-};
-
-export function Button({
-  variant = 'ghost',
-  size = 'md',
-  children,
-  icon,
-  className = '',
-  href,
-  ...props
-}: ButtonProps) {
-  const classes = `group relative inline-flex items-center justify-center gap-2.5 whitespace-nowrap overflow-hidden transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] shrink-0 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
-
-  const content = (
-    <>
-      <span className="relative z-10 whitespace-nowrap">{children}</span>
-      {icon && (
-        <span className="relative z-10 w-4 h-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5">
-          {icon}
-        </span>
-      )}
-    </>
-  );
-
-  if (href && !isExternalLink(href)) {
-    return (
-      <Link
-        to={toInternalTo(href)}
-        style={{ paddingLeft: '24px', paddingRight: '24px' }}
-        className={classes}
-        {...props}
-      >
-        {content}
-      </Link>
-    );
-  }
-
-  return (
-    <a
-      href={href}
-      style={{ paddingLeft: '24px', paddingRight: '24px' }}
-      className={classes}
-      {...props}
-    >
-      {content}
-    </a>
-  );
-}
+export { Button, buttonClassName };
+export type { ButtonProps, ButtonVariant, ButtonSize } from './ui/Button';
 
 const LOGO_SRC = '/images/etechlogix-logo.png';
 
@@ -239,27 +171,27 @@ export default function Header() {
     };
   }, [mobileMenuOpen]);
 
-  const navLinkTone = isScrolled ? 'text-white/90 hover:text-[#df012a]' : 'text-neutral-200 hover:text-[#df012a]';
-  const mobileMenuTopClass = isScrolled ? 'top-[calc(0.75rem+3.75rem)]' : 'top-[5.5rem]';
+  const navLinkTone = 'text-neutral-600 hover:text-[#0a0a0a]';
+  const navLinkActive = 'text-[#df012a]';
+  const mobileMenuTopClass = 'top-16';
 
   return (
     <header
       ref={headerRef}
-      className={`fixed left-0 right-0 z-50 flex w-full max-w-[1500px] mx-auto justify-center overflow-x-clip overflow-y-visible pointer-events-none transition-[top,padding] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
-        isScrolled ? 'top-2 sm:top-3 px-3 sm:px-4' : 'top-0 px-0 py-2'
-      }`}
+      className="pointer-events-none top-5 fixed inset-x-0 top-0 z-50 overflow-x-clip max-w-[1400px] mx-auto rounded-3xl"
     >
       <div
         ref={(node) => {
           shellRef.current = node;
           dropdownContainerRef.current = node;
         }}
-        className={`pointer-events-auto relative mx-auto flex w-full items-center justify-between overflow-visible transition-[max-width,height,border-radius,background-color,box-shadow,border-color,padding] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
+        className={`pointer-events-auto rounded-3xl w-full border border-[#e5e7eb] transition-[background-color,box-shadow,backdrop-filter] duration-300 ${
           isScrolled
-            ? 'max-w-[1520px] h-14 sm:h-[3.75rem] rounded-full border border-white/[0.08] bg-[#272a32]/92 px-4 sm:px-5 lg:px-8 backdrop-blur-xl'
-            : 'max-w-none h-20 rounded-none border border-transparent bg-transparent px-5 shadow-none backdrop-blur-0'
+            ? 'bg-white/80  backdrop-blur-md'
+            : 'bg-white'
         }`}
       >
+        <div className="relative mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between overflow-visible px-6 lg:px-10 xl:px-4">
         {/* Left Column: Official Brand Logo */}
         <div className="flex items-center shrink-0">
           <Link
@@ -277,9 +209,7 @@ export default function Header() {
               width={168}
               height={48}
               className={
-                isScrolled
-                  ? 'h-8 sm:h-9 w-auto object-contain object-left transition-[height] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]'
-                  : 'h-9 sm:h-10 md:h-11 w-auto object-contain object-left transition-[height] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]'
+                'h-9 w-auto object-contain object-left sm:h-10 transition-opacity duration-300'
               }
               decoding="async"
             />
@@ -289,7 +219,7 @@ export default function Header() {
         {/* Center Column: TRUE VISUAL CENTER NAVIGATION (Anchored at 50% center axis) */}
         <nav
           aria-label="Main Navigation"
-          className="absolute left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-6 xl:gap-9 h-full overflow-visible"
+          className="absolute left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-7 xl:gap-10 h-full overflow-visible"
         >
           {/* Services Link with Dropdown */}
           <div
@@ -302,21 +232,16 @@ export default function Header() {
               aria-expanded={activeDropdown === 'Services'}
               aria-controls="services-dropdown"
               onClick={() => setActiveDropdown(activeDropdown === 'Services' ? null : 'Services')}
-              className={`group relative whitespace-nowrap text-[15px] font-medium transition-colors duration-200 flex items-center gap-1.5 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${
-                activeDropdown === 'Services' ? 'text-[#df012a]' : navLinkTone
+              className={`group type-nav nav-link-premium whitespace-nowrap transition-colors duration-200 flex items-center gap-1 py-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${
+                activeDropdown === 'Services' ? navLinkActive : navLinkTone
               }`}
             >
               <span>Services</span>
               <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${
                   activeDropdown === 'Services'
                     ? 'rotate-180 text-[#df012a]'
-                    : 'text-neutral-400 group-hover:text-[#df012a]'
-                }`}
-              />
-              <span
-                className={`absolute bottom-0 left-0 h-[2px] bg-[#df012a] transition-all duration-300 ${
-                  activeDropdown === 'Services' ? 'w-full' : 'w-0 group-hover:w-full'
+                    : 'text-neutral-400 group-hover:text-neutral-700'
                 }`}
               />
             </button>
@@ -379,21 +304,16 @@ export default function Header() {
               onClick={() =>
                 setActiveDropdown(activeDropdown === 'AI & Automation' ? null : 'AI & Automation')
               }
-              className={`group relative whitespace-nowrap text-[15px] font-medium transition-colors duration-200 flex items-center gap-1.5 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${
-                activeDropdown === 'AI & Automation' ? 'text-[#df012a]' : navLinkTone
+              className={`group type-nav nav-link-premium whitespace-nowrap transition-colors duration-200 flex items-center gap-1 py-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${
+                activeDropdown === 'AI & Automation' ? navLinkActive : navLinkTone
               }`}
             >
               <span>AI & Automation</span>
               <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${
                   activeDropdown === 'AI & Automation'
                     ? 'rotate-180 text-[#df012a]'
-                    : 'text-neutral-400 group-hover:text-[#df012a]'
-                }`}
-              />
-              <span
-                className={`absolute bottom-0 left-0 h-[2px] bg-[#df012a] transition-all duration-300 ${
-                  activeDropdown === 'AI & Automation' ? 'w-full' : 'w-0 group-hover:w-full'
+                    : 'text-neutral-400 group-hover:text-neutral-700'
                 }`}
               />
             </button>
@@ -454,21 +374,16 @@ export default function Header() {
               aria-expanded={activeDropdown === 'Industries'}
               aria-controls="industries-dropdown"
               onClick={() => setActiveDropdown(activeDropdown === 'Industries' ? null : 'Industries')}
-              className={`group relative whitespace-nowrap text-[15px] font-medium transition-colors duration-200 flex items-center gap-1.5 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${
-                activeDropdown === 'Industries' ? 'text-[#df012a]' : navLinkTone
+              className={`group type-nav nav-link-premium whitespace-nowrap transition-colors duration-200 flex items-center gap-1 py-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${
+                activeDropdown === 'Industries' ? navLinkActive : navLinkTone
               }`}
             >
               <span>Industries</span>
               <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${
                   activeDropdown === 'Industries'
                     ? 'rotate-180 text-[#df012a]'
-                    : 'text-neutral-400 group-hover:text-[#df012a]'
-                }`}
-              />
-              <span
-                className={`absolute bottom-0 left-0 h-[2px] bg-[#df012a] transition-all duration-300 ${
-                  activeDropdown === 'Industries' ? 'w-full' : 'w-0 group-hover:w-full'
+                    : 'text-neutral-400 group-hover:text-neutral-700'
                 }`}
               />
             </button>
@@ -521,10 +436,9 @@ export default function Header() {
           {/* Direct Work Link */}
           <Link
             to="/work"
-            className={`group relative whitespace-nowrap text-[15px] font-medium transition-colors duration-200 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${navLinkTone}`}
+            className={`type-nav nav-link-premium whitespace-nowrap transition-colors duration-200 py-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${navLinkTone}`}
           >
-            <span>Work</span>
-            <span className="absolute bottom-0 left-0 h-[2px] bg-[#df012a] w-0 group-hover:w-full transition-all duration-300" />
+            Work
           </Link>
 
           {/* Company Link with Dropdown */}
@@ -538,21 +452,16 @@ export default function Header() {
               aria-expanded={activeDropdown === 'Company'}
               aria-controls="company-dropdown"
               onClick={() => setActiveDropdown(activeDropdown === 'Company' ? null : 'Company')}
-              className={`group relative whitespace-nowrap text-[15px] font-medium transition-colors duration-200 flex items-center gap-1.5 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${
-                activeDropdown === 'Company' ? 'text-[#df012a]' : navLinkTone
+              className={`group type-nav nav-link-premium whitespace-nowrap transition-colors duration-200 flex items-center gap-1 py-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${
+                activeDropdown === 'Company' ? navLinkActive : navLinkTone
               }`}
             >
               <span>Company</span>
               <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${
                   activeDropdown === 'Company'
                     ? 'rotate-180 text-[#df012a]'
-                    : 'text-neutral-400 group-hover:text-[#df012a]'
-                }`}
-              />
-              <span
-                className={`absolute bottom-0 left-0 h-[2px] bg-[#df012a] transition-all duration-300 ${
-                  activeDropdown === 'Company' ? 'w-full' : 'w-0 group-hover:w-full'
+                    : 'text-neutral-400 group-hover:text-neutral-700'
                 }`}
               />
             </button>
@@ -605,8 +514,8 @@ export default function Header() {
         {/* Right Column: Premium Modular Brand Button (Ghost Variant filling with Red on Hover) */}
         <div className="flex items-center gap-3 shrink-0">
           <div className="hidden lg:block">
-            <Button href="/contact" variant="ghost" size="md" icon={<ArrowRight className="w-4 h-4" />}>
-              Discuss Your Requirements
+            <Button href="/contact" variant="primaryDark" size="md" icon={<ArrowRight className="w-4 h-4" />}>
+              Let&apos;s Talk
             </Button>
           </div>
 
@@ -619,12 +528,11 @@ export default function Header() {
               setActiveDropdown(null);
               setMobileMenuOpen((open) => !open);
             }}
-            className={`relative z-[60] lg:hidden flex items-center justify-center w-10 h-10 text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] ${
-              isScrolled ? 'rounded-full hover:bg-white/10 border border-white/10' : 'rounded-lg hover:bg-white/10'
-            }`}
+            className="relative z-[60] lg:hidden flex items-center justify-center w-10 h-10 rounded-lg text-neutral-800 transition-colors hover:bg-neutral-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a]"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
+        </div>
         </div>
       </div>
 
@@ -634,18 +542,18 @@ export default function Header() {
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation"
-            className={`lg:hidden fixed inset-x-0 bottom-0 z-[45] bg-[#030712]/98 backdrop-blur-2xl text-white flex flex-col justify-between overflow-y-auto border-t border-white/10 ${mobileMenuTopClass}`}
+            className={`lg:hidden fixed inset-x-0 bottom-0 z-[45] flex flex-col justify-between overflow-y-auto border-t border-[#e5e7eb] bg-white text-[#0a0a0a] ${mobileMenuTopClass}`}
             data-lenis-prevent
           >
             <div className="px-6 py-6 space-y-4">
               {/* Services Mobile Category */}
-              <div className="border-b border-white/10 pb-4">
+              <div className="border-b border-[#e5e7eb] pb-4">
                 <button
                   type="button"
                   onClick={() =>
                     setExpandedMobileCategory(expandedMobileCategory === 'Services' ? null : 'Services')
                   }
-                  className="w-full flex items-center justify-between py-2 text-left font-display font-semibold text-lg text-white"
+                  className="w-full flex items-center justify-between py-2 text-left font-display font-semibold text-lg text-[#0a0a0a]"
                 >
                   <span>Services</span>
                   <ChevronDown
@@ -661,7 +569,7 @@ export default function Header() {
                         key={item.title}
                         to={toInternalTo(item.href)}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="block text-sm font-medium text-neutral-300 hover:text-[#df012a] transition-colors py-1"
+                        className="block text-sm font-medium text-neutral-600 hover:text-[#df012a] transition-colors py-1"
                       >
                         {item.title}
                       </Link>
@@ -671,7 +579,7 @@ export default function Header() {
               </div>
 
               {/* AI & Automation Mobile Category */}
-              <div className="border-b border-white/10 pb-4">
+              <div className="border-b border-[#e5e7eb] pb-4">
                 <button
                   type="button"
                   onClick={() =>
@@ -679,7 +587,7 @@ export default function Header() {
                       expandedMobileCategory === 'AI & Automation' ? null : 'AI & Automation',
                     )
                   }
-                  className="w-full flex items-center justify-between py-2 text-left font-display font-semibold text-lg text-white"
+                  className="w-full flex items-center justify-between py-2 text-left font-display font-semibold text-lg text-[#0a0a0a]"
                 >
                   <span>AI & Automation</span>
                   <ChevronDown
@@ -695,7 +603,7 @@ export default function Header() {
                         key={item.title}
                         to={toInternalTo(item.href)}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="block text-sm font-medium text-neutral-300 hover:text-[#df012a] transition-colors py-1"
+                        className="block text-sm font-medium text-neutral-600 hover:text-[#df012a] transition-colors py-1"
                       >
                         {item.title}
                       </Link>
@@ -705,7 +613,7 @@ export default function Header() {
               </div>
 
               {/* Industries Mobile Category */}
-              <div className="border-b border-white/10 pb-4">
+              <div className="border-b border-[#e5e7eb] pb-4">
                 <button
                   type="button"
                   onClick={() =>
@@ -713,7 +621,7 @@ export default function Header() {
                       expandedMobileCategory === 'Industries' ? null : 'Industries',
                     )
                   }
-                  className="w-full flex items-center justify-between py-2 text-left font-display font-semibold text-lg text-white"
+                  className="w-full flex items-center justify-between py-2 text-left font-display font-semibold text-lg text-[#0a0a0a]"
                 >
                   <span>Industries</span>
                   <ChevronDown
@@ -729,7 +637,7 @@ export default function Header() {
                         key={item.title}
                         to={toInternalTo(item.href)}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="block text-sm font-medium text-neutral-300 hover:text-[#df012a] transition-colors py-1"
+                        className="block text-sm font-medium text-neutral-600 hover:text-[#df012a] transition-colors py-1"
                       >
                         {item.title}
                       </Link>
@@ -739,24 +647,24 @@ export default function Header() {
               </div>
 
               {/* Direct Work Link */}
-              <div className="border-b border-white/10 pb-4">
+              <div className="border-b border-[#e5e7eb] pb-4">
                 <Link
                   to="/work"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block py-2 font-display font-semibold text-lg text-white hover:text-[#df012a]"
+                  className="block py-2 font-display font-semibold text-lg text-[#0a0a0a] hover:text-[#df012a]"
                 >
                   Work
                 </Link>
               </div>
 
               {/* Company Mobile Category */}
-              <div className="border-b border-white/10 pb-4">
+              <div className="border-b border-[#e5e7eb] pb-4">
                 <button
                   type="button"
                   onClick={() =>
                     setExpandedMobileCategory(expandedMobileCategory === 'Company' ? null : 'Company')
                   }
-                  className="w-full flex items-center justify-between py-2 text-left font-display font-semibold text-lg text-white"
+                  className="w-full flex items-center justify-between py-2 text-left font-display font-semibold text-lg text-[#0a0a0a]"
                 >
                   <span>Company</span>
                   <ChevronDown
@@ -772,7 +680,7 @@ export default function Header() {
                         key={item.title}
                         to={toInternalTo(item.href)}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="block text-sm font-medium text-neutral-300 hover:text-[#df012a] transition-colors py-1"
+                        className="block text-sm font-medium text-neutral-600 hover:text-[#df012a] transition-colors py-1"
                       >
                         {item.title}
                       </Link>
@@ -783,16 +691,16 @@ export default function Header() {
             </div>
 
             {/* Mobile Bottom CTA */}
-            <div className="p-6 bg-[#060b17] border-t border-white/10 mt-auto">
+            <div className="mt-auto border-t border-[#e5e7eb] bg-[#fafafa] p-6">
               <Button
                 href="/contact"
-                variant="primary"
+                variant="primaryDark"
                 size="lg"
                 className="w-full"
                 onClick={() => setMobileMenuOpen(false)}
                 icon={<ArrowRight className="w-5 h-5" />}
               >
-                Discuss Your Requirements
+                Let&apos;s Talk
               </Button>
             </div>
           </div>,

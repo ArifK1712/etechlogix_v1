@@ -24,7 +24,7 @@ const ROW_TOP_Y = 90;
 const ROW_MID_Y = ENGINE.cy;
 const ROW_BOTTOM_Y = 430;
 
-type NodeSide = 'left' | 'right';
+type NodeSide = 'left' | 'right' | 'center';
 type NodeSlot = 'top' | 'mid' | 'bottom';
 
 export type MapNode = {
@@ -44,7 +44,7 @@ export type MapNode = {
   logoScale?: number;
 };
 
-/** Three equally spaced cards on each side of the centered integration engine */
+/** Five partner nodes: two per side (top/mid) + one centered on the bottom row */
 export const mapNodes: MapNode[] = [
   {
     id: 'salesforce',
@@ -85,22 +85,12 @@ export const mapNodes: MapNode[] = [
     slot: 'mid',
   },
   {
-    id: 'dmsi',
-    label: 'DMSi Agility',
-    logoSrc: '/images/logos/dmsi-agility.png',
-    x: COL_LEFT_X,
-    y: ROW_BOTTOM_Y,
-    side: 'left',
-    slot: 'bottom',
-    logoScale: 1.15,
-  },
-  {
     id: 'healthcare',
     label: 'Healthcare',
     logoSrc: '/images/logos/healthcare.png',
-    x: COL_RIGHT_X,
+    x: ENGINE.cx,
     y: ROW_BOTTOM_Y,
-    side: 'right',
+    side: 'center',
     slot: 'bottom',
     logoScale: 1.1,
   },
@@ -176,6 +166,23 @@ function pathForNode(node: MapNode) {
     );
     return {
       d: connectorPathMid(enginePt, cardPt),
+      enginePt,
+      cardPt,
+    };
+  }
+
+  if (node.side === 'center' && node.slot === 'bottom') {
+    const enginePt = { x: rect.cx, y: rect.bottom };
+    const cardPt = cardEdgePoint(
+      node.x,
+      node.y,
+      enginePt.x,
+      enginePt.y,
+      NODE_CARD.halfW,
+      NODE_CARD.halfH,
+    );
+    return {
+      d: `M ${enginePt.x} ${enginePt.y} V ${cardPt.y}`,
       enginePt,
       cardPt,
     };
@@ -316,7 +323,7 @@ export function IntegrationHubMap({
           aspectRatio: `${ENGINE.w} / ${ENGINE.h}`,
         }}
       >
-        <div className="flex h-full w-full items-center justify-center rounded-2xl border border-white/[0.08] bg-[#0a0a0a] px-[10%] ">
+        <div className="flex h-full w-full items-center justify-center rounded-2xl border border-neutral-200/90 bg-white px-[10%] shadow-[0_4px_24px_rgba(0,0,0,0.05)]">
           <img
             src="/images/etechlogix-logo.png"
             alt="eTechLogix"

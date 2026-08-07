@@ -4,7 +4,6 @@ import EnterpriseIntegrationSection from '../components/EnterpriseIntegrationSec
 import HowWeDeliverSection from '../components/HowWeDeliverSection';
 import ProvenBusinessImpactSection from '../components/ProvenBusinessImpactSection';
 import IndustriesWeUnderstandSection from '../components/IndustriesWeUnderstandSection';
-import SelectedClientOutcomesSection from '../components/SelectedClientOutcomesSection';
 import StartConversationSection from '../components/StartConversationSection';
 import WhyEtechLogixSection from '../components/WhyEtechLogixSection';
 
@@ -17,7 +16,6 @@ export default function HomePage() {
         <EnterpriseIntegrationSection />
         <ProvenBusinessImpactSection />
         <IndustriesWeUnderstandSection />
-        <SelectedClientOutcomesSection />
         <HowWeDeliverSection />
         <WhyEtechLogixSection />
         <StartConversationSection />

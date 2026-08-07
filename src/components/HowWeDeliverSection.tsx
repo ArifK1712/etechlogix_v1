@@ -12,8 +12,8 @@ interface DeliveryStage {
   Illustration: () => ReactElement;
 }
 
-const W = 'rgba(255,255,255,0.28)';
-const W2 = 'rgba(255,255,255,0.48)';
+const W = 'rgba(10,10,10,0.16)';
+const W2 = 'rgba(10,10,10,0.32)';
 const R = '#df012a';
 const sw = { hair: '1.75', mid: '2', accent: '2.25', accentStrong: '2.5' };
 
@@ -264,7 +264,7 @@ export default function HowWeDeliverSection() {
           let opacity = 0.38;
           let scale = 0.98;
           let y = 0;
-          let borderColor = 'rgba(255, 255, 255, 0.08)';
+          let borderColor = 'rgba(229, 231, 235, 0.95)';
 
           if (isCompleted) {
             opacity = 0.85;
@@ -280,7 +280,7 @@ export default function HowWeDeliverSection() {
             opacity = 0.38;
             scale = 0.98;
             y = 0;
-            borderColor = 'rgba(255, 255, 255, 0.08)';
+            borderColor = 'rgba(229, 231, 235, 0.95)';
           }
 
           gsap.set(card, {
@@ -293,21 +293,17 @@ export default function HowWeDeliverSection() {
 
           if (title) {
             gsap.set(title, {
-              color: isActive
-                ? '#ffffff'
-                : isCompleted
-                  ? 'rgba(245, 243, 239, 0.92)'
-                  : 'rgba(245, 243, 239, 0.42)',
+              color: isActive ? '#0a0a0a' : isCompleted ? '#0a0a0a' : '#525252',
             });
           }
 
           if (desc) {
             gsap.set(desc, {
               color: isActive
-                ? 'rgba(212, 212, 212, 1)'
+                ? '#525252'
                 : isCompleted
-                  ? 'rgba(163, 163, 163, 0.95)'
-                  : 'rgba(115, 115, 115, 0.55)',
+                  ? '#737373'
+                  : 'rgba(82, 82, 82, 0.55)',
             });
           }
 
@@ -381,7 +377,7 @@ export default function HowWeDeliverSection() {
             gsap.set(point, {
               width: 8,
               height: 8,
-              backgroundColor: '#141414',
+              backgroundColor: '#ffffff',
               borderColor: 'rgba(115, 115, 115, 0.55)',
               boxShadow: 'none',
             });
@@ -563,16 +559,16 @@ export default function HowWeDeliverSection() {
       ref={sectionRef}
       id="how-we-deliver"
       aria-labelledby="how-we-deliver-heading"
-      className="relative w-full overflow-hidden bg-[#0c0c0c] text-[#f5f3ef] py-16 md:py-20 lg:py-24 border-t border-white/[0.06]"
+      className="relative w-full overflow-hidden text-[#0a0a0a] py-16 md:py-20 lg:py-24 border-t border-neutral-200/80"
     >
       <div className="relative w-full max-w-[1440px] mx-auto px-5 md:px-6">
         <div ref={pinContentRef} className="relative">
         <div ref={introRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start mb-10 md:mb-12">
           <div className="lg:col-span-4 max-w-md">
-            <p className="text-xs md:text-sm font-mono font-semibold tracking-[0.2em] text-[#df012a] uppercase mb-5">
+            <p className="type-eyebrow-accent mb-5">
               HOW WE DELIVER
             </p>
-            <p className="text-base md:text-lg text-neutral-400 leading-[1.65]">
+            <p className="type-body text-neutral-600 leading-[1.65]">
               We combine business understanding, practical architecture, focused engineering, enterprise
               integration, and continuous improvement to deliver technology that works in real operations.
             </p>
@@ -580,7 +576,7 @@ export default function HowWeDeliverSection() {
           <div className="lg:col-span-8">
             <h2
               id="how-we-deliver-heading"
-              className="font-display font-extrabold text-[1.75rem] sm:text-4xl md:text-[2.65rem] lg:text-[2.85rem] leading-[1.08] tracking-[-0.03em] text-[#f5f3ef] text-balance max-w-4xl"
+              className="type-section-heading-editorial text-[#0a0a0a] text-balance max-w-4xl sm:text-4xl md:text-[2.65rem] lg:text-[2.85rem]"
             >
               From a complex business challenge to a production-ready solution.
             </h2>
@@ -601,7 +597,7 @@ export default function HowWeDeliverSection() {
             </span>
             <div className="relative flex-1 min-w-0 h-5">
               <div
-                className="pointer-events-none absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-white/10"
+                className="pointer-events-none absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-neutral-200"
                 aria-hidden="true"
               />
               <div
@@ -622,24 +618,8 @@ export default function HowWeDeliverSection() {
             <span className="shrink-0 whitespace-nowrap text-neutral-600">05 stages</span>
           </div>
 
-          <div
-            ref={processLineRef}
-            className="hidden xl:block absolute left-0 right-0 top-[58%] h-px pointer-events-none z-0"
-            aria-hidden="true"
-          >
-            <div className="absolute inset-0 bg-white/[0.1]" />
-            <div
-              ref={processFillRef}
-              className="absolute inset-0 bg-[#df012a] origin-left scale-x-0"
-            />
-            <div
-              ref={processNodeRef}
-              className="absolute left-0 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-[#df012a] ring-2 ring-[#0c0c0c]"
-            />
-          </div>
-
           <div className="xl:hidden absolute left-2 top-0 bottom-0 w-px pointer-events-none" aria-hidden="true">
-            <div className="absolute inset-0 bg-white/[0.08]" />
+            <div className="absolute inset-0 bg-neutral-200/80" />
             <div
               ref={mobileLineFillRef}
               className="absolute inset-0 bg-[#df012a] origin-top scale-y-0"
@@ -656,7 +636,7 @@ export default function HowWeDeliverSection() {
                 id={`deliver-${stage.id}`}
                 data-stage-card
                 tabIndex={0}
-                className="group relative flex min-h-[420px] flex-col border border-white/[0.08] bg-[#141414] p-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a]/50 rounded-lg xl:flex-1 will-change-transform"
+                className="group relative flex min-h-[420px] flex-col border border-neutral-200/90 bg-white p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a]/50 rounded-lg xl:flex-1 will-change-transform"
               >
                 <span
                   data-stage-complete
@@ -665,21 +645,21 @@ export default function HowWeDeliverSection() {
                 />
                 <h3
                   data-stage-title
-                  className="font-display font-bold text-xl leading-tight tracking-[-0.02em] text-[#f5f3ef] mb-3"
+                  className="font-display font-bold text-xl leading-tight tracking-[-0.02em] text-[#0a0a0a] mb-3"
                 >
                   {stage.title}
                 </h3>
 
                 <p
                   data-stage-desc
-                  className="text-sm text-neutral-400 leading-relaxed mb-6 line-clamp-4 flex-1"
+                  className="type-body text-neutral-600 mb-6 line-clamp-4 flex-1"
                 >
                   {stage.description}
                 </p>
 
                 <div
                   data-stage-illustration
-                  className="relative mt-auto min-h-[160px] md:min-h-[180px] border-t border-white/[0.06] pt-5"
+                  className="relative mt-auto min-h-[160px] md:min-h-[180px] pt-6"
                 >
                   <stage.Illustration />
                 </div>

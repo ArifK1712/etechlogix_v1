@@ -81,7 +81,7 @@ const capabilities: Capability[] = [
     id: '03',
     title: 'Enterprise Integrations',
     desc:
-      'Connect Salesforce, MuleSoft, Descartes, Avalara, DMSi Agility, ERP, CRM, healthcare, payment, and custom enterprise platforms.',
+      'Connect Salesforce, MuleSoft, Descartes, Avalara, ERP, CRM, healthcare, payment, and custom enterprise platforms.',
     keywords: ['APIs', 'Middleware', 'Data Sync'],
     caption: 'Named enterprise platforms connected through a central integration layer.',
     label: 'Integration layer',
@@ -198,7 +198,6 @@ export default function ServicesSection() {
   const stageRef = useRef<HTMLDivElement>(null);
 
   const visualLayerRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const contentNumberRef = useRef<HTMLParagraphElement>(null);
   const contentTitleRef = useRef<HTMLHeadingElement>(null);
   const contentDescRef = useRef<HTMLParagraphElement>(null);
   const contentKeywordsRef = useRef<HTMLUListElement>(null);
@@ -261,7 +260,6 @@ export default function ServicesSection() {
         requestAnimationFrame(initVisualLayers);
 
         const contentParts = [
-          contentNumberRef.current,
           contentTitleRef.current,
           contentDescRef.current,
           contentKeywordsRef.current,
@@ -301,7 +299,6 @@ export default function ServicesSection() {
         const animateContentIn = (fast = false) => {
           if (reducedMotion) return;
           const parts = [
-            contentNumberRef.current,
             contentTitleRef.current,
             contentDescRef.current,
             contentKeywordsRef.current,
@@ -362,7 +359,6 @@ export default function ServicesSection() {
         const animateContentOut = (fast = false) => {
           if (reducedMotion) return gsap.timeline();
           const parts = [
-            contentNumberRef.current,
             contentTitleRef.current,
             contentDescRef.current,
             contentKeywordsRef.current,
@@ -387,7 +383,6 @@ export default function ServicesSection() {
           const fast = options?.fast ?? false;
           transitionTlRef.current?.kill();
           gsap.killTweensOf([
-            contentNumberRef.current,
             contentTitleRef.current,
             contentDescRef.current,
             contentKeywordsRef.current,
@@ -464,16 +459,16 @@ export default function ServicesSection() {
     <section
       ref={sectionRef}
       id="services"
-      className="relative w-full bg-[#fafaf8] text-[#111111] py-16 lg:py-20 scroll-mt-24"
+      className="relative w-full text-[#111111] py-16 lg:py-20 scroll-mt-24"
     >
       <div className="w-full max-w-[1400px] mx-auto px-5">
         {/* Introduction */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-10 lg:mb-12">
           <div ref={introLeftRef} className="lg:col-span-5 xl:col-span-4">
-            <p className="text-xs md:text-sm font-mono font-semibold tracking-[0.2em] text-[#df012a] uppercase mb-5">
+            <p className="type-eyebrow-accent mb-5">
               What We Engineer
             </p>
-            <p className="text-base md:text-lg text-neutral-600 leading-relaxed max-w-md">
+            <p className="type-body max-w-md">
               We design intelligent software, connected enterprise systems, and modern digital platforms
               around the way organizations actually operate.
             </p>
@@ -481,7 +476,7 @@ export default function ServicesSection() {
           <div className="lg:col-span-7 xl:col-span-8">
             <h2
               ref={introRightRef}
-              className="font-display font-extrabold text-[1.85rem] sm:text-4xl md:text-[2.65rem] lg:text-[2.85rem] xl:text-[3.25rem] leading-[1.1] tracking-tight text-[#111111] text-balance max-w-4xl"
+              className="type-section-heading-xl text-balance max-w-4xl"
             >
               Technology built around complex business operations.
             </h2>
@@ -540,14 +535,8 @@ export default function ServicesSection() {
             {/* Content column — single active slot, vertically centered */}
             <div className="relative flex items-center min-h-0 border-l border-neutral-200/80 pl-8 xl:pl-10">
               <div className="relative z-10 w-full max-w-lg py-4">
-                <div className="w-px h-8 bg-[#df012a] mb-5" aria-hidden="true" />
+                <div className="w-px h-8 bg-[#df012a] mb-4" aria-hidden="true" />
 
-                <p
-                  ref={contentNumberRef}
-                  className="font-mono text-sm font-bold tracking-wider text-[#df012a] mb-3"
-                >
-                  {cap.id}
-                </p>
                 <h3
                   ref={contentTitleRef}
                   className="font-display font-extrabold text-[1.65rem] xl:text-[2rem] leading-tight text-[#111111] mb-4"
@@ -556,7 +545,7 @@ export default function ServicesSection() {
                 </h3>
                 <p
                   ref={contentDescRef}
-                  className="text-base xl:text-lg text-neutral-600 leading-relaxed mb-5"
+                  className="type-body text-neutral-600 leading-relaxed mb-5"
                 >
                   {cap.desc}
                 </p>
@@ -582,7 +571,7 @@ export default function ServicesSection() {
                   href="#contact"
                   className="group inline-flex items-center gap-3 mt-8 text-[13px] font-bold uppercase tracking-[0.14em] text-[#111111] hover:text-[#df012a] transition-colors"
                 >
-                  Discuss this capability
+                  Explore This Capability
                   <span className="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center group-hover:border-[#df012a] transition-colors">
                     <ArrowRight className="w-4 h-4" strokeWidth={1.75} />
                   </span>
@@ -603,11 +592,10 @@ export default function ServicesSection() {
                   {item.label}
                 </span>
               </div>
-              <p className="font-mono text-sm font-bold tracking-wider text-[#df012a] mb-3">{item.id}</p>
               <h3 className="font-display font-extrabold text-2xl md:text-3xl text-[#111111] mb-4 leading-tight max-w-xl">
                 {item.title}
               </h3>
-              <p className="text-base md:text-lg text-neutral-600 leading-relaxed mb-5 max-w-xl">{item.desc}</p>
+              <p className="type-body text-neutral-600 leading-relaxed mb-5 max-w-xl">{item.desc}</p>
               <ul className="flex flex-wrap gap-x-4 gap-y-2 mb-2">
                 {item.keywords.map((word) => (
                   <li key={word} className="text-xs font-mono uppercase tracking-[0.12em] text-neutral-500">
@@ -620,7 +608,7 @@ export default function ServicesSection() {
                 href="#contact"
                 className="group inline-flex items-center gap-3 mt-8 text-[13px] font-bold uppercase tracking-[0.14em] text-[#111111] hover:text-[#df012a] transition-colors"
               >
-                Discuss this capability
+                Explore This Capability
                 <span className="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center group-hover:border-[#df012a] transition-colors">
                   <ArrowRight className="w-4 h-4" strokeWidth={1.75} />
                 </span>

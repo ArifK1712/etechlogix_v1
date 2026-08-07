@@ -15,9 +15,8 @@ interface Industry {
   id: string;
   title: string;
   summary: string;
-  description: string;
   label: string;
-  operationalFocus: string[];
+  operationalFocus: [string, string, string];
   icon: 'events' | 'erp' | 'healthcare' | 'integrations' | 'operations' | 'finance' | 'manufacturing' | 'retail';
 }
 
@@ -25,145 +24,81 @@ const industries: Industry[] = [
   {
     id: '01',
     title: 'Events & Conferences',
-    summary: 'Registration, engagement, and on-site operations for large-scale events.',
-    description:
-      'Digital platforms for registration, ticketing, attendee engagement, event applications, check-in, payments, scheduling, meetings, and operational reporting.',
+    summary:
+      'Registration, attendee engagement, and on-site operations for conferences and large-scale events.',
     label: 'Events & conferences',
     icon: 'events',
-    operationalFocus: [
-      'Registration and ticketing',
-      'Attendee and exhibitor management',
-      'Mobile event applications',
-      'On-site check-in and badges',
-      'Meetings and scheduling',
-      'Event payments and reporting',
-    ],
+    operationalFocus: ['Registration and ticketing', 'Attendee management', 'On-site check-in'],
   },
   {
     id: '02',
     title: 'ERP & Distribution',
-    summary: 'Inventory, orders, and logistics connected across the supply chain.',
-    description:
-      'Connected business applications for inventory, pricing, order processing, warehouse operations, logistics, tax systems, distributor workflows, and operational data.',
+    summary:
+      'Inventory, orders, pricing, and logistics connected across warehouses, distributors, and supply chain partners.',
     label: 'ERP & distribution',
     icon: 'erp',
-    operationalFocus: [
-      'Inventory and warehouse operations',
-      'Order and pricing workflows',
-      'Distribution management',
-      'Logistics and shipment coordination',
-      'Tax and payment integrations',
-      'ERP modernization',
-    ],
+    operationalFocus: ['Inventory and warehousing', 'Order workflows', 'Logistics coordination'],
   },
   {
     id: '03',
     title: 'Healthcare',
-    summary: 'Secure workflows for clinical, administrative, and integrated care operations.',
-    description:
-      'Secure digital solutions for healthcare workflows, document processing, patient operations, administrative processes, system integration, and compliance-focused applications.',
+    summary:
+      'Secure clinical and administrative workflows with integrated systems built for compliance and reliability.',
     label: 'Healthcare',
     icon: 'healthcare',
-    operationalFocus: [
-      'Healthcare document workflows',
-      'Patient and administrative operations',
-      'Secure system integration',
-      'Approval and exception management',
-      'Data processing',
-      'Compliance-focused applications',
-    ],
+    operationalFocus: ['Document workflows', 'Patient operations', 'Secure integrations'],
   },
   {
     id: '04',
     title: 'Enterprise Platforms & Integrations',
-    summary: 'APIs and middleware connecting CRM, ERP, tax, payment, and custom systems.',
-    description:
-      'Enterprise integration solutions connecting Salesforce, MuleSoft, Descartes, Avalara, DMSi Agility, ERP, CRM, payment, healthcare, and custom platforms.',
+    summary:
+      'APIs and middleware that connect CRM, ERP, tax, payment, and custom platforms into one operation.',
     label: 'Platforms & integrations',
     icon: 'integrations',
-    operationalFocus: [
-      'Enterprise APIs',
-      'Middleware and orchestration',
-      'Data synchronization',
-      'CRM and ERP connections',
-      'Payment and tax platforms',
-      'Custom system integration',
-    ],
+    operationalFocus: ['Enterprise APIs', 'Data synchronization', 'CRM and ERP connections'],
   },
   {
     id: '05',
     title: 'Enterprise Operations',
-    summary: 'Dashboards, telemetry, and cross-functional workflows for leadership and ops teams.',
-    description:
-      'Custom operational dashboards, executive decision support, task orchestration across departments, and live visibility into KPIs—replacing fragmented spreadsheets with systems teams actually run day to day.',
+    summary:
+      'Dashboards and cross-functional workflows that give leadership and ops teams live visibility into performance.',
     label: 'Enterprise operations',
     icon: 'operations',
-    operationalFocus: [
-      'Operational dashboards and KPIs',
-      'Cross-departmental workflows',
-      'Executive reporting',
-      'Task and exception tracking',
-      'Role-based access and audit trails',
-      'Real-time operational telemetry',
-    ],
+    operationalFocus: ['Operational dashboards', 'Cross-team workflows', 'Executive reporting'],
   },
   {
     id: '06',
     title: 'Financial Services & Payments',
-    summary: 'Billing, tax, reconciliation, and payment flows tied to core business systems.',
-    description:
-      'Payment gateways, tax calculation, invoicing, reconciliation, and financial data pipelines integrated with ERP, CRM, and industry platforms—built for accuracy, traceability, and compliance with finance controls.',
+    summary:
+      'Billing, tax, reconciliation, and payment flows integrated with the systems finance teams depend on.',
     label: 'Finance & payments',
     icon: 'finance',
-    operationalFocus: [
-      'Payment gateway integration',
-      'Tax and compliance platforms',
-      'Invoicing and billing workflows',
-      'Reconciliation and reporting',
-      'Multi-entity financial data',
-      'Audit-ready transaction logs',
-    ],
+    operationalFocus: ['Payment integrations', 'Tax and compliance', 'Reconciliation reporting'],
   },
   {
     id: '07',
     title: 'Manufacturing & Supply Chain',
-    summary: 'Production, procurement, and supplier coordination on connected digital systems.',
-    description:
-      'Applications for production planning, supplier portals, quality tracking, shop-floor data capture, and supply chain visibility—linking plants, vendors, and distribution into one operational picture.',
+    summary:
+      'Production, procurement, and supplier coordination on connected systems from plant floor to distribution.',
     label: 'Manufacturing',
     icon: 'manufacturing',
-    operationalFocus: [
-      'Production and capacity planning',
-      'Supplier and procurement portals',
-      'Quality and traceability',
-      'Shop-floor data capture',
-      'Inventory and material flows',
-      'Supply chain visibility',
-    ],
+    operationalFocus: ['Production planning', 'Supplier portals', 'Quality and traceability'],
   },
   {
     id: '08',
     title: 'Retail & Commerce',
-    summary: 'Catalog, orders, fulfillment, and customer experiences across channels.',
-    description:
-      'Omnichannel commerce platforms, product catalogs, order management, fulfillment coordination, and customer-facing applications connected to inventory, ERP, and payment systems.',
+    summary:
+      'Catalog, orders, fulfillment, and customer experiences synchronized across channels and back-office systems.',
     label: 'Retail & commerce',
     icon: 'retail',
-    operationalFocus: [
-      'Product catalog and pricing',
-      'Order and fulfillment management',
-      'Inventory sync across channels',
-      'Customer self-service portals',
-      'Promotions and loyalty flows',
-      'POS and e-commerce integrations',
-    ],
+    operationalFocus: ['Catalog and pricing', 'Order fulfillment', 'Channel inventory sync'],
   },
 ];
 
 const INDUSTRY_COUNT = industries.length;
 
 function IndustryIcon({ type }: { type: Industry['icon'] }) {
-  const stroke = 'rgba(255,255,255,0.88)';
+  const stroke = 'rgba(10,10,10,0.72)';
   const accent = '#df012a';
   const common = { fill: 'none', strokeWidth: 1.35, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
 
@@ -240,40 +175,26 @@ function IndustryIcon({ type }: { type: Industry['icon'] }) {
 
 function IndustryCard({ industry }: { industry: Industry }) {
   return (
-    <article className="group industry-slide-card relative flex flex-col h-full min-h-[420px] overflow-hidden rounded-xl border border-white/[0.12] shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-[box-shadow,border-color] duration-500 hover:border-[#df012a]/45 hover:shadow-[0_16px_44px_rgba(0,0,0,0.55)] h-full">
-      <div
-        className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-100 opacity-90"
-        aria-hidden
-        style={{
-          background:
-            'linear-gradient(155deg, #060606 0%, #0e0e0e 30%, #180910 58%, #3a0a16 80%, #851028 100%)',
-        }}
-      />
-      <div
-        className="absolute inset-0 opacity-90 transition-opacity duration-500 group-hover:opacity-100"
-        aria-hidden
-        style={{
-          background:
-            'linear-gradient(225deg, rgba(0,0,0,0.55) 0%, transparent 48%, rgba(223,1,42,0.24) 100%)',
-        }}
-      />
-      <div className="relative z-10 flex flex-col h-full p-6 lg:p-7">
-        <div className="flex items-start gap-3 mb-6">
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-black/45 ring-1 ring-white/[0.12]">
-            <IndustryIcon type={industry.icon} />
-          </div>
+    <article className="group industry-slide-card flex h-full w-full min-h-0 flex-1 flex-col overflow-hidden rounded-xl border border-neutral-200/90 bg-white p-6 transition-[border-color] duration-500 hover:border-[#df012a]/40 lg:p-7">
+      <div className="mb-5">
+        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-[#f7f6f2] ring-1 ring-neutral-200/90">
+          <IndustryIcon type={industry.icon} />
         </div>
-        <h3 className="font-display font-extrabold text-xl leading-tight text-white mb-3">{industry.title}</h3>
-        <p className="text-sm text-neutral-300 leading-relaxed mb-4">{industry.summary}</p>
-        <p className="text-sm text-neutral-400 leading-relaxed mb-5 flex-1 line-clamp-4">{industry.description}</p>
-        <ul className="space-y-2 mb-6">
-          {industry.operationalFocus.slice(0, 4).map((label) => (
-            <li key={label} className="flex gap-2 text-xs text-neutral-300 leading-snug pl-3 border-l border-[#df012a]/35">
-              {label}
-            </li>
-          ))}
-        </ul>
       </div>
+      <h3 className="font-display font-extrabold text-xl leading-tight text-[#0a0a0a] mb-3">
+        {industry.title}
+      </h3>
+      <p className="type-body text-neutral-600 leading-snug mb-5">{industry.summary}</p>
+      <ul className="mt-auto space-y-2.5">
+        {industry.operationalFocus.map((label) => (
+          <li
+            key={label}
+            className="flex gap-2 text-md text-neutral-600 leading-snug pl-3 border-l border-[#df012a]/35"
+          >
+            {label}
+          </li>
+        ))}
+      </ul>
     </article>
   );
 }
@@ -384,32 +305,15 @@ export default function IndustriesWeUnderstandSection() {
       ref={sectionRef}
       id="industries"
       aria-labelledby="industries-heading"
-      className="relative w-full text-white py-16 lg:py-20 border-t border-white/[0.06] overflow-hidden"
+      className="relative w-full bg-[#fafaf8] text-[#0a0a0a] py-16 lg:py-20 border-t border-neutral-200/80 overflow-hidden"
     >
-      <div
-        className="pointer-events-none absolute inset-0"
-        aria-hidden
-        style={{
-          background:
-            'linear-gradient(145deg, #030303 0%, #0a0a0a 28%, #12080c 52%, #2a0812 76%, #5c0f22 100%)',
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0"
-        aria-hidden
-        style={{
-          background:
-            'linear-gradient(200deg, rgba(0,0,0,0.65) 0%, transparent 42%, rgba(223,1,42,0.18) 88%, rgba(0,0,0,0.5) 100%)',
-        }}
-      />
-
       <div className="relative z-[1] w-full max-w-[1400px] mx-auto px-5">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end mb-10 lg:mb-12">
           <div ref={introLeftRef} className="lg:col-span-5">
-            <p className="text-xs md:text-sm font-mono font-semibold tracking-[0.2em] text-[#df012a] uppercase mb-5">
+            <p className="type-eyebrow-accent mb-5">
               Industry Experience
             </p>
-            <p className="text-base md:text-lg text-neutral-400 leading-relaxed max-w-md">
+            <p className="type-body text-neutral-600 leading-relaxed max-w-md">
               We build software around the workflows, systems, regulations, users, and operational
               challenges unique to each industry.
             </p>
@@ -418,7 +322,7 @@ export default function IndustriesWeUnderstandSection() {
             <h2
               ref={introRightRef}
               id="industries-heading"
-              className="font-display font-extrabold text-[1.85rem] sm:text-4xl md:text-[2.65rem] lg:text-[2.75rem] leading-[1.1] tracking-tight text-balance max-w-3xl text-white"
+              className="type-section-heading-lg text-balance max-w-3xl text-[#0a0a0a] sm:text-4xl md:text-[2.65rem] lg:text-[2.75rem] tracking-tight"
             >
               Enterprise technology shaped by real operational environments.
             </h2>
@@ -433,7 +337,7 @@ export default function IndustriesWeUnderstandSection() {
                 aria-label="Previous industries"
                 disabled={!canPrev}
                 onClick={() => swiperRef.current?.slidePrev()}
-                className="h-11 w-11 rounded-lg border border-white/[0.12] bg-[#161616] flex items-center justify-center text-white disabled:opacity-35 disabled:pointer-events-none hover:border-white/25 hover:bg-[#1c1c1c] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+                className="h-11 w-11 rounded-lg border border-neutral-200 bg-white flex items-center justify-center text-[#0a0a0a] disabled:opacity-35 disabled:pointer-events-none hover:border-neutral-300 hover:bg-[#fafafa] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fafaf8]"
               >
                 <span aria-hidden className="font-mono text-lg leading-none">
                   ←
@@ -444,7 +348,7 @@ export default function IndustriesWeUnderstandSection() {
                 aria-label="Next industries"
                 disabled={!canNext}
                 onClick={() => swiperRef.current?.slideNext()}
-                className="h-11 w-11 rounded-lg border border-white/[0.12] bg-[#161616] flex items-center justify-center text-white disabled:opacity-35 disabled:pointer-events-none hover:border-white/25 hover:bg-[#1c1c1c] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+                className="h-11 w-11 rounded-lg border border-neutral-200 bg-white flex items-center justify-center text-[#0a0a0a] disabled:opacity-35 disabled:pointer-events-none hover:border-neutral-300 hover:bg-[#fafafa] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fafaf8]"
               >
                 <span aria-hidden className="font-mono text-lg leading-none">
                   →
@@ -494,7 +398,7 @@ export default function IndustriesWeUnderstandSection() {
             className="!overflow-hidden"
           >
             {industries.map((item) => (
-              <SwiperSlide key={item.id} className="!h-auto">
+              <SwiperSlide key={item.id} className="!flex !h-auto">
                 <IndustryCard industry={item} />
               </SwiperSlide>
             ))}
@@ -510,7 +414,7 @@ export default function IndustriesWeUnderstandSection() {
               aria-current={slideIndex === i}
               onClick={() => goToSlide(i)}
               className={`h-1.5 rounded-full transition-all duration-300 ${
-                slideIndex === i ? 'w-8 bg-[#df012a]' : 'w-1.5 bg-white/20'
+                slideIndex === i ? 'w-8 bg-[#df012a]' : 'w-1.5 bg-neutral-300/80'
               }`}
             />
           ))}

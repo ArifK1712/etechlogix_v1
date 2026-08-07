@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight } from 'lucide-react';
 import { InternalLink } from '../InternalLink';
+import { buttonClassName } from '../ui/Button';
 import { IntegrationHubMap } from './IntegrationHubMap';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -94,31 +95,33 @@ export default function EnterpriseIntegrationSection() {
       ref={sectionRef}
       id="enterprise-integrations"
       aria-labelledby="enterprise-integration-heading"
-      className="relative w-full overflow-x-hidden border-t border-neutral-200/70 bg-[#f7f6f2] py-10 md:py-12 lg:py-14"
+      className="relative w-full overflow-x-hidden border-t border-neutral-200/70 bg-[#f7f6f2] py-8"
     >
-      <div className="relative z-[1] mx-auto grid w-full max-w-[1320px] grid-cols-1 items-center gap-8 px-5 md:gap-10 md:px-6 lg:grid-cols-2 lg:gap-14 xl:gap-16">
+      <div className="relative z-[1] mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-8 px-5 md:gap-10 md:px-6 lg:grid-cols-2 lg:gap-14 xl:gap-16">
         <div ref={introRef} className="lg:max-w-[520px]">
-          <p className="text-[11px] font-mono font-semibold uppercase tracking-[0.22em] text-[#df012a] md:text-xs">
+          <p className="type-eyebrow text-[#df012a] tracking-[0.22em] md:text-xs">
             ENTERPRISE INTEGRATION ENGINEERING
           </p>
           <h2
             id="enterprise-integration-heading"
-            className="mt-3 font-display text-[1.65rem] font-extrabold leading-[1.1] tracking-[-0.03em] text-[#0a0a0a] text-balance sm:text-[2rem] md:text-[2.25rem] lg:text-[2.35rem]"
+            className="type-section-heading mt-3 text-balance sm:text-[2rem] md:text-[2.25rem] lg:text-[2.35rem]"
           >
             Connect every system
             <span className="block">your business depends on.</span>
           </h2>
-          <p className="mt-3 max-w-[420px] text-[15px] leading-[1.65] text-[#555555] md:text-base">
+          <p className="type-body mt-3 max-w-[420px] text-[#555555]">
           We engineer secure enterprise integrations across CRM, ERP, logistics, tax, healthcare, payment, and custom platforms—synchronizing critical data, automating cross-system workflows, and eliminating operational silos.
           </p>
           <InternalLink
             href="/contact"
-            className="group mt-6 inline-flex w-full sm:w-auto items-center justify-between gap-3 bg-[#df012a] hover:bg-[#b80122] text-white font-semibold text-[14px] min-h-[48px] pl-5 pr-1.5 rounded-full transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f7f6f2]"
+            className={`${buttonClassName('primaryDark', 'section')} group mt-6`}
           >
-            <span className="px-1 whitespace-nowrap sm:px-2">Discuss Your Integration Needs</span>
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-[#df012a] transition-transform duration-700 group-hover:translate-x-0.5">
-              <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
-            </span>
+            Discuss Integration
+            <ArrowRight
+              className="h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5"
+              strokeWidth={1.75}
+              aria-hidden="true"
+            />
           </InternalLink>
         </div>
 

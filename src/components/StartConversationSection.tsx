@@ -10,6 +10,8 @@ import {
   RefreshCw,
   type LucideIcon,
 } from 'lucide-react';
+import { buttonClassName } from './ui/Button';
+import { InternalLink } from './InternalLink';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -113,13 +115,13 @@ export default function StartConversationSection() {
       <div className="mx-auto w-full max-w-[1440px] px-5 md:px-6">
         <div
           ref={cardRef}
-          className="relative overflow-hidden rounded-2xl border border-white/[0.12] bg-[#070707] shadow-[0_24px_80px_rgba(0,0,0,0.35)]"
+          className="relative overflow-hidden rounded-2xl border border-neutral-200/90 bg-[#f7f6f2] shadow-[0_24px_64px_rgba(0,0,0,0.06)]"
         >
           <div className="relative z-[1] flex flex-col items-center px-6 py-12 text-center sm:px-10 md:py-14 lg:px-14 lg:py-16">
             <div className="mx-auto w-full max-w-3xl">
               <p
                 ref={eyebrowRef}
-                className="mb-5 text-xs font-mono font-semibold uppercase tracking-[0.22em] text-[#df012a] md:text-sm"
+                className="type-eyebrow-accent mb-5 tracking-[0.22em]"
               >
                 START A CONVERSATION
               </p>
@@ -127,7 +129,7 @@ export default function StartConversationSection() {
               <h2
                 id="start-conversation-heading"
                 ref={headingRef}
-                className="font-display text-[1.75rem] font-extrabold leading-[1.12] tracking-[-0.03em] text-[#f5f3ef] text-balance sm:text-4xl md:text-[2.35rem] lg:text-[2.55rem]"
+                className="type-section-heading-panel text-balance sm:text-4xl md:text-[2.35rem] lg:text-[2.55rem]"
               >
                 Bring us the complex challenge. We&apos;ll help engineer the{' '}
                 <span className="text-[#df012a]">path forward.</span>
@@ -135,7 +137,7 @@ export default function StartConversationSection() {
 
               <p
                 ref={descriptionRef}
-                className="mx-auto mt-6 max-w-2xl text-sm leading-[1.7] text-neutral-400 md:text-base md:leading-[1.68]"
+                className="type-body mx-auto mt-6 max-w-2xl text-neutral-600"
               >
                 Whether you need enterprise software, Agentic AI workflow automation, system
                 integration, modernization, or a functional product prototype, let&apos;s discuss what
@@ -148,18 +150,18 @@ export default function StartConversationSection() {
               >
                   <a
                     href="mailto:hello@etechlogix.com"
-                    className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#df012a] px-6 py-3.5 text-sm font-semibold text-white transition-[transform,background-color] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-[#c80126] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a] sm:w-auto"
+                    className={`${buttonClassName('primaryDark', 'section')} group`}
                   >
-                    Discuss Your Project
+                    Start a Conversation
                     <ArrowRight
                       className="h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5"
                       strokeWidth={1.75}
                       aria-hidden="true"
                     />
                   </a>
-                  <a
-                    href="#work"
-                    className="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/[0.22] bg-transparent px-6 py-3.5 text-sm font-semibold text-[#f5f3ef] transition-[transform,border-color,background-color] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-white/40 hover:bg-white/[0.04] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 sm:w-auto"
+                  <InternalLink
+                    href="#services"
+                    className={`${buttonClassName('secondary', 'section')} group`}
                   >
                     View Our Work
                     <ArrowRight
@@ -167,12 +169,12 @@ export default function StartConversationSection() {
                       strokeWidth={1.75}
                       aria-hidden="true"
                     />
-                  </a>
+                  </InternalLink>
                 </div>
 
               <div
                 ref={capabilitiesRef}
-                className="mt-9 flex flex-col items-center gap-4 border-t border-white/[0.08] pt-7 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-0"
+                className="mt-9 flex flex-col items-center gap-4 border-t border-neutral-200/90 pt-7 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-0"
               >
                 {capabilities.map((cap, index) => (
                   <div key={cap.label} className="flex items-center justify-center sm:contents">
@@ -182,7 +184,7 @@ export default function StartConversationSection() {
                           strokeWidth={1.35}
                           aria-hidden="true"
                         />
-                        <span className="text-xs font-medium tracking-[0.02em] text-neutral-400 md:text-[0.8125rem]">
+                        <span className="type-caption text-neutral-600 !text-xs tracking-[0.02em] md:!text-[0.8125rem]">
                           {cap.label}
                         </span>
                       </div>

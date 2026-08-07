@@ -41,7 +41,7 @@ const exploreLinks = [
   { label: 'Services', href: '#services' },
   { label: 'AI Solutions', href: '#business-impact' },
   { label: 'Industries', href: '#industries' },
-  { label: 'Work', href: '#client-outcomes' },
+  { label: 'Work', href: '#services' },
   { label: 'Company', href: '#why-etechlogix' },
   { label: 'Careers', href: '#contact' },
 ] as const;
@@ -55,16 +55,15 @@ const capabilityLinks = [
 ] as const;
 
 const linkClass =
-  'text-sm text-neutral-400 transition-[color,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:text-[#f5f3ef] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]';
+  'text-base leading-relaxed text-neutral-600 transition-[color,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:text-[#0a0a0a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]';
 
-const headingClass =
-  'mb-5 text-xs font-mono font-semibold uppercase tracking-[0.18em] text-[#f5f3ef]';
+const headingClass = 'type-eyebrow-accent mb-5 tracking-[0.18em]';
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/[0.08] bg-[#0a0a0a] text-[#f5f3ef]">
+    <footer className="border-t border-neutral-200/90 bg-white text-[#0a0a0a]">
       <div className="mx-auto w-full max-w-[1440px] px-5 py-14 md:px-6 md:py-16 lg:py-20">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-x-10 xl:gap-x-14">
           <div className="lg:col-span-4">
@@ -83,7 +82,7 @@ export default function Footer() {
                 decoding="async"
               />
             </InternalLink>
-            <p className="mt-5 max-w-sm text-sm leading-[1.65] text-neutral-400">
+            <p className="type-body mt-5 max-w-sm text-neutral-600">
               Enterprise software, Agentic AI, integrations, and modernization for complex business
               operations.
             </p>
@@ -92,7 +91,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/etechlogix"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.12] text-neutral-400 transition-[color,border-color,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-[#df012a]/40 hover:text-[#df012a] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-600 transition-[color,border-color,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-[#df012a]/40 hover:text-[#df012a] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
                 aria-label="eTechLogix on LinkedIn"
               >
                 <LinkedInIcon className="h-4 w-4" />
@@ -101,7 +100,7 @@ export default function Footer() {
                 href="https://github.com/etechlogix"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.12] text-neutral-400 transition-[color,border-color,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-[#df012a]/40 hover:text-[#df012a] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-600 transition-[color,border-color,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-[#df012a]/40 hover:text-[#df012a] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
                 aria-label="eTechLogix on GitHub"
               >
                 <GitHubIcon className="h-4 w-4" />
@@ -128,7 +127,7 @@ export default function Footer() {
               <ul className="flex flex-col gap-3.5">
                 {capabilityLinks.map((item) => (
                   <li key={item.label}>
-                    <InternalLink href={item.href} className={`${linkClass} text-[0.8125rem] leading-snug md:text-sm`}>
+                    <InternalLink href={item.href} className={`${linkClass} text-[0.9375rem] md:text-base`}>
                       {item.label}
                     </InternalLink>
                   </li>
@@ -137,12 +136,12 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="border-t border-white/[0.08] pt-10 lg:col-span-3 lg:border-t-0 lg:border-l lg:border-white/[0.08] lg:pl-10 lg:pt-0 xl:pl-12">
+          <div className="border-t border-neutral-200/90 pt-10 lg:col-span-3 lg:border-t-0 lg:border-l lg:border-neutral-200/90 lg:pl-10 lg:pt-0 xl:pl-12">
             <h2 className={headingClass}>Contact</h2>
             <div className="flex flex-col gap-4">
               <a
                 href="mailto:hello@etechlogix.com"
-                className="text-sm font-medium text-[#f5f3ef] transition-colors duration-300 hover:text-[#df012a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
+                className="type-body font-medium text-[#0a0a0a] transition-colors duration-300 hover:text-[#df012a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
               >
                 hello@etechlogix.com
               </a>
@@ -151,9 +150,9 @@ export default function Footer() {
               </InternalLink>
               <InternalLink
                 href="#contact"
-                className="group inline-flex items-center gap-2 text-sm font-semibold text-[#df012a] transition-[gap,color] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:gap-2.5 hover:text-[#f5f3ef] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
+                className="group inline-flex items-center gap-2 text-sm font-semibold text-[#df012a] transition-[gap,color] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:gap-2.5 hover:text-[#b80122] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
               >
-                Start a Conversation
+                Let&apos;s Talk
                 <ArrowRight
                   className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
                   strokeWidth={1.75}
@@ -164,20 +163,20 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-5 border-t border-white/[0.08] pt-8 md:flex-row md:items-center md:justify-between md:gap-6">
-          <p className="text-xs text-neutral-500">
+        <div className="mt-14 flex flex-col gap-5 border-t border-neutral-200/90 pt-8 md:flex-row md:items-center md:justify-between md:gap-6">
+          <p className="type-caption text-neutral-500 !text-xs normal-case tracking-normal">
             © {year} eTechLogix. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <InternalLink
               href="#privacy-policy"
-              className="text-xs text-neutral-500 transition-colors duration-300 hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
+              className="type-caption text-neutral-500 transition-colors duration-300 hover:text-neutral-700 !text-xs normal-case tracking-normal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
             >
               Privacy Policy
             </InternalLink>
             <InternalLink
               href="#terms-of-use"
-              className="text-xs text-neutral-500 transition-colors duration-300 hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
+              className="type-caption text-neutral-500 transition-colors duration-300 hover:text-neutral-700 !text-xs normal-case tracking-normal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
             >
               Terms of Use
             </InternalLink>

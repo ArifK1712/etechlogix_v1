@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, BarChart3, Network, Target, UserRound } from 'lucide-react';
+import { BarChart3, Network, Target, UserRound } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,28 +37,6 @@ const differentiators = [
   },
 ] as const;
 
-function CircuitAccent({ className = '' }: { className?: string }) {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 280 120"
-      className={`pointer-events-none select-none ${className}`}
-      fill="none"
-    >
-      <path
-        d="M8 88 H64 V52 H120 V88 H176 M176 88 V36 H232 M232 36 H272"
-        stroke="rgba(223,1,42,0.22)"
-        strokeWidth="1"
-        strokeLinecap="square"
-      />
-      <path d="M120 52 H176 M64 52 V28" stroke="rgba(223,1,42,0.12)" strokeWidth="1" />
-      <circle cx="64" cy="52" r="2.5" fill="rgba(223,1,42,0.35)" />
-      <circle cx="176" cy="88" r="2.5" fill="rgba(223,1,42,0.28)" />
-      <circle cx="232" cy="36" r="2" fill="rgba(223,1,42,0.22)" />
-    </svg>
-  );
-}
-
 export default function WhyEtechLogixSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const eyebrowRef = useRef<HTMLParagraphElement>(null);
@@ -67,7 +45,6 @@ export default function WhyEtechLogixSection() {
   const ownershipRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const timelineLineRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -90,7 +67,6 @@ export default function WhyEtechLogixSection() {
             ...items,
             ...icons,
             ...nodes,
-            ctaRef.current,
           ],
           { opacity: 1, y: 0, scale: 1, scaleY: 1 },
         );
@@ -102,7 +78,6 @@ export default function WhyEtechLogixSection() {
       gsap.set(icons, { opacity: 0, scale: 0.9 });
       gsap.set(nodes, { opacity: 0, scale: 0.6 });
       gsap.set(ownershipRef.current, { opacity: 0 });
-      gsap.set(ctaRef.current, { opacity: 0, y: 24 });
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -159,12 +134,6 @@ export default function WhyEtechLogixSection() {
             '<+=0.06',
           );
       });
-
-      tl.to(
-        ctaRef.current,
-        { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' },
-        '-=0.15',
-      );
     },
     { scope: sectionRef },
   );
@@ -184,15 +153,12 @@ export default function WhyEtechLogixSection() {
         OWNERSHIP
       </div>
 
-      <CircuitAccent className="absolute bottom-8 left-4 w-[min(42vw,220px)] opacity-90 md:left-8" />
-      <CircuitAccent className="absolute bottom-6 right-2 w-[min(38vw,200px)] scale-x-[-1] opacity-80 md:right-6" />
-
       <div className="relative z-[1] mx-auto w-full max-w-[1440px] px-5 md:px-6">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-x-14 xl:gap-x-16">
           <div className="lg:col-span-5 xl:col-span-5">
             <p
               ref={eyebrowRef}
-              className="mb-3 text-xs font-mono font-semibold uppercase tracking-[0.22em] text-[#df012a] md:text-sm"
+              className="type-eyebrow-accent mb-3 tracking-[0.22em]"
             >
               WHY ETECHLOGIX
             </p>
@@ -201,14 +167,14 @@ export default function WhyEtechLogixSection() {
             <h2
               id="why-etechlogix-heading"
               ref={headingRef}
-              className="font-display text-[1.85rem] font-extrabold leading-[1.1] tracking-[-0.03em] text-[#0a0a0a] text-balance sm:text-4xl md:text-[2.65rem] lg:text-[2.75rem]"
+              className="type-section-heading-lg text-balance sm:text-4xl md:text-[2.65rem] lg:text-[2.75rem]"
             >
               An engineering partner built for complex, long-term business challenges.
             </h2>
 
             <p
               ref={descriptionRef}
-              className="mt-6 max-w-md text-base leading-[1.65] text-[#555555] md:text-lg"
+              className="type-body mt-6 max-w-md text-[#555555]"
             >
               We combine enterprise delivery experience, business understanding, engineering ownership, and
               practical technology expertise to build solutions that remain dependable long after launch.
@@ -257,7 +223,7 @@ export default function WhyEtechLogixSection() {
                         </span>
                         {item.title}
                       </h3>
-                      <p className="mt-2 max-w-xl text-sm leading-relaxed text-[#555555] md:text-[0.95rem] md:leading-[1.65]">
+                      <p className="type-body mt-2 max-w-xl text-[#555555]">
                         {item.description}
                       </p>
                     </div>
@@ -273,35 +239,6 @@ export default function WhyEtechLogixSection() {
               ))}
             </ul>
           </div>
-        </div>
-
-        <div
-          ref={ctaRef}
-          className="mt-14 md:mt-16 lg:mt-[4.5rem] rounded-2xl border border-black/[0.08] bg-white p-6 shadow-[0_10px_48px_rgba(0,0,0,0.06)] md:flex md:items-center md:justify-between md:gap-10 md:p-8 lg:p-9"
-        >
-          <div className="flex gap-5 md:max-w-2xl md:gap-6">
-            <div className="w-px shrink-0 self-stretch bg-[#df012a]" aria-hidden="true" />
-            <div>
-              <p className="font-display text-lg font-bold tracking-[-0.02em] text-[#0a0a0a] md:text-xl">
-                Let&apos;s solve your next business challenge together.
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-[#555555] md:text-[0.95rem]">
-                Discuss your operational challenge, integration requirement, modernization initiative, or AI automation opportunity with our team.
-              </p>
-            </div>
-          </div>
-
-          <a
-            href="#contact"
-            className="group mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#df012a] px-6 py-3.5 text-sm font-semibold text-white transition-[transform,background-color] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-[#c80126] active:scale-[0.98] md:mt-0 md:w-auto md:shrink-0"
-          >
-            Discuss Your Requirements
-            <ArrowRight
-              className="h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5"
-              strokeWidth={1.75}
-              aria-hidden="true"
-            />
-          </a>
         </div>
       </div>
     </section>
