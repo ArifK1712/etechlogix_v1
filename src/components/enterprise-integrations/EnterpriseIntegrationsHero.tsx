@@ -2,21 +2,21 @@ import { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-export default function EnterpriseCustomSoftwareHero() {
+export default function EnterpriseIntegrationsHero() {
   const heroRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const elements = [...(contentRef.current?.children ?? [])] as HTMLElement[];
 
-    [...elements].forEach((el) => {
-      (el as HTMLElement).style.opacity = '0';
-      (el as HTMLElement).style.transform = 'translateY(16px)';
-      (el as HTMLElement).style.transition = 'none';
+    elements.forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px)';
+      el.style.transition = 'none';
     });
 
     const delay = 80;
-    [...elements].forEach((el, i) => {
+    elements.forEach((el, i) => {
       setTimeout(() => {
         el.style.transition = 'opacity 0.65s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1)';
         el.style.opacity = '1';
@@ -29,7 +29,7 @@ export default function EnterpriseCustomSoftwareHero() {
     <section
       ref={heroRef}
       className="relative w-full bg-white overflow-hidden"
-      aria-label="Enterprise Custom Software — Hero"
+      aria-label="Enterprise Integrations — Hero"
     >
       {/* ── Subtle background accents ── */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -86,30 +86,29 @@ export default function EnterpriseCustomSoftwareHero() {
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2.5 mb-8">
             <span className="block w-5 h-px bg-[#df012a]" aria-hidden="true" />
-            <span className="type-eyebrow-accent tracking-[0.2em]">Enterprise Custom Software</span>
+            <span className="type-eyebrow-accent tracking-[0.2em]">Enterprise Integrations</span>
             <span className="block w-5 h-px bg-[#df012a]" aria-hidden="true" />
           </div>
 
           {/* Headline — uses homepage type-hero-heading for consistent sizing */}
           <h1 className="type-hero-heading text-[#0a0a0a] max-w-[820px] text-balance mb-7">
-            Software built around your business.{' '}
-            <span className="text-[#df012a]">Not the other way around.</span>
+            Connect the systems{' '}
+            <span className="text-[#df012a]">your business runs on.</span>
           </h1>
 
           {/* Supporting paragraph */}
-          <p className="type-hero-lead max-w-[520px] text-neutral-500 mb-11 text-center">
-            We design and engineer custom enterprise platforms around your workflows, business rules,
-            existing systems, integrations, and operational realities.
+          <p className="type-hero-lead max-w-[580px] text-neutral-500 mb-11 text-center">
+            We connect enterprise platforms, applications, APIs and data so information moves reliably across your business — without disconnected systems slowing your teams down.
           </p>
 
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto mb-0">
             <Link to="/contact" className="btn-etech btn-etech--primary-dark btn-etech--hero group">
-              <span className="relative z-10 whitespace-nowrap">Discuss Your Project</span>
+              <span className="relative z-10 whitespace-nowrap">Discuss Your Integration</span>
               <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" strokeWidth={2} />
             </Link>
             <Link to="/services" className="btn-etech btn-etech--secondary btn-etech--hero">
-              See What We Build
+              See How We Connect
             </Link>
           </div>
         </div>
