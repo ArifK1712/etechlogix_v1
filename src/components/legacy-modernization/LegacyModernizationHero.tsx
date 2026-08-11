@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-export default function EnterpriseIntegrationsHero() {
+export default function LegacyModernizationHero() {
   const heroRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -29,7 +29,7 @@ export default function EnterpriseIntegrationsHero() {
     <section
       ref={heroRef}
       className="relative w-full bg-white overflow-hidden"
-      aria-label="Enterprise Integrations — Hero"
+      aria-label="Legacy Modernization — Hero"
     >
       {/* ── Subtle background accents ── */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -86,39 +86,39 @@ export default function EnterpriseIntegrationsHero() {
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2.5 mb-8">
             <span className="block w-5 h-px bg-[#df012a]" aria-hidden="true" />
-            <span className="type-eyebrow-accent tracking-[0.2em]">Enterprise Integrations</span>
+            <span className="type-eyebrow-accent tracking-[0.2em]">LEGACY MODERNIZATION</span>
             <span className="block w-5 h-px bg-[#df012a]" aria-hidden="true" />
           </div>
 
           {/* Headline — uses homepage type-hero-heading for consistent sizing */}
           <h1 className="type-hero-heading text-[#0a0a0a] max-w-[820px] text-balance mb-7">
-            Connect the systems{' '}
-            <span className="text-[#df012a]">your business runs on.</span>
+            Modernize what works.{' '}
+            <span className="text-[#df012a]">Replace what holds you back.</span>
           </h1>
 
           {/* Supporting paragraph */}
           <p className="type-hero-lead max-w-[580px] text-neutral-500 mb-11 text-center">
-            We connect enterprise platforms, applications, APIs and data so information moves reliably across your business — without disconnected systems slowing your teams down.
+            We modernize aging enterprise systems without disrupting the business processes, data and workflows your teams already depend on.
           </p>
 
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto mb-0">
             <Link to="/contact" className="btn-etech btn-etech--primary-dark btn-etech--hero group">
-              <span className="relative z-10 whitespace-nowrap">Discuss Your Integration</span>
+              <span className="relative z-10 whitespace-nowrap">Discuss Your Modernization</span>
               <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" strokeWidth={2} />
             </Link>
             <a
-              href="#what-we-connect"
+              href="#our-approach"
               onClick={(e) => {
                 e.preventDefault();
-                const el = document.getElementById('what-we-connect');
+                const el = document.getElementById('our-approach') || document.getElementById('how-we-modernize');
                 if (el) {
                   el.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
               className="btn-etech btn-etech--secondary btn-etech--hero"
             >
-              See How We Connect
+              See Our Approach
             </a>
           </div>
         </div>

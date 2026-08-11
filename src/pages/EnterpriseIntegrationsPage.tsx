@@ -1,6 +1,7 @@
 import EnterpriseIntegrationsHero from '../components/enterprise-integrations/EnterpriseIntegrationsHero';
 import EIBuiltToConnectSection from '../components/enterprise-integrations/EIBuiltToConnectSection';
 import EIIntegrationLogicSection from '../components/enterprise-integrations/EIIntegrationLogicSection';
+import EIBusinessOutcomeSection from '../components/enterprise-integrations/EIBusinessOutcomeSection';
 
 export default function EnterpriseIntegrationsPage() {
   return (
@@ -9,7 +10,9 @@ export default function EnterpriseIntegrationsPage() {
         <EnterpriseIntegrationsHero />
         <EIBuiltToConnectSection />
         <EIIntegrationLogicSection />
+        <EIBusinessOutcomeSection />
       </main>
     </div>
   );
 }
+

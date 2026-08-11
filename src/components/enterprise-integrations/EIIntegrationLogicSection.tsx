@@ -7,28 +7,28 @@ gsap.registerPlugin(ScrollTrigger);
 
 /* ─── Process Flow Line Icons in eTechLogix Red #df012a ─── */
 const IconReceive = () => (
-  <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7 text-[#df012a]">
+  <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8 text-[#df012a]">
     <path d="M16 6v14M10 14l6 6 6-6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
     <path d="M6 24h20" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
   </svg>
 );
 
 const IconValidate = () => (
-  <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7 text-[#df012a]">
+  <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8 text-[#df012a]">
     <path d="M16 4l11 5v7c0 6.5-4.8 11.5-11 13C9.8 27.5 5 22.5 5 16V9l11-5z" stroke="currentColor" strokeWidth="1.75" strokeLinejoin="round" />
     <path d="M11 16l3.5 3.5 6.5-6.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
 const IconTransform = () => (
-  <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7 text-[#df012a]">
+  <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8 text-[#df012a]">
     <path d="M7 11h18M21 7l4 4-4 4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
     <path d="M25 21H7M11 25l-4-4 4-4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
 const IconApplyRules = () => (
-  <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7 text-[#df012a]">
+  <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8 text-[#df012a]">
     <path d="M5 10h22M5 22h22" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
     <circle cx="12" cy="10" r="3" fill="white" stroke="currentColor" strokeWidth="1.75" />
     <circle cx="20" cy="22" r="3" fill="white" stroke="currentColor" strokeWidth="1.75" />
@@ -36,7 +36,7 @@ const IconApplyRules = () => (
 );
 
 const IconRoute = () => (
-  <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7 text-[#df012a]">
+  <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8 text-[#df012a]">
     <circle cx="7" cy="16" r="3" stroke="currentColor" strokeWidth="1.75" />
     <circle cx="25" cy="9" r="3" stroke="currentColor" strokeWidth="1.75" />
     <circle cx="25" cy="23" r="3" stroke="currentColor" strokeWidth="1.75" />
@@ -45,7 +45,7 @@ const IconRoute = () => (
 );
 
 const IconComplete = () => (
-  <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7 text-[#df012a]">
+  <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8 text-[#df012a]">
     <circle cx="16" cy="16" r="11" stroke="currentColor" strokeWidth="1.75" />
     <path d="M11 16l3.5 3.5 6.5-6.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
   </svg>

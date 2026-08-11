@@ -227,9 +227,9 @@ export default function EIBuiltToConnectSection() {
   return (
     <section
       ref={sectionRef}
-      id="built-to-connect-integrations"
+      id="what-we-connect"
       className="relative w-full bg-white text-[#0a0a0a] overflow-hidden pb-16 md:pb-20"
-      aria-label="Built to Connect — Systems Integration Landscape"
+      aria-label="What We Connect — Systems Integration Landscape"
     >
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-5">
         {/* ── Inner Light Off-White Background Panel ── */}
@@ -241,7 +241,7 @@ export default function EIBuiltToConnectSection() {
           {/* ── TOP FULL-WIDTH SECTION INTRO ── */}
           <div ref={introRef} className="max-w-3xl mb-12 lg:mb-14">
             <p className="type-eyebrow-accent mb-3 tracking-[0.22em]">
-              BUILT TO CONNECT
+              WHAT WE CONNECT
             </p>
             <div className="mb-6 h-px w-10 bg-[#df012a]" aria-hidden="true" />
 
