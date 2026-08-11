@@ -3,8 +3,8 @@ import AppLayout from './layouts/AppLayout';
 import HomePage from './pages/HomePage';
 import EnterpriseCustomSoftwarePage from './pages/EnterpriseCustomSoftwarePage';
 import EnterpriseIntegrationsPage from './pages/EnterpriseIntegrationsPage';
-
 import LegacyModernizationPage from './pages/LegacyModernizationPage';
+import FunctionalPrototypesPage from './pages/FunctionalPrototypesPage';
 
 function App() {
   return (
@@ -24,6 +24,14 @@ function App() {
           <Route
             path="services/legacy-modernization"
             element={<LegacyModernizationPage />}
+          />
+          <Route
+            path="services/functional-prototypes"
+            element={<FunctionalPrototypesPage />}
+          />
+          <Route
+            path="services/product-prototyping"
+            element={<FunctionalPrototypesPage />}
           />
         </Route>
       </Routes>
