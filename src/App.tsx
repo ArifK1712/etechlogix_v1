@@ -5,6 +5,7 @@ import EnterpriseCustomSoftwarePage from './pages/EnterpriseCustomSoftwarePage';
 import EnterpriseIntegrationsPage from './pages/EnterpriseIntegrationsPage';
 import LegacyModernizationPage from './pages/LegacyModernizationPage';
 import FunctionalPrototypesPage from './pages/FunctionalPrototypesPage';
+import DedicatedEngineeringTeamsPage from './pages/DedicatedEngineeringTeamsPage';
 
 function App() {
   return (
@@ -32,6 +33,10 @@ function App() {
           <Route
             path="services/product-prototyping"
             element={<FunctionalPrototypesPage />}
+          />
+          <Route
+            path="services/dedicated-engineering-teams"
+            element={<DedicatedEngineeringTeamsPage />}
           />
         </Route>
       </Routes>

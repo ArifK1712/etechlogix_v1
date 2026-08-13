@@ -281,7 +281,7 @@ export default function LMBusinessImpactSection() {
             </p>
 
             {/* Main statement */}
-            <p className="font-display font-bold text-xl md:text-2xl text-[#df012a] leading-[1.18] tracking-[-0.02em] mb-5">
+            <p className="font-display font-semibold text-2xl md:text-3xl text-[#0a0a0a] leading-[1.18] tracking-[-0.02em] mb-5">
               Technology stops dictating what the business can do.
             </p>
 

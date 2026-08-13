@@ -41,7 +41,7 @@ const servicesItems: ServiceItem[] = [
   {
     title: 'Dedicated Engineering Teams',
     href: '/services/dedicated-engineering-teams',
-    description: 'Experienced engineers who take product and delivery ownership.',
+    description: 'Experienced engineers who extend your team and take ownership of delivery.',
   },
 ];
 
@@ -267,7 +267,7 @@ export default function Header() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-x-2 gap-y-1">
-                  {servicesItems.map((item) => (
+                  {servicesItems.slice(0, 4).map((item) => (
                     <Link
                       key={item.title}
                       to={toInternalTo(item.href)}
@@ -286,6 +286,28 @@ export default function Header() {
                       </p>
                     </Link>
                   ))}
+                </div>
+
+                <div className="mx-3 mt-3 border-t border-neutral-200 pt-3">
+                  <span className="mb-2 block text-[10px] font-mono font-normal uppercase tracking-wider text-[#df012a]">
+                    HOW WE WORK WITH YOU
+                  </span>
+                  <Link
+                    to={toInternalTo(servicesItems[4].href)}
+                    role="menuitem"
+                    onClick={() => setActiveDropdown(null)}
+                    className="group flex flex-col justify-center rounded-xl bg-neutral-50 p-3 transition-colors duration-150 hover:bg-neutral-100 focus:outline-none focus:bg-neutral-100"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-[14px] font-normal text-[#111111] transition-colors group-hover:text-[#df012a]">
+                        {servicesItems[4].title}
+                      </span>
+                      <ArrowRight className="h-3.5 w-3.5 text-[#df012a] transition-transform duration-150 group-hover:translate-x-0.5" />
+                    </div>
+                    <p className="mt-1 text-[12px] leading-[1.45] text-neutral-600">
+                      {servicesItems[4].description}
+                    </p>
+                  </Link>
                 </div>
               </div>
             )}

@@ -140,10 +140,10 @@ export default function Footer() {
             <h2 className={headingClass}>Contact</h2>
             <div className="flex flex-col gap-4">
               <a
-                href="mailto:hello@etechlogix.com"
+                href="tel:+14805270786"
                 className="type-body font-medium text-[#0a0a0a] transition-colors duration-300 hover:text-[#df012a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
               >
-                hello@etechlogix.com
+                +1 (480) 527-0786
               </a>
               <InternalLink href="#contact" className={linkClass}>
                 Contact Us
