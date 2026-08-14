@@ -203,11 +203,6 @@ export default function AgenticAIServicesSection() {
               <h3 className="font-display text-xl font-semibold leading-snug tracking-[-0.025em] text-[#111] transition-colors duration-300 group-hover:text-[#df012a] group-focus-visible:text-[#df012a] md:pr-8 md:text-2xl">{service.title}</h3>
               <div className="col-start-2 mt-4 md:col-start-auto md:mt-0 md:pr-8">
                 <p className="type-body text-neutral-600">{service.description}</p>
-                <p className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-neutral-600">
-                  {service.keywords.map((keyword, keywordIndex) => (
-                    <span key={keyword} className="inline-flex items-center gap-2">{keywordIndex > 0 && <i className="text-[#df012a] not-italic">/</i>}{keyword}</span>
-                  ))}
-                </p>
               </div>
               <ArrowRight className="hidden h-5 w-5 text-[#111] transition-transform duration-300 group-hover:translate-x-1 group-focus-visible:translate-x-1 md:block" strokeWidth={1.6} aria-hidden="true" />
               <div className="how-help-visual col-span-2 mt-5 h-[120px] text-[#df012a]/30 md:col-span-1 md:mt-0 md:h-[118px]">
