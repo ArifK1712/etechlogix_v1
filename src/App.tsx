@@ -7,6 +7,7 @@ import LegacyModernizationPage from './pages/LegacyModernizationPage';
 import FunctionalPrototypesPage from './pages/FunctionalPrototypesPage';
 import DedicatedEngineeringTeamsPage from './pages/DedicatedEngineeringTeamsPage';
 import AgenticAIPage from './pages/AgenticAIPage';
+import DocumentAutomationPage from './pages/DocumentAutomationPage';
 
 function App() {
   return (
@@ -42,6 +43,10 @@ function App() {
           <Route
             path="ai-automation/agentic-ai-workflow-automation"
             element={<AgenticAIPage />}
+          />
+          <Route
+            path="ai-automation/document-automation"
+            element={<DocumentAutomationPage />}
           />
         </Route>
       </Routes>

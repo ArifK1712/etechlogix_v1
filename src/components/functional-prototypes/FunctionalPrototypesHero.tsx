@@ -60,10 +60,10 @@ export default function FunctionalPrototypesHero() {
             <p className="type-eyebrow-accent mb-3 tracking-[0.22em]">FUNCTIONAL PRODUCT PROTOTYPES</p>
             <div className="mb-7 h-px w-10 bg-[#df012a]" aria-hidden="true" />
 
-            <h1 className="type-hero-heading mb-6 leading-[1.08] text-[#0a0a0a]">
+            <h1 className="service-hero-heading type-hero-heading mb-6 leading-[1.08] text-[#0a0a0a]">
               Don&apos;t just explain<br />
               the idea.<br />
-              <span className="text-[#df012a]">Make it usable.</span>
+              <span>Make it usable<span className="service-hero-dot">.</span></span>
             </h1>
 
             <p className="type-hero-lead mb-10 max-w-[420px] text-neutral-500">

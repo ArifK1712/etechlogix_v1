@@ -91,9 +91,9 @@ export default function EnterpriseCustomSoftwareHero() {
           </div>
 
           {/* Headline — uses homepage type-hero-heading for consistent sizing */}
-          <h1 className="type-hero-heading text-[#0a0a0a] max-w-[820px] text-balance mb-7">
+          <h1 className="service-hero-heading type-hero-heading text-[#0a0a0a] max-w-[820px] text-balance mb-7">
             Software built around your business.{' '}
-            <span className="text-[#df012a]">Not the other way around.</span>
+            <span>Not the other way around<span className="service-hero-dot">.</span></span>
           </h1>
 
           {/* Supporting paragraph */}

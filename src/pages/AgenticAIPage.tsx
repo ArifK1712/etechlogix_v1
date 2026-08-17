@@ -4,6 +4,7 @@ import EnterpriseValueSection from '../components/agentic-ai/EnterpriseValueSect
 import EnterpriseByDesignSection from '../components/agentic-ai/EnterpriseByDesignSection';
 import ControlWithoutCompromiseSection from '../components/agentic-ai/ControlWithoutCompromiseSection';
 import AgenticAIServicesSection from '../components/agentic-ai/AgenticAIServicesSection';
+import BuiltToDeliverSection from '../components/agentic-ai/BuiltToDeliverSection';
 
 export default function AgenticAIPage() {
   return (
@@ -15,6 +16,7 @@ export default function AgenticAIPage() {
         <EnterpriseByDesignSection />
         <ControlWithoutCompromiseSection />
         <AgenticAIServicesSection />
+        <BuiltToDeliverSection />
       </main>
     </div>
   );

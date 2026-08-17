@@ -51,10 +51,10 @@ export default function DedicatedEngineeringTeamsHero() {
             <p className="type-eyebrow-accent mb-3 tracking-[0.22em]">DEDICATED ENGINEERING TEAMS</p>
             <div className="mb-7 h-px w-10 bg-[#df012a]" aria-hidden="true" />
 
-            <h1 className="type-hero-heading mb-6 leading-[1.08] text-[#0a0a0a]">
+            <h1 className="service-hero-heading type-hero-heading mb-6 leading-[1.08] text-[#0a0a0a]">
               Extend your<br />
               engineering team.<br />
-              Not your overhead<span className="text-[#df012a]">.</span>
+              Not your overhead<span className="service-hero-dot">.</span>
             </h1>
 
             <p className="type-hero-lead mb-10 max-w-[500px] text-neutral-500">

@@ -22,14 +22,14 @@ export default function AgenticAIHero() {
         <ellipse cx="650" cy="350" rx="274" ry="202" stroke="#df012a" strokeOpacity="0.09" strokeWidth="1" />
       </svg>
 
-      <div className="agentic-main relative z-10 mx-auto grid min-h-[670px] max-w-[1440px] px-5 sm:px-8 lg:px-14 xl:px-16">
+      <div className="agentic-main relative z-10 mx-auto grid min-h-[670px] w-full max-w-[1400px] px-5">
         <div className="agentic-copy self-center pb-10 pt-12 lg:pb-4 lg:pt-0">
           <div className="agentic-reveal mb-7">
             <p className="type-eyebrow-accent mb-3 tracking-[0.22em]">Agentic AI</p>
             <span className="block h-px w-10 bg-[#df012a]" aria-hidden="true" />
           </div>
-          <h1 id="agentic-ai-title" className="agentic-reveal type-hero-heading mb-6 max-w-[820px] text-[#0a0a0a]">
-            Autonomous AI.<br />Real Business Impact<span className="text-[#df012a]">.</span>
+          <h1 id="agentic-ai-title" className="service-hero-heading agentic-reveal type-hero-heading mb-6 max-w-[820px] text-[#0a0a0a]">
+            Autonomous AI.<br />Real Business Impact<span className="service-hero-dot">.</span>
           </h1>
           <p className="agentic-reveal type-hero-lead mb-10 max-w-[540px] text-neutral-500">
             Agentic AI systems that reason, act, and adapt—working alongside your teams to automate complex processes and drive measurable outcomes.

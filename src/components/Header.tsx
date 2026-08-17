@@ -61,11 +61,6 @@ const aiItems: ServiceItem[] = [
     href: '/ai-automation/intelligent-process-automation',
     description: 'Automated policy checks, approvals, and system notifications.',
   },
-  {
-    title: 'AI-Powered Enterprise Applications',
-    href: '/ai-automation/ai-powered-enterprise-applications',
-    description: 'Custom applications integrated with enterprise LLMs & RAG engines.',
-  },
 ];
 
 const industryItems: ServiceItem[] = [
