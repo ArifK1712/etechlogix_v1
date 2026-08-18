@@ -1,13 +1,33 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
+import type { LucideIcon } from 'lucide-react';
 import { FileText, Image as ImageIcon, LayoutGrid, File, AudioLines, ArrowRight, Calendar, User, Hash, MoreHorizontal } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const inputTiles = [
+interface InputTile {
+  id: string;
+  title?: string;
+  label: string;
+  icon: LucideIcon;
+  top: number;
+  left: number;
+  hideMobile?: boolean;
+  planned?: boolean;
+}
+
+interface StructuredDataRow {
+  id: string;
+  char?: string;
+  icon?: LucideIcon;
+  w1: string;
+  w2: string;
+}
+
+const inputTiles: InputTile[] = [
   { id: 'pdf', label: 'INVOICE.PDF', icon: FileText, top: 12, left: 4 },
   { id: 'img', label: 'CONTRACT.JPG', icon: ImageIcon, top: 31, left: 10, hideMobile: true },
   { id: 'xls', label: 'REPORT.XLSX', icon: LayoutGrid, top: 50, left: 4 },
@@ -15,7 +35,7 @@ const inputTiles = [
   { id: 'aud', title: 'AUDIO', label: 'CALL_RECORDING.MP3', icon: AudioLines, top: 88, left: 4, planned: true },
 ];
 
-const sdRows = [
+const sdRows: StructuredDataRow[] = [
   { id: 't', char: 'T', w1: '60%', w2: '20%' },
   { id: 'cal', icon: Calendar, w1: '40%', w2: '30%' },
   { id: 's', char: 'S', w1: '55%', w2: '25%' },
@@ -181,25 +201,28 @@ export default function DocumentAutomationCTASection() {
             </svg>
 
             {/* INPUT TILES (Refined compact dimensions) */}
-            {inputTiles.map((tile) => (
-              <div 
-                key={tile.id}
-                className={`cta-tile absolute z-10 flex flex-col items-center justify-center gap-1.5 sm:gap-2 p-2 sm:p-2.5 bg-white border border-neutral-200/80 shadow-[0_6px_20px_rgba(0,0,0,0.04)] rounded-xl w-[115px] sm:w-[130px] h-[85px] sm:h-[94px] -translate-y-1/2 ${tile.hideMobile ? 'hidden sm:flex' : ''}`}
-                style={{ top: `${tile.top}%`, left: `${tile.left}%` }}
-              >
-                <tile.icon className="w-6 h-6 sm:w-8 sm:h-8 text-brand-red stroke-[1.2]" />
-                <div className="flex flex-col items-center">
-                  {tile.title && <span className="text-[9px] sm:text-[10px] font-bold text-neutral-800 tracking-wide">{tile.title}</span>}
-                  <span className="text-[8.5px] sm:text-[9.5px] font-mono font-medium text-neutral-500 tracking-tight">{tile.label}</span>
-                </div>
-                
-                {tile.planned && (
-                  <div className="absolute -bottom-2.5 border border-brand-red/15 bg-white px-2 py-0.5 rounded-full shadow-sm text-[7px] sm:text-[8px] uppercase tracking-widest font-bold text-brand-red/80">
-                    Planned
+            {inputTiles.map((tile) => {
+              const TileIcon = tile.icon;
+              return (
+                <div 
+                  key={tile.id}
+                  className={`cta-tile absolute z-10 flex flex-col items-center justify-center gap-1.5 sm:gap-2 p-2 sm:p-2.5 bg-white border border-neutral-200/80 shadow-[0_6px_20px_rgba(0,0,0,0.04)] rounded-xl w-[115px] sm:w-[130px] h-[85px] sm:h-[94px] -translate-y-1/2 ${tile.hideMobile ? 'hidden sm:flex' : ''}`}
+                  style={{ top: `${tile.top}%`, left: `${tile.left}%` }}
+                >
+                  <TileIcon className="w-6 h-6 sm:w-8 sm:h-8 text-brand-red stroke-[1.2]" />
+                  <div className="flex flex-col items-center">
+                    {tile.title && <span className="text-[9px] sm:text-[10px] font-bold text-neutral-800 tracking-wide">{tile.title}</span>}
+                    <span className="text-[8.5px] sm:text-[9.5px] font-mono font-medium text-neutral-500 tracking-tight">{tile.label}</span>
                   </div>
-                )}
-              </div>
-            ))}
+                  
+                  {tile.planned && (
+                    <div className="absolute -bottom-2.5 border border-brand-red/15 bg-white px-2 py-0.5 rounded-full shadow-sm text-[7px] sm:text-[8px] uppercase tracking-widest font-bold text-brand-red/80">
+                      Planned
+                    </div>
+                  )}
+                </div>
+              );
+            })}
 
             {/* CENTRAL CONVERGENCE POINT */}
             <div className="cta-hub absolute z-20 top-[50%] left-[62%] -translate-x-1/2 -translate-y-1/2">
@@ -214,23 +237,26 @@ export default function DocumentAutomationCTASection() {
               </span>
               
               <div className="flex flex-col gap-3.5 sm:gap-4 my-auto">
-                {sdRows.map((row) => (
-                  <div key={row.id} className="cta-sd-row flex items-center gap-3 sm:gap-3.5">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center shrink-0">
-                      {row.char ? (
-                        <span className="text-[11px] sm:text-[12.5px] font-bold text-brand-red leading-none">{row.char}</span>
-                      ) : (
-                        <row.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-red stroke-[2]" />
-                      )}
+                {sdRows.map((row) => {
+                  const Icon = row.icon;
+                  return (
+                    <div key={row.id} className="cta-sd-row flex items-center gap-3 sm:gap-3.5">
+                      <div className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center shrink-0">
+                        {row.char ? (
+                          <span className="text-[11px] sm:text-[12.5px] font-bold text-brand-red leading-none">{row.char}</span>
+                        ) : (
+                          Icon && <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-red stroke-[2]" />
+                        )}
+                      </div>
+                      <div className="flex-1 flex items-center gap-1.5 sm:gap-2">
+                        <div className="h-2 sm:h-2.5 bg-neutral-100 rounded-full" style={{ width: row.w1 }}></div>
+                        {row.w2 !== '0%' && (
+                          <div className="h-2 sm:h-2.5 bg-neutral-100 rounded-full" style={{ width: row.w2 }}></div>
+                        )}
+                      </div>
                     </div>
-                    <div className="flex-1 flex items-center gap-1.5 sm:gap-2">
-                      <div className="h-2 sm:h-2.5 bg-neutral-100 rounded-full" style={{ width: row.w1 }}></div>
-                      {row.w2 !== '0%' && (
-                        <div className="h-2 sm:h-2.5 bg-neutral-100 rounded-full" style={{ width: row.w2 }}></div>
-                      )}
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
