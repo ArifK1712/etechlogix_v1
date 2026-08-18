@@ -210,7 +210,7 @@ export default function AIExtractionSection() {
             </g>
           </svg>
 
-          {/* LEFT: SOURCE DOCUMENTS */}
+          
           <div className="flex flex-col gap-6 justify-center relative z-10 w-full h-full py-4">
             {inputTypes.map((item) => (
               <div
@@ -317,8 +317,6 @@ export default function AIExtractionSection() {
             </div>
           </div>
         </div>
-
-        {/* BOTTOM STATEMENT */}
         <div className="extract-footer text-center mt-10 lg:mt-12">
           <p className="text-lg md:text-xl font-medium text-neutral-900">
             Different inputs. <span className="text-brand-red">Consistent data.</span>
