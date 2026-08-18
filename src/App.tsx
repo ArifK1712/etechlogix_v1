@@ -8,6 +8,8 @@ import FunctionalPrototypesPage from './pages/FunctionalPrototypesPage';
 import DedicatedEngineeringTeamsPage from './pages/DedicatedEngineeringTeamsPage';
 import AgenticAIPage from './pages/AgenticAIPage';
 import DocumentAutomationPage from './pages/DocumentAutomationPage';
+import ComingSoonPage from './pages/ComingSoonPage';
+import { comingSoonRoutes } from './comingSoonConfig';
 
 function App() {
   return (
@@ -48,6 +50,14 @@ function App() {
             path="ai-automation/document-automation"
             element={<DocumentAutomationPage />}
           />
+          {/* Dynamically register all coming soon routes */}
+          {comingSoonRoutes.map((path) => (
+            <Route
+              key={path}
+              path={path}
+              element={<ComingSoonPage />}
+            />
+          ))}
         </Route>
       </Routes>
     </BrowserRouter>
@@ -55,3 +65,4 @@ function App() {
 }
 
 export default App;
+

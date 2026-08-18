@@ -294,7 +294,7 @@ function PhotoPanel({ panel, index }: { panel: Panel; index: number }) {
             <h3 className="font-display font-semibold text-white text-[1.05rem] sm:text-[1.15rem] lg:text-[1.25rem] leading-snug tracking-[-0.015em] mb-1.5">
               {panel.title}
             </h3>
-            <p className="text-white/70 text-[0.8rem] sm:text-[0.85rem] leading-[1.55] max-w-[280px]">
+            <p className="type-body text-white/70 max-w-[280px]">
               {panel.desc}
             </p>
           </div>
@@ -537,10 +537,10 @@ export default function DAValueSection() {
               </div>
               {/* Text */}
               <div className="min-w-0">
-                <p className="font-display font-semibold text-[0.9rem] sm:text-[0.95rem] text-[#0a0a0a] leading-snug tracking-[-0.01em] mb-1">
+                <h3 className="block font-display text-lg font-semibold leading-snug tracking-[-0.02em] text-[#111] md:text-xl mb-1">
                   {item.title}
-                </p>
-                <p className="text-[0.82rem] sm:text-[0.85rem] text-[#555555] leading-[1.55]">
+                </h3>
+                <p className="type-body text-[#555555]">
                   {item.desc}
                 </p>
               </div>
