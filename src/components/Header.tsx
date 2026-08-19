@@ -56,46 +56,14 @@ const aiItems: ServiceItem[] = [
     href: '/ai-automation/document-automation',
     description: 'Intelligent parsing and extraction for complex enterprise documents.',
   },
-  {
-    title: 'Intelligent Process Automation',
-    href: '/ai-automation/intelligent-process-automation',
-    description: 'Automated policy checks, approvals, and system notifications.',
-  },
 ];
 
-const industryItems: ServiceItem[] = [
-  {
-    title: 'Events & Conferences',
-    href: '/industries/events-conferences',
-    description: 'Registration, attendee check-in, venue ops, and real-time reporting.',
-  },
-  {
-    title: 'Healthcare',
-    href: '/industries/healthcare',
-    description: 'HIPAA-compliant records synchronization and care pathway coordination.',
-  },
-  {
-    title: 'ERP, Distribution & Supply Chain',
-    href: '/industries/erp-distribution-supply-chain',
-    description: 'Multi-warehouse inventory sync, order routing, and supply chain automation.',
-  },
-  {
-    title: 'Enterprise Operations',
-    href: '/industries/enterprise-operations',
-    description: 'Operational telemetry dashboards and decision support systems.',
-  },
-];
 
 const companyItems: ServiceItem[] = [
   {
     title: 'About eTechLogix',
     href: '/company/about',
     description: 'Our story, engineering philosophy, and long-term partnership approach.',
-  },
-  {
-    title: 'How We Deliver',
-    href: '/company/how-we-deliver',
-    description: 'From complex challenge to production-ready, dependable solutions.',
   },
   {
     title: 'Contact',
@@ -380,75 +348,13 @@ export default function Header() {
             )}
           </div>
 
-          {/* Industries Link with Dropdown */}
-          <div
-            className="relative h-full flex items-center overflow-visible"
-            onMouseEnter={() => setActiveDropdown('Industries')}
-            onMouseLeave={() => setActiveDropdown(null)}
+          {/* Direct Industries Link */}
+          <Link
+            to={toInternalTo('/#industries')}
+            className={`type-nav nav-link-premium whitespace-nowrap transition-colors duration-200 py-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${navLinkTone}`}
           >
-            <button
-              type="button"
-              aria-expanded={activeDropdown === 'Industries'}
-              aria-controls="industries-dropdown"
-              onClick={() => setActiveDropdown(activeDropdown === 'Industries' ? null : 'Industries')}
-              className={`group type-nav nav-link-premium whitespace-nowrap transition-colors duration-200 flex items-center gap-1 py-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${
-                activeDropdown === 'Industries' ? navLinkActive : navLinkTone
-              }`}
-            >
-              <span>Industries</span>
-              <ChevronDown
-                className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  activeDropdown === 'Industries'
-                    ? 'rotate-180 text-[#df012a]'
-                    : 'text-neutral-400 group-hover:text-neutral-700'
-                }`}
-              />
-            </button>
-
-            {/* Industries Dropdown */}
-            {activeDropdown === 'Industries' && (
-              <div
-                id="industries-dropdown"
-                role="menu"
-                aria-label="Industries Dropdown"
-                className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 w-[460px] max-w-[calc(100vw-48px)] bg-white border border-neutral-200 rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.08)] p-4 z-[60] animate-in fade-in slide-in-from-top-2 duration-150 before:absolute before:-top-4 before:left-0 before:w-full before:h-4"
-              >
-                <div className="px-3 pt-2 pb-3 mb-2 border-b border-neutral-200 flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] font-mono font-normal text-[#df012a] uppercase tracking-wider block">
-                      INDUSTRY EXPERIENCE
-                    </span>
-                    <p className="text-xs text-neutral-500 mt-0.5">
-                      Enterprise technology designed for operationally complex environments.
-                    </p>
-                  </div>
-                  <Building2 className="w-4 h-4 text-[#df012a]" />
-                </div>
-
-                <div className="space-y-1">
-                  {industryItems.map((item) => (
-                    <Link
-                      key={item.title}
-                      to={toInternalTo(item.href)}
-                      role="menuitem"
-                      onClick={() => setActiveDropdown(null)}
-                      className="group flex flex-col justify-center p-3 rounded-xl hover:bg-neutral-50 transition-colors duration-150 focus:outline-none focus:bg-neutral-50"
-                    >
-                      <div className="flex items-center justify-between">
-                        <span className="text-[14px] font-normal text-[#111111] group-hover:text-[#df012a] transition-colors">
-                          {item.title}
-                        </span>
-                        <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-[#df012a]" />
-                      </div>
-                      <p className="text-[12px] text-neutral-600 mt-1 leading-[1.45]">
-                        {item.description}
-                      </p>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
+            Industries
+          </Link>
 
           {/* Direct Work Link */}
           <Link
@@ -629,38 +535,15 @@ export default function Header() {
                 )}
               </div>
 
-              {/* Industries Mobile Category */}
+              {/* Direct Industries Link */}
               <div className="border-b border-[#e5e7eb] pb-4">
-                <button
-                  type="button"
-                  onClick={() =>
-                    setExpandedMobileCategory(
-                      expandedMobileCategory === 'Industries' ? null : 'Industries',
-                    )
-                  }
-                  className="w-full flex items-center justify-between py-2 text-left font-display font-normal text-lg text-[#0a0a0a]"
+                <Link
+                  to={toInternalTo('/#industries')}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-2 font-display font-normal text-lg text-[#0a0a0a] hover:text-[#df012a]"
                 >
-                  <span>Industries</span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-neutral-400 transition-transform duration-200 ${
-                      expandedMobileCategory === 'Industries' ? 'rotate-180 text-[#df012a]' : ''
-                    }`}
-                  />
-                </button>
-                {expandedMobileCategory === 'Industries' && (
-                  <div className="mt-3 pl-3 space-y-3 border-l-2 border-[#df012a]">
-                    {industryItems.map((item) => (
-                      <Link
-                        key={item.title}
-                        to={toInternalTo(item.href)}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="block text-sm font-medium text-neutral-600 hover:text-[#df012a] transition-colors py-1"
-                      >
-                        {item.title}
-                      </Link>
-                    ))}
-                  </div>
-                )}
+                  Industries
+                </Link>
               </div>
 
               {/* Direct Work Link */}

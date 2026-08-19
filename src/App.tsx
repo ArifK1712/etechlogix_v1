@@ -8,6 +8,7 @@ import FunctionalPrototypesPage from './pages/FunctionalPrototypesPage';
 import DedicatedEngineeringTeamsPage from './pages/DedicatedEngineeringTeamsPage';
 import AgenticAIPage from './pages/AgenticAIPage';
 import DocumentAutomationPage from './pages/DocumentAutomationPage';
+import IntelligentWorkflowAutomationPage from './pages/IntelligentWorkflowAutomationPage';
 import ComingSoonPage from './pages/ComingSoonPage';
 import { comingSoonRoutes } from './comingSoonConfig';
 
@@ -50,6 +51,12 @@ function App() {
             path="ai-automation/document-automation"
             element={<DocumentAutomationPage />}
           />
+          {/* Temporarily hidden public route (served via ComingSoonPage until development resumes):
+          <Route
+            path="ai-automation/intelligent-process-automation"
+            element={<IntelligentWorkflowAutomationPage />}
+          />
+          */}
           {/* Dynamically register all coming soon routes */}
           {comingSoonRoutes.map((path) => (
             <Route
