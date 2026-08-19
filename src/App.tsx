@@ -8,7 +8,7 @@ import FunctionalPrototypesPage from './pages/FunctionalPrototypesPage';
 import DedicatedEngineeringTeamsPage from './pages/DedicatedEngineeringTeamsPage';
 import AgenticAIPage from './pages/AgenticAIPage';
 import DocumentAutomationPage from './pages/DocumentAutomationPage';
-import IntelligentWorkflowAutomationPage from './pages/IntelligentWorkflowAutomationPage';
+// import IntelligentWorkflowAutomationPage from './pages/IntelligentWorkflowAutomationPage';
 import ComingSoonPage from './pages/ComingSoonPage';
 import { comingSoonRoutes } from './comingSoonConfig';
 
