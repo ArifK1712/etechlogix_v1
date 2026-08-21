@@ -5,23 +5,19 @@ import { ArrowRight } from 'lucide-react';
 const credibilityAreas = [
   {
     title: 'Enterprise Engineering Depth',
-    description: 'Build AI with the same engineering discipline required for complex enterprise software and mission-critical systems.',
-    keywords: ['Architecture', 'Software Engineering', 'Reliability'],
+    description: 'Enterprise-grade AI built for reliability, scale and real-world operations.',
   },
   {
     title: 'Integration at the Core',
-    description: 'Design agents around the applications, APIs, data, cloud platforms, and workflows already running the business.',
-    keywords: ['APIs', 'Data', 'Cloud', 'Enterprise Systems'],
+    description: 'AI connected with the applications, APIs, data and workflows you already use.',
   },
   {
     title: 'Production from Day One',
-    description: 'Security, observability, reliability, governance, and scale are considered from the beginning, not added later.',
-    keywords: ['Security', 'Observability', 'Governance', 'Scale'],
+    description: 'Security, governance and observability considered from the start.',
   },
   {
     title: 'End-to-End Ownership',
-    description: 'Move from opportunity discovery and prototyping through deployment, optimization, and continuous evolution.',
-    keywords: ['Strategy', 'Build', 'Deploy', 'Optimize'],
+    description: 'From strategy and build through deployment and continuous improvement.',
   },
 ];
 
@@ -69,16 +65,16 @@ export default function BuiltToDeliverSection() {
   return (
     <section ref={sectionRef} data-active={activeArea ?? undefined} className="built-deliver-section overflow-hidden border-t border-neutral-200/70 bg-[#fafafa] py-16 lg:py-20" aria-labelledby="built-deliver-title">
       <div className="mx-auto w-full max-w-[1400px] px-5">
-        <header className="built-deliver-intro max-w-[680px]">
+        <header className="built-deliver-intro mx-auto w-full text-center">
           <div className="mb-7">
             <p className="type-eyebrow-accent mb-3 tracking-[0.22em]">Built to Deliver</p>
-            <span className="block h-px w-10 bg-[#df012a]" aria-hidden="true" />
+            <span className="mx-auto block h-px w-10 bg-[#df012a]" aria-hidden="true" />
           </div>
-          <h2 id="built-deliver-title" className="type-section-heading-lg text-balance sm:text-4xl md:text-[2.65rem] lg:text-[2.75rem]">
-            Enterprise AI needs more<br />than a great model<span className="text-[#df012a]">.</span>
+          <h2 id="built-deliver-title" className="type-section-heading-lg sm:text-4xl md:text-[2.65rem] lg:whitespace-nowrap lg:text-[2.75rem]">
+            Enterprise AI needs more than a great model<span className="text-[#df012a]">.</span>
           </h2>
-          <p className="type-body mt-5 max-w-[650px] text-[#555555]">
-            Successful Agentic AI requires software engineering, enterprise integration, governance, and production discipline working together. That is where eTechLogix brings the advantage.
+          <p className="type-body mx-auto mt-5 max-w-[650px] text-[#555555]">
+            We combine engineering, integration and production discipline to make AI work at enterprise scale.
           </p>
         </header>
 
@@ -97,30 +93,25 @@ export default function BuiltToDeliverSection() {
               onMouseLeave={() => setActiveArea(null)}
               onFocus={() => setActiveArea(index)}
               onBlur={() => setActiveArea(null)}
-              className={`built-deliver-area group relative min-h-[245px] py-9 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#df012a] ${index % 2 === 0 ? 'md:pr-12 lg:pr-[190px]' : 'md:pl-12 lg:pl-[190px]'} ${index > 1 ? 'border-t border-neutral-200 md:border-t-0' : index === 1 ? 'border-t border-neutral-200 md:border-t-0' : ''}`}
+              className={`built-deliver-area group relative min-h-[200px] py-7 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#df012a] ${index % 2 === 0 ? 'md:pr-12 lg:pr-[190px]' : 'md:pl-12 lg:pl-[190px]'} ${index > 1 ? 'border-t border-neutral-200 md:border-t-0' : index === 1 ? 'border-t border-neutral-200 md:border-t-0' : ''}`}
             >
               <span className="mb-5 block h-px w-8 bg-[#df012a]/70" aria-hidden="true" />
               <h3 className="font-display text-xl font-semibold leading-snug tracking-[-0.02em] text-[#111] transition-colors duration-300 group-hover:text-[#df012a] group-focus-visible:text-[#df012a] md:text-2xl">{area.title}</h3>
               <p className="type-body mt-3 text-[#555555]">{area.description}</p>
-              <p className="built-deliver-keywords mt-5 flex flex-wrap gap-x-2 gap-y-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-neutral-500 transition-opacity duration-300">
-                {area.keywords.map((keyword, keywordIndex) => (
-                  <span className="inline-flex items-center gap-2" key={keyword}>{keywordIndex > 0 && <i className="not-italic text-[#df012a]">·</i>}{keyword}</span>
-                ))}
-              </p>
             </article>
           ))}
         </div>
 
-        <div className="built-deliver-conclusion border-t border-neutral-200 pt-10 text-center md:pt-12">
-          <p className="font-display text-xl font-semibold leading-snug tracking-[-0.025em] text-[#111] md:text-2xl">
-            Strategy<span className="text-[#df012a]">.</span> Engineering<span className="text-[#df012a]">.</span> Integration<span className="text-[#df012a]">.</span> Governance<span className="text-[#df012a]">.</span> Production<span className="text-[#df012a]">.</span>
-          </p>
-          <p className="type-body mt-2 text-[#555555]">One team from idea to enterprise scale.</p>
-          <Link to="/contact" className="btn-etech btn-etech--primary btn-etech--section group mt-6">
-            <span>Talk to Our AI Team</span>
-            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" strokeWidth={2} aria-hidden="true" />
-          </Link>
-          <span className="mx-auto mt-6 block h-px w-20 bg-[#df012a]" aria-hidden="true" />
+        <div className="built-deliver-conclusion border-t border-neutral-200 pt-10 md:pt-12">
+          <div className="grid items-center gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:gap-10">
+            <p className="font-display text-xl font-semibold leading-snug tracking-[-0.025em] text-[#111] md:text-2xl">
+              Strategy<span className="text-[#df012a]">.</span> Engineering<span className="text-[#df012a]">.</span> Integration<span className="text-[#df012a]">.</span> Governance<span className="text-[#df012a]">.</span> Production<span className="text-[#df012a]">.</span>
+            </p>
+            <Link to="/contact" className="btn-etech btn-etech--primary btn-etech--section group justify-self-start md:justify-self-end">
+              <span>Talk to Our AI Team</span>
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" strokeWidth={2} aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

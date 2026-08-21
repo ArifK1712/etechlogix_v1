@@ -8,6 +8,7 @@ import FunctionalPrototypesPage from './pages/FunctionalPrototypesPage';
 import DedicatedEngineeringTeamsPage from './pages/DedicatedEngineeringTeamsPage';
 import AgenticAIPage from './pages/AgenticAIPage';
 import DocumentAutomationPage from './pages/DocumentAutomationPage';
+import IndustriesPage from './pages/IndustriesPage';
 // import IntelligentWorkflowAutomationPage from './pages/IntelligentWorkflowAutomationPage';
 import ComingSoonPage from './pages/ComingSoonPage';
 import { comingSoonRoutes } from './comingSoonConfig';
@@ -19,6 +20,7 @@ function App() {
         <Route element={<AppLayout />}>
           <Route index element={<HomePage />} />
           <Route path="work" element={<HomePage />} />
+          <Route path="industries" element={<IndustriesPage />} />
           <Route
             path="services/enterprise-custom-software"
             element={<EnterpriseCustomSoftwarePage />}
@@ -72,4 +74,3 @@ function App() {
 }
 
 export default App;
-

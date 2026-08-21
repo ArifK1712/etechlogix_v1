@@ -350,7 +350,7 @@ export default function Header() {
 
           {/* Direct Industries Link */}
           <Link
-            to={toInternalTo('/#industries')}
+            to="/industries"
             className={`type-nav nav-link-premium whitespace-nowrap transition-colors duration-200 py-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#df012a] rounded-md ${navLinkTone}`}
           >
             Industries
@@ -538,7 +538,7 @@ export default function Header() {
               {/* Direct Industries Link */}
               <div className="border-b border-[#e5e7eb] pb-4">
                 <Link
-                  to={toInternalTo('/#industries')}
+                  to="/industries"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block py-2 font-display font-normal text-lg text-[#0a0a0a] hover:text-[#df012a]"
                 >
