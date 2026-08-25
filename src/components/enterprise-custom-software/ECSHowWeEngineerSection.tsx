@@ -147,19 +147,21 @@ export default function ECSHowWeEngineerSection() {
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-5">
         {/* ── Section Intro ── */}
-        <div ref={introRef} className="max-w-3xl mb-12 md:mb-16">
+        <div ref={introRef} className="mb-12 md:mb-16">
           <p className="type-eyebrow-accent mb-3 tracking-[0.22em]">
             HOW WE ENGINEER
           </p>
           <div className="mb-6 h-px w-10 bg-[#df012a]" aria-hidden="true" />
 
-          <h2 className="type-section-heading-lg text-balance sm:text-4xl md:text-[2.65rem] lg:text-[2.75rem] mb-5">
-            From business operations to production software.
-          </h2>
+          <div className="grid gap-5 md:grid-cols-[minmax(0,3fr)_minmax(260px,2fr)] md:items-center md:gap-12 lg:gap-16">
+            <h2 className="type-section-heading-lg max-w-[760px] text-balance sm:text-4xl md:text-[2.65rem] lg:text-[2.75rem]">
+              From business operations to production software.
+            </h2>
 
-          <p className="type-body text-[#555555] max-w-xl">
-            We turn complex workflows, business rules, systems, and integrations into software engineered for real enterprise operations.
-          </p>
+            <p className="type-body max-w-xl text-[#555555] md:justify-self-end">
+              We turn complex workflows, business rules, systems, and integrations into software engineered for real enterprise operations.
+            </p>
+          </div>
         </div>
 
         {/* ── 4-Card Clean Grid ── */}

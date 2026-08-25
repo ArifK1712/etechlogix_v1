@@ -3,7 +3,6 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type { Swiper as SwiperInstance } from 'swiper';
 import 'swiper/css';
-import { Button } from '../ui/Button';
 
 const industries = [
   {
@@ -116,15 +115,6 @@ export default function IndustriesCarouselSection() {
         </div>
 
         <div className="industries-showcase-footer">
-          <Button
-            href="#industries-carousel"
-            variant="primaryDark"
-            size="section"
-            icon={<ArrowRight className="h-4 w-4 text-[#df012a]" aria-hidden="true" />}
-          >
-            View all industries
-          </Button>
-
           <div className="industries-carousel-controls" aria-label="Industry carousel controls">
             <button
               type="button"

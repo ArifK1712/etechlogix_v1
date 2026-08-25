@@ -91,15 +91,13 @@ export default function EnterpriseCustomSoftwareHero() {
           </div>
 
           {/* Headline — uses homepage type-hero-heading for consistent sizing */}
-          <h1 className="service-hero-heading type-hero-heading text-[#0a0a0a] max-w-[820px] text-balance mb-7">
-            Software built around your business.{' '}
-            <span>Not the other way around<span className="service-hero-dot">.</span></span>
+          <h1 className="service-hero-heading type-hero-heading text-[#0a0a0a] max-w-6xl text-balance mb-7">
+            Enterprise software built around your business<span className="service-hero-dot">.</span>
           </h1>
 
           {/* Supporting paragraph */}
           <p className="type-hero-lead max-w-[520px] text-neutral-500 mb-11 text-center">
-            We design and engineer custom enterprise platforms around your workflows, business rules,
-            existing systems, integrations, and operational realities.
+            We design scalable software around your workflows, systems and operational needs.
           </p>
 
           {/* CTA buttons */}
@@ -108,9 +106,20 @@ export default function EnterpriseCustomSoftwareHero() {
               <span className="relative z-10 whitespace-nowrap">Discuss Your Project</span>
               <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" strokeWidth={2} />
             </Link>
-            <Link to="/services" className="btn-etech btn-etech--secondary btn-etech--hero">
+            <a
+              href="#custom-platforms"
+              className="btn-etech btn-etech--secondary btn-etech--hero"
+              onClick={(event) => {
+                event.preventDefault();
+                document.getElementById('custom-platforms')?.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start',
+                });
+                window.history.replaceState(null, '', '#custom-platforms');
+              }}
+            >
               See What We Build
-            </Link>
+            </a>
           </div>
         </div>
       </div>

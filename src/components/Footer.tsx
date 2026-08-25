@@ -3,36 +3,26 @@ import { InternalLink } from './InternalLink';
 
 const LOGO_SRC = '/images/etechlogix-logo.png';
 
-function LinkedInIcon({ className = '' }: { className?: string }) {
+function FacebookIcon({ className = '' }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M6.5 9.5V18M6.5 6.75V6.775M10.25 18V13.25C10.25 11.593 11.593 10.25 13.25 10.25C14.907 10.25 16.25 11.593 16.25 13.25V18M10.25 18H16.25M16.25 18H18"
-        stroke="currentColor"
-        strokeWidth="1.35"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.414c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97H15.83c-1.491 0-1.956.932-1.956 1.887v2.263h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073Z" />
     </svg>
   );
 }
 
-function GitHubIcon({ className = '' }: { className?: string }) {
+function XIcon({ className = '' }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M9.5 18.25C6.5 17.25 4.75 15 4.75 12.25C4.75 8.5 7.75 5.5 11.5 5.5C15.25 5.5 18.25 8.5 18.25 12.25C18.25 15 16.5 17.25 13.5 18.25M9.75 20.5C10.5 20.75 11.25 20.875 12 20.875C12.75 20.875 13.5 20.75 14.25 20.5"
-        stroke="currentColor"
-        strokeWidth="1.35"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M9 18.25C9 17 9.25 15.5 11.5 15.5C13.75 15.5 14 17 14 18.25"
-        stroke="currentColor"
-        strokeWidth="1.35"
-        strokeLinecap="round"
-      />
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.967 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" />
+    </svg>
+  );
+}
+
+function LinkedInIcon({ className = '' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.94v5.666H9.351V9h3.414v1.561h.047c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124ZM7.119 20.452H3.555V9h3.564v11.452Z" />
     </svg>
   );
 }
@@ -88,22 +78,31 @@ export default function Footer() {
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="https://www.linkedin.com/company/etechlogix"
+                href="https://www.facebook.com/eTechLogix-102971575858841"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-600 transition-[color,border-color,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-[#df012a]/40 hover:text-[#df012a] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
+                aria-label="eTechLogix on Facebook"
+              >
+                <FacebookIcon className="h-4 w-4" />
+              </a>
+              <a
+                href="https://twitter.com/eTechLogix"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-600 transition-[color,border-color,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-[#df012a]/40 hover:text-[#df012a] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
+                aria-label="eTechLogix on X"
+              >
+                <XIcon className="h-4 w-4" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/etechlogix-inc"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-600 transition-[color,border-color,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-[#df012a]/40 hover:text-[#df012a] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
                 aria-label="eTechLogix on LinkedIn"
               >
                 <LinkedInIcon className="h-4 w-4" />
-              </a>
-              <a
-                href="https://github.com/etechlogix"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-600 transition-[color,border-color,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-[#df012a]/40 hover:text-[#df012a] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
-                aria-label="eTechLogix on GitHub"
-              >
-                <GitHubIcon className="h-4 w-4" />
               </a>
             </div>
           </div>

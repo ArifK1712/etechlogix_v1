@@ -9,6 +9,8 @@ import DedicatedEngineeringTeamsPage from './pages/DedicatedEngineeringTeamsPage
 import AgenticAIPage from './pages/AgenticAIPage';
 import DocumentAutomationPage from './pages/DocumentAutomationPage';
 import IndustriesPage from './pages/IndustriesPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 // import IntelligentWorkflowAutomationPage from './pages/IntelligentWorkflowAutomationPage';
 import ComingSoonPage from './pages/ComingSoonPage';
 import { comingSoonRoutes } from './comingSoonConfig';
@@ -21,6 +23,8 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="work" element={<HomePage />} />
           <Route path="industries" element={<IndustriesPage />} />
+          <Route path="company/about" element={<AboutPage />} />
+          <Route path="contact" element={<ContactPage />} />
           <Route
             path="services/enterprise-custom-software"
             element={<EnterpriseCustomSoftwarePage />}

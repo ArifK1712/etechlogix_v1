@@ -105,7 +105,7 @@ export default function ECSWhatWeEngineerSection() {
   return (
     <section
       ref={sectionRef}
-      id="what-we-engineer"
+      id="custom-platforms"
       className="relative w-full text-[#0a0a0a] overflow-hidden py-16 lg:py-20 border-t border-neutral-200/80"
       aria-label="What We Engineer — Enterprise Capabilities"
     >
@@ -124,19 +124,21 @@ export default function ECSWhatWeEngineerSection() {
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-5">
         {/* ── Section Intro ── */}
-        <div ref={introRef} className="max-w-3xl mb-12 md:mb-16 text-left">
+        <div ref={introRef} className="mb-12 text-left md:mb-16">
           <p className="type-eyebrow-accent mb-3 tracking-[0.22em]">
             WHAT WE ENGINEER
           </p>
           <div className="mb-6 h-px w-10 bg-[#df012a]" aria-hidden="true" />
 
-          <h2 className="type-section-heading-lg text-balance sm:text-4xl md:text-[2.65rem] lg:text-[2.75rem] mb-5">
-            Custom platforms for the systems your business depends on.
-          </h2>
+          <div className="grid gap-5 md:grid-cols-[minmax(0,3fr)_minmax(260px,2fr)] md:items-center md:gap-12 lg:gap-16">
+            <h2 className="type-section-heading-lg max-w-[760px] text-balance sm:text-4xl md:text-[2.65rem] lg:text-[2.75rem]">
+              Custom platforms for the systems your business depends on.
+            </h2>
 
-          <p className="type-body text-[#555555] max-w-xl">
-            From operational platforms to connected enterprise applications, we build software around real business processes and existing technology.
-          </p>
+            <p className="type-body max-w-xl text-[#555555] md:justify-self-end">
+              From operational platforms to connected enterprise applications, we build software around real business processes and existing technology.
+            </p>
+          </div>
         </div>
 
         {/* ═════════════════════════════════════════════════════════════ */}

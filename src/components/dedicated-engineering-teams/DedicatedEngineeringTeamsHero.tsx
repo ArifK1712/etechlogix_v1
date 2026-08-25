@@ -52,9 +52,8 @@ export default function DedicatedEngineeringTeamsHero() {
             <div className="mb-7 h-px w-10 bg-[#df012a]" aria-hidden="true" />
 
             <h1 className="service-hero-heading type-hero-heading mb-6 leading-[1.08] text-[#0a0a0a]">
-              Extend your<br />
-              engineering team.<br />
-              Not your overhead<span className="service-hero-dot">.</span>
+              Scale engineering<br />
+              without the overhead<span className="service-hero-dot">.</span>
             </h1>
 
             <p className="type-hero-lead mb-10 max-w-[500px] text-neutral-500">

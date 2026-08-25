@@ -2,7 +2,6 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,7 +85,6 @@ export default function ECSCapabilitiesSection() {
   const leftRef     = useRef<HTMLDivElement>(null);
   const listRef     = useRef<HTMLDivElement>(null);
   const connectorRef = useRef<HTMLDivElement>(null);
-  const bottomRef   = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -119,15 +117,6 @@ export default function ECSCapabilitiesSection() {
         {
           scaleY: 1, duration: 1.1, ease: 'power2.out',
           scrollTrigger: { trigger: listRef.current, start: 'top 80%', once: true },
-        }
-      );
-
-      /* Bottom statement */
-      gsap.fromTo(bottomRef.current,
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
-          scrollTrigger: { trigger: bottomRef.current, start: 'top 88%', once: true },
         }
       );
 
@@ -180,13 +169,7 @@ export default function ECSCapabilitiesSection() {
 
             {/* Heading matching WhyEtechLogixSection */}
             <h2 className="type-section-heading-lg text-balance sm:text-4xl md:text-[2.65rem] lg:text-[2.75rem]">
-              Enterprise software<br />
-              has to work across<br />
-              more than one system.{' '}
-              <span className="text-[#df012a]">
-                It has to work across<br />
-                your entire operation.
-              </span>
+              Enterprise software built for complex operations<span className="text-[#df012a]">.</span>
             </h2>
 
             {/* Body paragraph matching WhyEtechLogixSection */}
@@ -250,40 +233,6 @@ export default function ECSCapabilitiesSection() {
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* ═══════════════════════════════════════════ */}
-        {/* BOTTOM STATEMENT BAND (Refined White Panel)  */}
-        {/* ═══════════════════════════════════════════ */}
-        <div
-          ref={bottomRef}
-          className="mt-16 rounded-2xl border border-neutral-200/80 bg-white p-8 md:p-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-12 shadow-[0_4px_20px_rgba(0,0,0,0.025)]"
-        >
-          {/* Left — statement with vertical red bar (wider ~70% layout) */}
-          <div className="flex gap-5 items-start w-full lg:w-[72%]">
-            {/* Thin vertical red accent line */}
-            <div className="w-[2px] bg-[#df012a] self-stretch shrink-0 rounded-full" aria-hidden="true" />
-
-            <div className="min-w-0 flex-1">
-              <p className="font-display text-lg font-semibold tracking-[-0.02em] text-[#0a0a0a] md:text-xl">
-                We don't build isolated applications.
-              </p>
-              <p className="font-display text-lg font-semibold tracking-[-0.02em] text-[#df012a] md:text-xl mt-1">
-                We engineer software that becomes part of your enterprise operation.
-              </p>
-            </div>
-          </div>
-
-          {/* Right — text link (~24% width, right-aligned) */}
-          <div className="shrink-0 lg:w-[24%] flex lg:justify-end">
-            <a
-              href="#contact"
-              className="group inline-flex items-center gap-2 type-nav text-[#0a0a0a] border-b border-[#0a0a0a] pb-0.5 hover:text-[#df012a] hover:border-[#df012a] transition-colors duration-200"
-            >
-              How we approach custom software
-              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={2} />
-            </a>
           </div>
         </div>
 

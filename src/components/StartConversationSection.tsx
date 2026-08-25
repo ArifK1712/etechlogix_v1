@@ -149,7 +149,7 @@ export default function StartConversationSection() {
                 className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:justify-center"
               >
                   <a
-                    href="mailto:hello@etechlogix.com"
+                    href="mailto:contact@etechlogix.com"
                     className={`${buttonClassName('primaryDark', 'section')} group`}
                   >
                     Start a Conversation

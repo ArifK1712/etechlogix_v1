@@ -91,7 +91,7 @@ export default function LegacyModernizationHero() {
           </div>
 
           {/* Headline — uses homepage type-hero-heading for consistent sizing */}
-          <h1 className="service-hero-heading type-hero-heading text-[#0a0a0a] max-w-[820px] text-balance mb-7">
+          <h1 className="service-hero-heading type-hero-heading text-[#0a0a0a] max-w-6xl text-balance mb-7">
             Modernize what works.{' '}
             <span>Replace what holds you back<span className="service-hero-dot">.</span></span>
           </h1>

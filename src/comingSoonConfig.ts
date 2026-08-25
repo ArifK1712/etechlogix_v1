@@ -6,7 +6,5 @@
  */
 export const comingSoonRoutes = [
   'ai-automation/intelligent-process-automation',
-  'company/about',
   'company/how-we-deliver',
-  'contact',
 ];

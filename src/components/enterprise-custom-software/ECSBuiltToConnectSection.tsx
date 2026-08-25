@@ -3,7 +3,7 @@ import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Button } from '../ui/Button';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -240,11 +240,11 @@ export default function ECSBuiltToConnectSection() {
         </div>
 
         {/* ═══════════════════════════════════════════ */}
-        {/* BOTTOM CTA PANEL (Soft Blush Panel)         */}
+        {/* BOTTOM CTA PANEL */}
         {/* ═══════════════════════════════════════════ */}
         <div
           ref={ctaRef}
-          className="relative rounded-2xl border border-[#df012a]/15 bg-[#fbeaec]/50 p-8 md:p-10 lg:p-12 flex flex-col lg:flex-row lg:items-center justify-between gap-8"
+          className="relative flex flex-col justify-between gap-8 rounded-2xl border border-neutral-200/90 bg-[#f7f6f2] px-8 py-10 md:px-10 lg:flex-row lg:items-center lg:gap-12 lg:px-12 lg:py-12"
         >
           {/* Left Question with Vertical Red Accent Bar */}
           <div className="flex gap-5 items-start max-w-md">
@@ -255,18 +255,19 @@ export default function ECSBuiltToConnectSection() {
           </div>
 
           {/* Right Statement + Primary CTA Button */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-6 lg:gap-8 shrink-0">
-            <p className="font-display font-bold text-xl md:text-2xl text-[#df012a] leading-tight">
-              Let's engineer what does.
+          <div className="flex shrink-0 flex-col gap-6 sm:flex-row sm:items-center lg:gap-8">
+            <p className="font-display text-xl font-bold leading-tight text-[#0a0a0a] md:text-2xl">
+              Let&apos;s engineer what does<span className="text-[#df012a]">.</span>
             </p>
 
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center gap-2.5 bg-[#df012a] text-white hover:bg-[#b80122] px-7 py-3.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-sm group whitespace-nowrap"
+            <Button
+              href="/contact"
+              variant="primaryDark"
+              size="section"
+              icon={<ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />}
             >
               Discuss Your Project
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2} />
-            </Link>
+            </Button>
           </div>
         </div>
       </div>
