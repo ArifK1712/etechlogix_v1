@@ -10,6 +10,8 @@ export function useLenis() {
       smoothWheel: true,
     });
 
+    (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
+
     lenis.on('scroll', ScrollTrigger.update);
 
     const refreshHandler = () => lenis.resize();
@@ -30,6 +32,7 @@ export function useLenis() {
     return () => {
       cancelAnimationFrame(animationFrameId);
       ScrollTrigger.removeEventListener('refresh', refreshHandler);
+      delete (window as unknown as { __lenis?: Lenis }).__lenis;
       lenis.destroy();
       ScrollTrigger.refresh();
     };

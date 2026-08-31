@@ -24,7 +24,7 @@ export default function AppLayout() {
   }, [location.pathname, location.hash]);
 
   useLayoutEffect(() => {
-    const id = location.hash ? location.hash.replace(/^#/, '') : location.pathname === '/work' ? 'services' : null;
+    const id = location.hash ? location.hash.replace(/^#/, '') : null;
     if (!id) return;
     const el = document.getElementById(id);
     if (el) {

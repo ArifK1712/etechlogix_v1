@@ -77,7 +77,7 @@ export default function LMFinalCTASection() {
             {/* Heading */}
             <h2 className="type-section-heading-lg text-[#0a0a0a] leading-[1.12] mb-6 max-w-lg">
               Modernization starts<br />
-              with a <span className="text-[#df012a]">focused first step.</span>
+              with a focused first step<span className="text-[#df012a]">.</span>
             </h2>
 
             {/* Supporting copy */}
@@ -122,23 +122,26 @@ export default function LMFinalCTASection() {
               {timelineSteps.map((step, idx) => {
                 const isLast = idx === timelineSteps.length - 1;
                 return (
-                  <div key={step.label} className="flex gap-4">
+                  <div key={step.label} className="flex gap-4 sm:gap-5">
                     {/* Dot + line column */}
                     <div className="flex flex-col items-center shrink-0 w-4">
                       {/* Red dot */}
-                      <div className="w-2.5 h-2.5 rounded-full bg-[#df012a] shrink-0 mt-1" />
+                      <div className="w-3 h-3 rounded-full bg-[#df012a] shrink-0 mt-1.5" />
                       {/* Connecting line — hidden on last step */}
                       {!isLast && (
-                        <div className="flex-1 w-px bg-[#df012a]/40 mt-1.5 mb-0" style={{ minHeight: '2.25rem' }} />
+                        <div
+                          className="flex-1 w-px bg-[#df012a]/35 mt-2 mb-1"
+                          style={{ minHeight: '3rem' }}
+                        />
                       )}
                     </div>
 
                     {/* Content */}
-                    <div className={`pb-7 ${isLast ? '' : ''}`}>
-                      <p className="font-display font-semibold text-[0.9rem] md:text-[0.9375rem] text-[#0a0a0a] tracking-[-0.01em] leading-snug mb-1">
+                    <div className={`pb-8 ${isLast ? 'pb-0' : ''}`}>
+                      <h4 className="font-display font-semibold text-lg md:text-xl text-[#0a0a0a] tracking-[-0.02em] leading-snug mb-1.5">
                         {step.label}
-                      </p>
-                      <p className="text-[0.875rem] text-[#666666] font-normal leading-relaxed">
+                      </h4>
+                      <p className="type-body text-[#555555] leading-relaxed">
                         {step.description}
                       </p>
                     </div>

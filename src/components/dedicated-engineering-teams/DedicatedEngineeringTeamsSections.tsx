@@ -1,5 +1,4 @@
-import { ArrowRight, Check, CloudCog, Code2, Database, Monitor, Network, ShieldCheck, Smartphone } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Check, CloudCog, Code2, Database, Monitor, Network, ShieldCheck, Smartphone } from 'lucide-react';
 
 const workingModel = [
   ['01', 'Aligned to your roadmap', 'Engineering effort stays focused on business and product priorities.'],
@@ -8,11 +7,8 @@ const workingModel = [
   ['04', 'Clear delivery ownership', 'Responsibilities remain visible from planning through release.'],
 ];
 
-const environmentRows = [
-  ['Your technology stack', 'Work within the architecture and platforms your organization already uses.'],
-  ['Your delivery rhythm', 'Integrate with existing sprints, releases, reviews, and decision-making.'],
-  ['Your standards', 'Follow established engineering, security, quality, and governance practices.'],
-];
+import DETBuiltAroundYourEnvironmentSection from './DETBuiltAroundYourEnvironmentSection';
+import DETFinalCTASection from './DETFinalCTASection';
 
 const capabilities = [
   { title: 'Frontend', Icon: Monitor },
@@ -45,7 +41,7 @@ const enterprisePoints = [
 export default function DedicatedEngineeringTeamsSections() {
   return (
     <>
-      <section className="bg-white py-16 md:py-20 lg:py-24">
+      <section className="bg-white py-16 lg:py-20">
         <div className="mx-auto grid w-full max-w-[1400px] gap-12 px-5 lg:grid-cols-[45fr_55fr] lg:gap-20">
           <div>
             <p className="type-eyebrow-accent mb-4">HOW WE WORK</p>
@@ -77,42 +73,10 @@ export default function DedicatedEngineeringTeamsSections() {
         </div>
       </section>
 
-      <section className="bg-[#fafaf8] py-16 md:py-20 lg:py-24">
-        <div className="mx-auto grid w-full max-w-[1400px] items-stretch gap-10 px-5 lg:grid-cols-[7fr_5fr] lg:gap-16">
-          <figure className="min-h-[28rem] overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-200 lg:min-h-[42rem]">
-            <img
-              src="/images/dedicated-engineering-collaboration.webp"
-              alt="Product and engineering team collaborating during a technical planning session"
-              width={1800}
-              height={1013}
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full object-cover object-center"
-            />
-          </figure>
+      {/* ── Section 2: Built Around Your Environment ── */}
+      <DETBuiltAroundYourEnvironmentSection />
 
-          <div className="flex flex-col justify-center">
-            <p className="type-eyebrow-accent mb-4">BUILT AROUND YOUR ENVIRONMENT</p>
-            <div className="mb-7 h-px w-10 bg-[#df012a]" aria-hidden="true" />
-            <h2 className="type-section-heading-lg text-balance">
-              Your processes stay intact.<br />Your capacity gets stronger<span className="text-[#df012a]">.</span>
-            </h2>
-            <p className="type-body mt-7">
-              A dedicated team should fit into the way your organization already operates. We align with your technology stack, product roadmap, communication model, security requirements, and delivery standards instead of forcing a separate way of working.
-            </p>
-            <div className="mt-9 border-t border-neutral-300">
-              {environmentRows.map(([title, description]) => (
-                <div key={title} className="border-b border-neutral-200 py-5">
-                  <h3 className="font-display text-lg font-semibold leading-snug tracking-[-0.02em] text-[#0a0a0a] md:text-xl">{title}</h3>
-                  <p className="type-body-sm mt-1">{description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-white py-16 md:py-20 lg:py-24">
+      <section className="relative overflow-hidden bg-white py-16 lg:py-20">
         <div className="pointer-events-none absolute -bottom-64 -left-64 h-[40rem] w-[40rem] rounded-full bg-[radial-gradient(circle,rgba(223,1,42,0.12)_0%,rgba(223,1,42,0.045)_42%,transparent_72%)] blur-2xl" aria-hidden="true" />
         <div className="relative z-10 mx-auto grid w-full max-w-[1400px] gap-12 px-5 lg:grid-cols-[5fr_7fr] lg:gap-20">
           <div className="lg:pt-2">
@@ -142,7 +106,7 @@ export default function DedicatedEngineeringTeamsSections() {
         </div>
       </section>
 
-      <section className="bg-white py-16 md:py-20 lg:py-24">
+      <section className="bg-white py-16 lg:py-20">
         <div className="mx-auto w-full max-w-[1400px] px-5">
           <div className="max-w-4xl">
             <p className="type-eyebrow-accent mb-4">FROM NEED TO DELIVERY</p>
@@ -163,7 +127,7 @@ export default function DedicatedEngineeringTeamsSections() {
         </div>
       </section>
 
-      <section className="bg-[#f7f7f5] py-16 md:py-20 lg:py-24">
+      <section className="bg-[#f7f7f5] py-16 lg:py-20">
         <div className="mx-auto grid w-full max-w-[1400px] gap-12 px-5 lg:grid-cols-2 lg:gap-20">
           <div>
             <p className="type-eyebrow-accent mb-4">ENTERPRISE READY</p>
@@ -187,24 +151,8 @@ export default function DedicatedEngineeringTeamsSections() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-white py-16 md:py-20 lg:py-24">
-        <div className="absolute bottom-0 right-[8%] top-0 w-px bg-neutral-200" aria-hidden="true" />
-        <div className="absolute bottom-12 right-[8%] h-24 w-px bg-[#df012a]" aria-hidden="true" />
-        <div className="mx-auto grid w-full max-w-[1400px] items-end gap-10 px-5 lg:grid-cols-[8fr_4fr] lg:gap-20">
-          <div>
-            <p className="type-eyebrow-accent mb-4">BUILD THE RIGHT TEAM</p>
-            <div className="mb-7 h-px w-10 bg-[#df012a]" aria-hidden="true" />
-            <h2 className="type-section-heading-xl max-w-5xl text-balance">Add the engineering capacity your roadmap needs — without creating another layer to manage<span className="text-[#df012a]">.</span></h2>
-            <p className="type-body mt-7 max-w-3xl">Tell us where your team needs more capacity, specialist expertise, or delivery ownership. We’ll help shape an engineering team around the work.</p>
-          </div>
-          <div className="lg:pb-1">
-            <Link to="/contact" className="btn-etech btn-etech--primary btn-etech--section group">
-              Talk to Our Engineering Team
-              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" strokeWidth={2} />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* ── Section 6: Build the Right Team (Final CTA) ── */}
+      <DETFinalCTASection />
     </>
   );
 }

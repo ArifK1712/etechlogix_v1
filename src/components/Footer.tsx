@@ -30,18 +30,18 @@ function LinkedInIcon({ className = '' }: { className?: string }) {
 const exploreLinks = [
   { label: 'Services', href: '#services' },
   { label: 'AI Solutions', href: '#business-impact' },
-  { label: 'Industries', href: '#industries' },
-  { label: 'Work', href: '#services' },
-  { label: 'Company', href: '#why-etechlogix' },
-  { label: 'Careers', href: '#contact' },
+  { label: 'Industries', href: '/industries' },
+  { label: 'Work', href: '/work' },
+  { label: 'Company', href: '/company/about' },
+  { label: 'Careers', href: '/contact' },
 ] as const;
 
 const capabilityLinks = [
-  { label: 'Custom Software Development', href: '#services' },
-  { label: 'Agentic AI & Workflow Automation', href: '#business-impact' },
-  { label: 'Enterprise Integrations', href: '#services' },
-  { label: 'Functional Product Prototypes', href: '#services' },
-  { label: 'Legacy Modernization', href: '#services' },
+  { label: 'Custom Software Development', href: '/services/enterprise-custom-software' },
+  { label: 'Agentic AI & Workflow Automation', href: '/ai-automation/agentic-ai-workflow-automation' },
+  { label: 'Enterprise Integrations', href: '/services/enterprise-integrations' },
+  { label: 'Functional Product Prototypes', href: '/services/product-prototyping' },
+  { label: 'Legacy Modernization', href: '/services/legacy-modernization' },
 ] as const;
 
 const linkClass =
@@ -168,16 +168,16 @@ export default function Footer() {
           </p>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <InternalLink
-              href="#privacy-policy"
+              href="/privacy-policy"
               className="type-caption text-neutral-500 transition-colors duration-300 hover:text-neutral-700 !text-xs normal-case tracking-normal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
             >
               Privacy Policy
             </InternalLink>
             <InternalLink
-              href="#terms-of-use"
+              href="/terms-conditions"
               className="type-caption text-neutral-500 transition-colors duration-300 hover:text-neutral-700 !text-xs normal-case tracking-normal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
             >
-              Terms of Use
+              Terms & Conditions
             </InternalLink>
           </div>
         </div>

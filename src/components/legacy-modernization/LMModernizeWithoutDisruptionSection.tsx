@@ -168,7 +168,7 @@ export default function LMModernizeWithoutDisruptionSection() {
 
             <h2 className="type-section-heading-lg text-[#0a0a0a] mb-6 leading-[1.12]">
               Keep the business logic.<br />
-              <span className="text-[#df012a]">Replace the technical constraints.</span>
+              Replace the technical constraints<span className="text-[#df012a]">.</span>
             </h2>
 
             <p className="type-body text-[#555555] mb-6 leading-relaxed max-w-md">

@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AppLayout from './layouts/AppLayout';
 import HomePage from './pages/HomePage';
+import WorkPage from './pages/WorkPage';
 import EnterpriseCustomSoftwarePage from './pages/EnterpriseCustomSoftwarePage';
 import EnterpriseIntegrationsPage from './pages/EnterpriseIntegrationsPage';
 import LegacyModernizationPage from './pages/LegacyModernizationPage';
@@ -11,6 +12,8 @@ import DocumentAutomationPage from './pages/DocumentAutomationPage';
 import IndustriesPage from './pages/IndustriesPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsConditionsPage from './pages/TermsConditionsPage';
 // import IntelligentWorkflowAutomationPage from './pages/IntelligentWorkflowAutomationPage';
 import ComingSoonPage from './pages/ComingSoonPage';
 import { comingSoonRoutes } from './comingSoonConfig';
@@ -21,10 +24,12 @@ function App() {
       <Routes>
         <Route element={<AppLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="work" element={<HomePage />} />
+          <Route path="work" element={<WorkPage />} />
           <Route path="industries" element={<IndustriesPage />} />
           <Route path="company/about" element={<AboutPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="terms-conditions" element={<TermsConditionsPage />} />
           <Route
             path="services/enterprise-custom-software"
             element={<EnterpriseCustomSoftwarePage />}
