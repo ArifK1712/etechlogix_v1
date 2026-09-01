@@ -33,7 +33,7 @@ const exploreLinks = [
   { label: 'Industries', href: '/industries' },
   { label: 'Work', href: '/work' },
   { label: 'Company', href: '/company/about' },
-  { label: 'Careers', href: '/contact' },
+  { label: 'Careers', href: '/careers' },
 ] as const;
 
 const capabilityLinks = [
@@ -41,7 +41,9 @@ const capabilityLinks = [
   { label: 'Agentic AI & Workflow Automation', href: '/ai-automation/agentic-ai-workflow-automation' },
   { label: 'Enterprise Integrations', href: '/services/enterprise-integrations' },
   { label: 'Functional Product Prototypes', href: '/services/product-prototyping' },
+  { label: 'Dedicated Engineering Teams', href: '/services/dedicated-engineering-teams' },
   { label: 'Legacy Modernization', href: '/services/legacy-modernization' },
+  { label: 'Document Automation', href: '/ai-automation/document-automation' },
 ] as const;
 
 const linkClass =
@@ -144,11 +146,11 @@ export default function Footer() {
               >
                 +1 (480) 527-0786
               </a>
-              <InternalLink href="#contact" className={linkClass}>
+              <InternalLink href="/contact" className={linkClass}>
                 Contact Us
               </InternalLink>
               <InternalLink
-                href="#contact"
+                href="/contact"
                 className="group inline-flex items-center gap-2 text-sm font-normal text-[#df012a] transition-[gap,color] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:gap-2.5 hover:text-[#b80122] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#df012a]"
               >
                 Let&apos;s Talk

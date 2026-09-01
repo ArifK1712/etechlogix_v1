@@ -1,0 +1,11 @@
+# Production Robots Configuration for eTechLogix
+# Website: https://www.etechlogix.com
+
+User-agent: *
+Allow: /
+
+# Disallow internal API and non-indexable routes
+Disallow: /api/
+
+# Production Sitemap
+Sitemap: https://www.etechlogix.com/sitemap.xml

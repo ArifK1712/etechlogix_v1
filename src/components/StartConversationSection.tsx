@@ -2,25 +2,11 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import {
-  ArrowRight,
-  Bot,
-  Layers3,
-  Network,
-  RefreshCw,
-  type LucideIcon,
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { buttonClassName } from './ui/Button';
 import { InternalLink } from './InternalLink';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const capabilities: { label: string; Icon: LucideIcon }[] = [
-  { label: 'Enterprise Software', Icon: Layers3 },
-  { label: 'Agentic AI', Icon: Bot },
-  { label: 'Integrations', Icon: Network },
-  { label: 'Modernization', Icon: RefreshCw },
-];
 
 export default function StartConversationSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -29,7 +15,6 @@ export default function StartConversationSection() {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const buttonsRowRef = useRef<HTMLDivElement>(null);
-  const capabilitiesRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -43,7 +28,6 @@ export default function StartConversationSection() {
         headingRef.current,
         descriptionRef.current,
         buttonsRowRef.current,
-        capabilitiesRef.current,
       ].filter(Boolean);
 
       if (reducedMotion) {
@@ -148,54 +132,28 @@ export default function StartConversationSection() {
                 ref={buttonsRowRef}
                 className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:justify-center"
               >
-                  <a
-                    href="mailto:contact@etechlogix.com"
-                    className={`${buttonClassName('primaryDark', 'section')} group`}
-                  >
-                    Start a Conversation
-                    <ArrowRight
-                      className="h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5"
-                      strokeWidth={1.75}
-                      aria-hidden="true"
-                    />
-                  </a>
-                  <InternalLink
-                    href="#services"
-                    className={`${buttonClassName('secondary', 'section')} group`}
-                  >
-                    View Our Work
-                    <ArrowRight
-                      className="h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5"
-                      strokeWidth={1.75}
-                      aria-hidden="true"
-                    />
-                  </InternalLink>
-                </div>
-
-              <div
-                ref={capabilitiesRef}
-                className="mt-9 flex flex-col items-center gap-4 border-t border-neutral-200/90 pt-7 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-0"
-              >
-                {capabilities.map((cap, index) => (
-                  <div key={cap.label} className="flex items-center justify-center sm:contents">
-                    <div className="flex items-center gap-2.5 text-neutral-500">
-                        <cap.Icon
-                          className="h-3.5 w-3.5 shrink-0 text-[#df012a]"
-                          strokeWidth={1.35}
-                          aria-hidden="true"
-                        />
-                        <span className="type-caption text-neutral-600 !text-xs tracking-[0.02em] md:!text-[0.8125rem]">
-                          {cap.label}
-                        </span>
-                      </div>
-                      {index < capabilities.length - 1 ? (
-                        <span
-                          className="mx-4 hidden h-1 w-1 rounded-full bg-[#df012a]/70 sm:inline"
-                          aria-hidden="true"
-                        />
-                      ) : null}
-                  </div>
-                ))}
+                <InternalLink
+                  href="/work#contact"
+                  className={`${buttonClassName('primaryDark', 'section')} group`}
+                >
+                  Start a Conversation
+                  <ArrowRight
+                    className="h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5"
+                    strokeWidth={1.75}
+                    aria-hidden="true"
+                  />
+                </InternalLink>
+                <InternalLink
+                  href="/work"
+                  className={`${buttonClassName('secondary', 'section')} group`}
+                >
+                  View Our Work
+                  <ArrowRight
+                    className="h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5"
+                    strokeWidth={1.75}
+                    aria-hidden="true"
+                  />
+                </InternalLink>
               </div>
             </div>
           </div>

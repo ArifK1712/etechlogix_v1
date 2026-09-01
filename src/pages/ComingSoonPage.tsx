@@ -1,9 +1,21 @@
 import { Button } from '../components/ui/Button';
 import { ArrowRight } from 'lucide-react';
+import { SEOHead } from '../components/seo/SEOHead';
+import { SITE_URL } from '../components/seo/seoConfig';
 
 export default function ComingSoonPage() {
   return (
     <section className="relative w-full bg-[#fafaf8] overflow-hidden min-h-[75vh] flex flex-col items-center justify-center py-20 px-5 text-center">
+      <SEOHead
+        data={{
+          title: "Coming Soon | eTechLogix",
+          description: "We are expanding the eTechLogix website. This page will be available soon.",
+          canonical: `${SITE_URL}/`,
+          ogType: 'website',
+          schemaType: 'WebPage',
+        }}
+        noindex={true}
+      />
       {/* Corner dotted textures matching standard page design */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <svg className="absolute top-10 left-10 w-[200px] opacity-[0.03]" viewBox="0 0 200 150" fill="none">

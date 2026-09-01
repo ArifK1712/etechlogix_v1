@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { SEOHead } from '../components/seo/SEOHead';
+import { seoPages } from '../components/seo/seoConfig';
 
 const tocItems = [
   { id: 'eligibility', label: '1. Eligibility' },
@@ -59,6 +61,7 @@ export default function TermsConditionsPage() {
 
   return (
     <div className="relative w-full bg-white text-[#0a0a0a]">
+      <SEOHead data={seoPages.termsConditions} />
       {/* ─── Hero / Intro Section (Exact match to Privacy Policy) ─── */}
       <section className="border-b border-neutral-200/80 bg-[#fafaf8] py-16 md:py-20 lg:py-24 text-center">
         <div className="mx-auto w-full max-w-[1400px] px-5 flex flex-col items-center">

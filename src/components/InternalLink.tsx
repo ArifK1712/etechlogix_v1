@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import { Link, type LinkProps } from 'react-router-dom';
 
 export function isExternalLink(href: string) {
@@ -10,22 +11,26 @@ export function toInternalTo(href: string): string {
   return href;
 }
 
-type InternalLinkProps = Omit<LinkProps, 'to'> & {
+export type InternalLinkProps = Omit<LinkProps, 'to'> & {
   href: string;
 };
 
-export function InternalLink({ href, children, ...props }: InternalLinkProps) {
-  if (isExternalLink(href)) {
+export const InternalLink = forwardRef<HTMLAnchorElement, InternalLinkProps>(
+  ({ href, children, ...props }, ref) => {
+    if (isExternalLink(href)) {
+      return (
+        <a ref={ref} href={href} {...props}>
+          {children}
+        </a>
+      );
+    }
+
     return (
-      <a href={href} {...props}>
+      <Link ref={ref} to={toInternalTo(href)} {...props}>
         {children}
-      </a>
+      </Link>
     );
   }
+);
 
-  return (
-    <Link to={toInternalTo(href)} {...props}>
-      {children}
-    </Link>
-  );
-}
+InternalLink.displayName = 'InternalLink';

@@ -3,7 +3,180 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "installCommand": "npm install",
+  "redirects": [
+    {
+      "source": "/enterprise-java",
+      "destination": "/services/enterprise-custom-software",
+      "permanent": true
+    },
+    {
+      "source": "/custom-solutions",
+      "destination": "/services/enterprise-custom-software",
+      "permanent": true
+    },
+    {
+      "source": "/data-migration",
+      "destination": "/services/legacy-modernization",
+      "permanent": true
+    },
+    {
+      "source": "/cloud-computing",
+      "destination": "/services/enterprise-custom-software",
+      "permanent": true
+    },
+    {
+      "source": "/artificial-intelligence",
+      "destination": "/ai-automation/agentic-ai-workflow-automation",
+      "permanent": true
+    },
+    {
+      "source": "/machine-learning",
+      "destination": "/ai-automation/agentic-ai-workflow-automation",
+      "permanent": true
+    },
+    {
+      "source": "/healthcare",
+      "destination": "/industries",
+      "permanent": true
+    },
+    {
+      "source": "/healthcare-product",
+      "destination": "/industries",
+      "permanent": true
+    },
+    {
+      "source": "/the-future-of-healthcare",
+      "destination": "/industries",
+      "permanent": true
+    },
+    {
+      "source": "/erp",
+      "destination": "/services/enterprise-integrations",
+      "permanent": true
+    },
+    {
+      "source": "/erp-product",
+      "destination": "/services/enterprise-integrations",
+      "permanent": true
+    },
+    {
+      "source": "/retail",
+      "destination": "/industries",
+      "permanent": true
+    },
+    {
+      "source": "/it-infrastructure",
+      "destination": "/services/enterprise-custom-software",
+      "permanent": true
+    },
+    {
+      "source": "/event-management",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/event-management-product",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/it-resources",
+      "destination": "/services/dedicated-engineering-teams",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/company/about",
+      "permanent": true
+    },
+    {
+      "source": "/focused-industries",
+      "destination": "/industries",
+      "permanent": true
+    },
+    {
+      "source": "/frontend-technology",
+      "destination": "/services/enterprise-custom-software",
+      "permanent": true
+    },
+    {
+      "source": "/cloud-technology",
+      "destination": "/services/enterprise-custom-software",
+      "permanent": true
+    },
+    {
+      "source": "/backend-technology",
+      "destination": "/services/enterprise-custom-software",
+      "permanent": true
+    },
+    {
+      "source": "/case-study",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/navigating-legacy-systems-vs-modern-systems",
+      "destination": "/services/legacy-modernization",
+      "permanent": true
+    },
+    {
+      "source": "/chatgpt-in-the-era-of-conversational-ai",
+      "destination": "/ai-automation/agentic-ai-workflow-automation",
+      "permanent": true
+    },
+    {
+      "source": "/custom-software-solution-know-its-benefits-for-your-business-growth",
+      "destination": "/services/enterprise-custom-software",
+      "permanent": true
+    },
+    {
+      "source": "/best-custom-software-development-company-in-arizona",
+      "destination": "/services/enterprise-custom-software",
+      "permanent": true
+    },
+    {
+      "source": "/white-label-dovelopment",
+      "destination": "/services/dedicated-engineering-teams",
+      "permanent": true
+    },
+    {
+      "source": "/api-solutions-and-flawless-communication-in-hl7",
+      "destination": "/services/enterprise-integrations",
+      "permanent": true
+    },
+    {
+      "source": "/shoppingcart-and-integration",
+      "destination": "/services/enterprise-integrations",
+      "permanent": true
+    },
+    {
+      "source": "/tech-savvy-leaders-changing-equations-in-every-industry",
+      "destination": "/company/about",
+      "permanent": true
+    },
+    {
+      "source": "/BA-post-sales",
+      "destination": "/services/dedicated-engineering-teams",
+      "permanent": true
+    },
+    {
+      "source": "/python-developer",
+      "destination": "/services/dedicated-engineering-teams",
+      "permanent": true
+    },
+    {
+      "source": "/services/functional-prototypes",
+      "destination": "/services/product-prototyping",
+      "permanent": true
+    },
+    {
+      "source": "/blogs",
+      "destination": "/work",
+      "permanent": true
+    }
+  ],
   "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { SEOHead } from '../components/seo/SEOHead';
+import { seoPages } from '../components/seo/seoConfig';
 
 const tocItems = [
   { id: 'overview', label: 'Overview' },
@@ -72,6 +74,7 @@ export default function PrivacyPolicyPage() {
 
   return (
     <div className="relative w-full bg-white text-[#0a0a0a]">
+      <SEOHead data={seoPages.privacyPolicy} />
       {/* ─── Hero / Intro Section ─── */}
       <section className="border-b border-neutral-200/80 bg-[#fafaf8] py-16 md:py-20 lg:py-24 text-center">
         <div className="mx-auto w-full max-w-[1400px] px-5 flex flex-col items-center">

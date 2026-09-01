@@ -1,8 +1,8 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,32 +21,32 @@ const capabilities: EngineeringCapability[] = [
     title: 'Operational Platforms',
     shortTitle: 'Operational Platforms',
     desc: 'Workflow systems built around day-to-day business operations.',
-    image: '/images/custom-software.webp',
-    imageAlt: 'Enterprise operational platform workflow interface',
+    image: '/images/ecs-operational-platforms.jpg',
+    imageAlt: 'Enterprise operational platform workflow management in modern corporate environment',
   },
   {
     id: 'erp-distribution',
     title: 'ERP & Distribution Systems',
     shortTitle: 'ERP & Distribution Systems',
     desc: 'Software for inventory, orders, fulfillment, pricing, and operational control.',
-    image: '/images/legacy-systems.webp',
-    imageAlt: 'ERP distribution and inventory control system',
+    image: '/images/ecs-erp-distribution.jpg',
+    imageAlt: 'Logistics and ERP distribution management terminal in warehouse operations',
   },
   {
     id: 'event-conference',
     title: 'Event & Conference Platforms',
     shortTitle: 'Event & Conference Platforms',
     desc: 'Platforms for registration, payments, attendees, meetings, and onsite operations.',
-    image: '/images/product-prototypes.webp',
-    imageAlt: 'Enterprise event registration and management platform',
+    image: '/images/ecs-event-conference.jpg',
+    imageAlt: 'Enterprise event registration concourse with digital check-in kiosks and badge printing stations',
   },
   {
     id: 'connected-applications',
     title: 'Connected Enterprise Applications',
     shortTitle: 'Connected Applications',
     desc: 'Applications integrated with CRM, ERP, finance, logistics, and internal systems.',
-    image: '/images/enterprise-integrations.webp',
-    imageAlt: 'Enterprise integration architecture and connected systems',
+    image: '/images/ecs-connected-applications.jpg',
+    imageAlt: 'Enterprise server rack infrastructure with fiber optic patch cabling and network switches in a modern data center',
   },
 ];
 
@@ -55,6 +55,13 @@ export default function ECSWhatWeEngineerSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const introRef = useRef<HTMLDivElement>(null);
   const showcaseRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    capabilities.forEach((cap) => {
+      const img = new Image();
+      img.src = cap.image;
+    });
+  }, []);
 
   useGSAP(
     () => {
@@ -207,21 +214,9 @@ export default function ECSWhatWeEngineerSection() {
                         {item.title}
                       </h3>
 
-                      <p className="type-body text-white/80 text-sm md:text-base leading-relaxed mb-6">
+                      <p className="type-body text-white/80 text-sm md:text-base leading-relaxed">
                         {item.desc}
                       </p>
-
-                      <a
-                        href="#contact"
-                        onClick={(e) => e.stopPropagation()}
-                        className="group/link inline-flex items-center gap-2.5 type-nav text-white border-b border-white/40 pb-0.5 hover:text-[#df012a] hover:border-[#df012a] transition-colors duration-200"
-                      >
-                        Explore capability
-                        <ArrowRight
-                          className="w-4 h-4 transition-transform duration-200 group-hover/link:translate-x-1 text-[#df012a]"
-                          strokeWidth={2}
-                        />
-                      </a>
                     </div>
                   </div>
 
@@ -292,19 +287,6 @@ export default function ECSWhatWeEngineerSection() {
                     <p className="type-body text-[#555555] text-sm leading-relaxed">
                       {item.desc}
                     </p>
-
-                    <div>
-                      <a
-                        href="#contact"
-                        className="group inline-flex items-center gap-2 type-nav text-[#0a0a0a] border-b border-[#0a0a0a] pb-0.5 hover:text-[#df012a] hover:border-[#df012a] transition-colors duration-200"
-                      >
-                        Explore capability
-                        <ArrowRight
-                          className="w-3.5 h-3.5 text-[#df012a]"
-                          strokeWidth={2}
-                        />
-                      </a>
-                    </div>
                   </div>
                 )}
               </div>

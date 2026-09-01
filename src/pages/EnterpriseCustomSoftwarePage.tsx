@@ -3,10 +3,13 @@ import ECSCapabilitiesSection from '../components/enterprise-custom-software/ECS
 import ECSWhatWeEngineerSection from '../components/enterprise-custom-software/ECSWhatWeEngineerSection';
 import ECSHowWeEngineerSection from '../components/enterprise-custom-software/ECSHowWeEngineerSection';
 import ECSBuiltToConnectSection from '../components/enterprise-custom-software/ECSBuiltToConnectSection';
+import { SEOHead } from '../components/seo/SEOHead';
+import { seoPages } from '../components/seo/seoConfig';
 
 export default function EnterpriseCustomSoftwarePage() {
   return (
     <div className="bg-white text-[#0a0a0a] font-body selection:bg-[#df012a] selection:text-white overflow-x-clip">
+      <SEOHead data={seoPages.enterpriseCustomSoftware} />
       <main className="overflow-x-clip">
         <EnterpriseCustomSoftwareHero />
         <ECSCapabilitiesSection />
@@ -17,4 +20,3 @@ export default function EnterpriseCustomSoftwarePage() {
     </div>
   );
 }
-

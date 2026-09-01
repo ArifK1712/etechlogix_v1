@@ -26,10 +26,17 @@ export default function AppLayout() {
   useLayoutEffect(() => {
     const id = location.hash ? location.hash.replace(/^#/, '') : null;
     if (!id) return;
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'auto', block: 'start' });
-    }
+
+    const scrollToEl = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    scrollToEl();
+    const timer = setTimeout(scrollToEl, 150);
+    return () => clearTimeout(timer);
   }, [location.pathname, location.hash]);
 
   return (

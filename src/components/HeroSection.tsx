@@ -49,7 +49,7 @@ export default function HeroSection() {
           {/* CTA Buttons */}
           <div className="mt-11 flex w-full max-w-full flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4 md:mt-14 px-1">
             <InternalLink
-              href="#contact"
+              href="/contact"
               className={`${buttonClassName('primaryDark', 'hero')} group`}
             >
               Talk to Our Team

@@ -3,6 +3,7 @@ import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight } from 'lucide-react';
+import { InternalLink } from './InternalLink';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +18,7 @@ interface Capability {
   /** When set, replaces the still image in the media panel (poster uses `image`). */
   video?: string;
   operationalFocus: [string, string, string];
+  href: string;
 }
 
 function CapabilityMedia({ cap, priority = false }: { cap: Capability; priority?: boolean }) {
@@ -38,8 +40,7 @@ function CapabilityMedia({ cap, priority = false }: { cap: Capability; priority?
   return (
     <img
       src={cap.image}
-      alt=""
-      role="presentation"
+      alt={cap.title}
       loading={priority ? 'eager' : 'lazy'}
       decoding="async"
       width={1600}
@@ -54,7 +55,7 @@ const capabilities: Capability[] = [
     id: '01',
     title: 'Agentic AI & Workflow Automation',
     desc:
-      'AI agents that process information, apply business rules, update systems, manage exceptions, and support approvals. We design workflows where documents, forms, and operational signals enter a defined path: data is interpreted, business logic is applied, downstream systems are updated, and people step in only when judgment is required. The result is faster throughput, fewer manual handoffs, and traceable automation that fits compliance and operational controls.',
+      'AI agents that interpret information, apply business rules, and automate operational workflows—keeping people involved only where judgment matters.',
     keywords: ['LLMs', 'Workflow Rules', 'Autonomous Agents'],
     caption: 'Documents, rules, approvals, and system updates in one operational flow.',
     label: 'Workflow automation',
@@ -65,17 +66,19 @@ const capabilities: Capability[] = [
     ],
     image: '/images/service-ai.jpg',
     video: '/videos/agentic-ai-workflow-automation.mp4',
+    href: '/ai-automation/agentic-ai-workflow-automation',
   },
   {
     id: '02',
     title: 'Enterprise Custom Software',
     desc:
-      'Custom platforms designed around specific operational processes, users, systems, and business requirements. We map how work actually moves through your organization—roles, approvals, data sources, and edge cases—and translate that into software your teams can run every day. From modular services and secure APIs to cloud-ready deployment, we build for reliability, auditability, and long-term change without forcing a generic product to fit.',
+      'We build custom platforms around your workflows and systems, with secure architecture, scalable operations, and reliable long-term performance.',
     keywords: ['Architecture', 'Full-Stack', 'Cloud-Native'],
     caption: 'Application architecture across cloud, APIs, and operational systems.',
     label: 'Enterprise platforms',
     operationalFocus: ['Business Process', 'Custom Platform', 'Scalable Operations'],
     image: '/images/custom-software.webp',
+    href: '/services/enterprise-custom-software',
   },
   {
     id: '03',
@@ -88,6 +91,7 @@ const capabilities: Capability[] = [
     operationalFocus: ['Connected Systems', 'Synchronized Data', 'Unified Operations'],
     image: '/images/enterprise-integrations.webp',
     video: '/videos/enterprise-integrations.mp4',
+    href: '/services/enterprise-integrations',
   },
   {
     id: '04',
@@ -99,6 +103,7 @@ const capabilities: Capability[] = [
     label: 'Product prototypes',
     operationalFocus: ['Product Idea', 'Functional Experience', 'Market Validation'],
     image: '/images/product-prototypes.webp',
+    href: '/services/product-prototyping',
   },
   {
     id: '05',
@@ -110,6 +115,7 @@ const capabilities: Capability[] = [
     label: 'Team extension',
     operationalFocus: ['Internal Team', 'Embedded Engineers', 'Shared Ownership'],
     image: '/images/team-strategy.jpg',
+    href: '/services/dedicated-engineering-teams',
   },
   {
     id: '06',
@@ -122,6 +128,7 @@ const capabilities: Capability[] = [
     operationalFocus: ['Legacy Environment', 'Controlled Transition', 'Modern Platform'],
     image: '/images/legacy-systems.webp',
     video: '/videos/legacy-system-modernization.mp4',
+    href: '/services/legacy-modernization',
   },
 ];
 
@@ -566,16 +573,16 @@ export default function ServicesSection() {
                   />
                 </div>
 
-                <a
+                <InternalLink
                   ref={contentLinkRef}
-                  href="#contact"
+                  href={cap.href}
                   className="group inline-flex items-center gap-3 mt-8 text-[13px] font-normal uppercase tracking-[0.14em] text-[#111111] hover:text-[#df012a] transition-colors"
                 >
                   Explore This Capability
                   <span className="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center group-hover:border-[#df012a] transition-colors">
                     <ArrowRight className="w-4 h-4" strokeWidth={1.75} />
                   </span>
-                </a>
+                </InternalLink>
               </div>
             </div>
           </div>
@@ -604,15 +611,15 @@ export default function ServicesSection() {
                 ))}
               </ul>
               <OperationalFocusStatic points={item.operationalFocus} />
-              <a
-                href="#contact"
+              <InternalLink
+                href={item.href}
                 className="group inline-flex items-center gap-3 mt-8 text-[13px] font-normal uppercase tracking-[0.14em] text-[#111111] hover:text-[#df012a] transition-colors"
               >
                 Explore This Capability
                 <span className="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center group-hover:border-[#df012a] transition-colors">
                   <ArrowRight className="w-4 h-4" strokeWidth={1.75} />
                 </span>
-              </a>
+              </InternalLink>
               <p className="mt-5 text-xs text-neutral-500 leading-relaxed">{item.caption}</p>
             </article>
           ))}

@@ -12,10 +12,12 @@ import DocumentAutomationPage from './pages/DocumentAutomationPage';
 import IndustriesPage from './pages/IndustriesPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import CareersPage from './pages/CareersPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsConditionsPage from './pages/TermsConditionsPage';
 // import IntelligentWorkflowAutomationPage from './pages/IntelligentWorkflowAutomationPage';
 import ComingSoonPage from './pages/ComingSoonPage';
+import NotFoundPage from './pages/NotFoundPage';
 import { comingSoonRoutes } from './comingSoonConfig';
 
 function App() {
@@ -28,6 +30,7 @@ function App() {
           <Route path="industries" element={<IndustriesPage />} />
           <Route path="company/about" element={<AboutPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="careers" element={<CareersPage />} />
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="terms-conditions" element={<TermsConditionsPage />} />
           <Route
@@ -62,12 +65,6 @@ function App() {
             path="ai-automation/document-automation"
             element={<DocumentAutomationPage />}
           />
-          {/* Temporarily hidden public route (served via ComingSoonPage until development resumes):
-          <Route
-            path="ai-automation/intelligent-process-automation"
-            element={<IntelligentWorkflowAutomationPage />}
-          />
-          */}
           {/* Dynamically register all coming soon routes */}
           {comingSoonRoutes.map((path) => (
             <Route
@@ -76,6 +73,8 @@ function App() {
               element={<ComingSoonPage />}
             />
           ))}
+          {/* Catch-all 404 handler */}
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
