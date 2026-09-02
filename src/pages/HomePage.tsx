@@ -1,4 +1,5 @@
 import HeroSection from '../components/HeroSection';
+import SelectedClientsSection from '../components/SelectedClientsSection';
 import ServicesSection from '../components/ServicesSection';
 import EnterpriseIntegrationSection from '../components/EnterpriseIntegrationSection/EnterpriseIntegrationSection';
 import HowWeDeliverSection from '../components/HowWeDeliverSection';
@@ -15,6 +16,7 @@ export default function HomePage() {
       <SEOHead data={seoPages.home} />
       <main className="overflow-x-clip">
         <HeroSection />
+        <SelectedClientsSection />
         <ServicesSection />
         <EnterpriseIntegrationSection />
         <ProvenBusinessImpactSection />
