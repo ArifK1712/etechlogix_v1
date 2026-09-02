@@ -25,20 +25,20 @@ const clients: ClientLogo[] = [
     imageClass: 'h-6 sm:h-7 md:h-[28px] lg:h-[32px] max-w-[150px] sm:max-w-[170px] lg:max-w-[190px]',
   },
   {
-    id: 'dollar-days',
-    name: 'Dollar Days',
-    alt: 'Dollar Days',
-    src: '/images/clients/dollar-days.png',
-    // Dollar Days is 1024x148; scaled primarily by height so it balances naturally in the row
-    imageClass: 'h-5 sm:h-6 md:h-[25px] lg:h-[28px] max-w-[150px] sm:max-w-[170px] lg:max-w-[190px]',
-  },
-  {
     id: 'fast-dms',
     name: 'Fast DMS',
     alt: 'Fast DMS',
     src: '/images/clients/fast-dms.png',
     // Fast DMS is 400x156; kept proportional so both the mark and arrow are clearly recognizable
     imageClass: 'h-7 sm:h-8 md:h-9 lg:h-10 max-w-[115px] sm:max-w-[130px] lg:max-w-[145px]',
+  },
+  {
+    id: 'dollar-days',
+    name: 'Dollar Days',
+    alt: 'Dollar Days',
+    src: '/images/clients/dollar-days.png',
+    // Dollar Days is 1024x148; scaled primarily by height so it balances naturally in the row
+    imageClass: 'h-5 sm:h-6 md:h-[25px] lg:h-[28px] max-w-[150px] sm:max-w-[170px] lg:max-w-[190px]',
   },
   {
     id: 'rwc',
