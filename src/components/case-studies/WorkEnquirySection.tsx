@@ -540,20 +540,15 @@ export default function WorkEnquirySection() {
               </h3>
 
               {/* Numbered Steps */}
-              <div className="space-y-6 sm:space-y-7">
+              <div className="space-y-5 sm:space-y-6">
                 {steps.map((step) => (
-                  <div key={step.number} className="flex items-start gap-4">
+                  <div key={step.number} className="flex items-center gap-4">
                     <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#df012a]/10 text-xs font-bold text-[#df012a]">
                       {step.number}
                     </div>
-                    <div className="pt-0.5">
-                      <h4 className="text-xl font-semibold leading-tight tracking-[-0.02em] text-[#0a0a0a]">
-                        {step.title}
-                      </h4>
-                      <p className="type-body text-neutral-500 text-pretty mt-1">
-                        {step.description}
-                      </p>
-                    </div>
+                    <h4 className="text-lg sm:text-xl font-semibold leading-tight tracking-[-0.02em] text-[#0a0a0a]">
+                      {step.title}
+                    </h4>
                   </div>
                 ))}
               </div>
