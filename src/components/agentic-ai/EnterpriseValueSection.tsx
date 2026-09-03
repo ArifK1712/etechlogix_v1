@@ -103,7 +103,6 @@ export default function EnterpriseValueSection() {
                   <span className={`absolute inset-y-0 left-0 w-0.5 bg-[#df012a] transition-opacity duration-300 ${selected ? 'opacity-100' : 'opacity-0'}`} aria-hidden="true" />
                   <span>
                     <strong className="block font-display text-lg font-semibold leading-snug tracking-[-0.02em] text-[#111] md:text-xl">{capability.title}</strong>
-                    <span className="mt-1.5 block max-w-[430px] text-sm leading-[1.55] text-neutral-600">{capability.description}</span>
                   </span>
                   <ChevronRight className={`h-4 w-4 transition-[color,transform] duration-300 ${selected ? 'translate-x-0.5 text-[#df012a]' : 'text-neutral-400 group-hover:text-neutral-700'}`} strokeWidth={1.7} aria-hidden="true" />
                 </button>
@@ -130,10 +129,10 @@ export default function EnterpriseValueSection() {
             <span className="enterprise-signal-node enterprise-signal-node--end" />
             <span className="enterprise-signal-pulse" />
           </div>
-          <div className="absolute bottom-0 left-0 max-w-[370px] border-t border-white/60 bg-white/94 px-6 py-5 sm:px-7">
+          <div className="absolute bottom-0 left-0 max-w-[440px] border-t border-white/60 bg-white/94 px-6 py-5 sm:px-7 backdrop-blur-xs">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#df012a]">Connected intelligence</p>
-            <p className="mt-2 font-display text-lg font-medium leading-snug tracking-[-0.02em] text-[#111]">
-              Context to action, across the systems where work happens.
+            <p key={`desc-${activeKey}`} className="mt-2 font-display text-base sm:text-lg font-medium leading-snug tracking-[-0.015em] text-[#111]">
+              {active.description}
             </p>
           </div>
         </div>

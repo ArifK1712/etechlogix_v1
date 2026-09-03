@@ -143,17 +143,17 @@ export default function WhyEtechLogixSection() {
       ref={sectionRef}
       id="why-etechlogix"
       aria-labelledby="why-etechlogix-heading"
-      className="relative w-full overflow-hidden bg-[#f3f1ec] text-[#0a0a0a] py-16 md:py-20 lg:py-24 border-t border-black/[0.06]"
+      className="relative w-full overflow-hidden bg-[#f3f1ec] text-[#0a0a0a] py-16 lg:py-20 border-t border-black/[0.06]"
     >
       <div
         ref={ownershipRef}
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[18%] left-[-2%] z-0 select-none font-display font-normal text-[clamp(4.5rem,18vw,11rem)] leading-none tracking-[-0.04em] text-[#0a0a0a]/[0.045] uppercase"
+        className="pointer-events-none absolute bottom-2 sm:bottom-3 right-4 sm:right-8 md:right-12 lg:right-16 z-0 select-none font-display font-semibold text-[clamp(3.2rem,11.5vw,8.5rem)] leading-none tracking-[-0.03em] text-[#0a0a0a]/[0.055] uppercase"
       >
         OWNERSHIP
       </div>
 
-      <div className="relative z-[1] mx-auto w-full max-w-[1440px] px-5 md:px-6">
+      <div className="relative z-[1] mx-auto w-full max-w-[1400px] px-5">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-x-14 xl:gap-x-16">
           <div className="lg:col-span-5 xl:col-span-5">
             <p
@@ -191,8 +191,8 @@ export default function WhyEtechLogixSection() {
             <ul className="flex flex-col">
               {differentiators.map((item, index) => (
                 <li key={item.id} data-diff-item className="relative">
-                  <div className="grid grid-cols-[24px_1fr] gap-x-5 sm:grid-cols-[24px_3.5rem_1fr] sm:gap-x-6">
-                    <div className="relative flex justify-center pt-1 sm:pt-2">
+                  <div className="flex items-center gap-4 sm:gap-6 py-4 sm:py-5">
+                    <div className="relative flex justify-center shrink-0 w-[24px]">
                       <span
                         data-diff-node
                         className="relative z-[1] flex h-3 w-3 items-center justify-center rounded-full border border-[#df012a] bg-[#f3f1ec]"
@@ -204,28 +204,25 @@ export default function WhyEtechLogixSection() {
 
                     <div
                       data-diff-icon
-                      className="col-start-2 row-start-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white shadow-[0_6px_28px_rgba(0,0,0,0.07)] ring-1 ring-black/[0.04] sm:col-start-2 sm:row-start-1"
+                      className="flex h-12 w-12 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-full bg-white shadow-[0_6px_28px_rgba(0,0,0,0.07)] ring-1 ring-black/[0.04]"
                     >
                       <item.Icon
-                        className="h-[1.35rem] w-[1.35rem] text-[#df012a]"
+                        className="h-5 w-5 text-[#df012a] sm:h-[1.35rem] sm:w-[1.35rem]"
                         strokeWidth={1.25}
                         aria-hidden="true"
                       />
                     </div>
 
-                    <div className="col-span-2 col-start-2 row-start-2 pb-10 sm:col-span-1 sm:col-start-3 sm:row-start-1 sm:pb-12">
+                    <div className="min-w-0 flex-1">
                       <h3 className="font-display text-lg font-semibold tracking-[-0.02em] text-[#0a0a0a] md:text-xl">
                         {item.title}
                       </h3>
-                      <p className="type-body mt-2 max-w-xl text-[#555555]">
-                        {item.description}
-                      </p>
                     </div>
                   </div>
 
                   {index < differentiators.length - 1 ? (
                     <div
-                      className="mb-2 ml-[calc(24px+0.625rem)] border-b border-black/[0.07] sm:ml-[calc(24px+3.5rem+1.5rem)]"
+                      className="ml-[calc(24px+1rem)] sm:ml-[calc(24px+1.5rem+3.5rem)] border-b border-black/[0.07]"
                       aria-hidden="true"
                     />
                   ) : null}

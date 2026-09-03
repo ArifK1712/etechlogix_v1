@@ -14,24 +14,20 @@ import {
 
 type GovernanceState = {
   title: string;
-  description: string;
   Icon: LucideIcon;
 };
 
 const states: GovernanceState[] = [
   {
-    title: 'Routine Action',
-    description: 'AI executes automatically within established policies.',
+    title: 'Automated Action',
     Icon: Zap,
   },
   {
-    title: 'Policy-Sensitive Action',
-    description: 'AI evaluates context, checks permissions and business rules.',
+    title: 'Rule & Policy Verification',
     Icon: ShieldCheck,
   },
   {
-    title: 'High-Impact Action',
-    description: 'Requires human approval before the action is taken.',
+    title: 'Human-in-the-Loop Escalation',
     Icon: UserRound,
   },
 ];
@@ -189,7 +185,7 @@ export default function ControlWithoutCompromiseSection() {
             </div>
 
             <div className="mt-8 grid gap-7 md:grid-cols-3 md:gap-6 lg:gap-10">
-              {states.map(({ title, description, Icon }, index) => {
+              {states.map(({ title, Icon }, index) => {
                 const selected = activeState === index;
                 return (
                   <button
@@ -202,8 +198,7 @@ export default function ControlWithoutCompromiseSection() {
                     <span className={`mx-auto grid h-14 w-14 place-items-center rounded-full border bg-[#fff7f8] transition-[border-color,color,transform] duration-300 ${selected ? 'scale-[1.04] border-[#df012a]/35 text-[#df012a]' : 'border-[#df012a]/15 text-[#df012a]/75'}`}>
                       <Icon className="h-6 w-6" strokeWidth={1.6} aria-hidden="true" />
                     </span>
-                    <strong className="mt-5 block font-display text-lg font-semibold leading-snug tracking-[-0.02em] text-[#111] md:text-xl">{title}</strong>
-                    <span className="mx-auto mt-2 block max-w-[280px] text-sm leading-[1.6] text-neutral-600">{description}</span>
+                    <strong className="mt-4 block font-display text-lg font-semibold leading-snug tracking-[-0.02em] text-[#111] md:text-xl">{title}</strong>
                   </button>
                 );
               })}
@@ -220,10 +215,10 @@ export default function ControlWithoutCompromiseSection() {
           <div className="grid border-t border-neutral-200 sm:grid-cols-2 lg:grid-cols-4">
             {principles.map(({ title, description, Icon }, index) => (
               <div className={`flex gap-4 px-5 py-6 sm:px-7 lg:py-7 ${index > 0 ? 'lg:border-l lg:border-neutral-200' : ''} ${index > 1 ? 'sm:border-t lg:border-t-0' : ''}`} key={title}>
-                <Icon className="mt-0.5 h-5 w-5 shrink-0 text-[#df012a]" strokeWidth={1.6} aria-hidden="true" />
+                <Icon className="mt-1 h-6 w-6 shrink-0 text-[#df012a]" strokeWidth={1.6} aria-hidden="true" />
                 <div>
-                  <h3 className="font-display text-base font-semibold tracking-[-0.015em] text-[#111]">{title}</h3>
-                  <p className="mt-1 text-sm leading-[1.55] text-neutral-600">{description}</p>
+                  <h3 className="font-display text-lg font-semibold leading-snug tracking-[-0.02em] text-[#111] md:text-xl">{title}</h3>
+                  <p className="mt-2 text-base md:text-lg leading-relaxed text-[#555555]">{description}</p>
                 </div>
               </div>
             ))}

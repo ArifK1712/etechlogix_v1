@@ -57,15 +57,15 @@ const stages: ProcessStage[] = [
 
 function CapabilityRow({ capabilities }: { capabilities: Capability[] }) {
   return (
-    <div className="mt-5 flex flex-wrap items-center gap-y-3 text-neutral-600">
+    <div className="mt-4 flex flex-wrap items-center gap-y-3 text-neutral-600">
       {capabilities.map(({ label, Icon }, index) => (
         <div
-          className={`flex items-center gap-2 pr-3 text-xs sm:text-[13px] ${
-            index > 0 ? 'border-l border-neutral-300 pl-3' : ''
+          className={`flex items-center gap-2.5 pr-4 text-sm sm:text-[0.9375rem] md:text-base leading-relaxed ${
+            index > 0 ? 'border-l border-neutral-300 pl-4' : ''
           }`}
           key={label}
         >
-          <Icon className="h-4 w-4 shrink-0" strokeWidth={1.6} aria-hidden="true" />
+          <Icon className="h-4.5 w-4.5 shrink-0 text-[#555555]" strokeWidth={1.6} aria-hidden="true" />
           <span>{label}</span>
         </div>
       ))}
@@ -119,10 +119,9 @@ export default function BeyondTraditionalAutomationSection() {
                     <h3 className="font-display text-lg font-semibold uppercase leading-[1.25] tracking-[-0.015em] text-[#111111] md:text-xl">
                       {stage.title}
                     </h3>
-                    <p className="type-body-sm mt-2 max-w-[520px] text-[#555555]">
-                      {stage.description}
-                    </p>
-                    <CapabilityRow capabilities={stage.capabilities} />
+                    <div className="mt-3">
+                      <CapabilityRow capabilities={stage.capabilities} />
+                    </div>
                   </div>
                 </article>
               ))}

@@ -10,25 +10,18 @@ import {
 
 const processSteps: Array<{
   title: [string, string];
-  description: string;
   Icon: LucideIcon;
 }> = [
   {
     title: ['Understand', 'your requirement'],
-    description:
-      'Your enquiry is reviewed to truly understand your business challenge and technical context.',
     Icon: Search,
   },
   {
     title: ['Connect', 'with the right team'],
-    description:
-      'We bring in the relevant engineering or technology expertise best suited to address the challenge.',
     Icon: UsersRound,
   },
   {
     title: ['Define', 'the next step'],
-    description:
-      'Together, we establish the practical path forward and start building momentum.',
     Icon: Flag,
   },
 ];
@@ -53,8 +46,8 @@ export default function ContactProcessSection() {
             <span className="absolute left-1/3 top-[35px] z-[1] hidden h-2.5 w-2.5 -translate-x-1/2 rounded-full border-2 border-white bg-[#df012a] md:block" aria-hidden="true" />
             <span className="absolute left-2/3 top-[35px] z-[1] hidden h-2.5 w-2.5 -translate-x-1/2 rounded-full border-2 border-white bg-[#df012a] md:block" aria-hidden="true" />
 
-            {processSteps.map(({ title, description, Icon }) => (
-              <article key={title.join(' ')} className="relative grid grid-cols-[64px_1fr] items-start gap-5 md:block md:text-center">
+            {processSteps.map(({ title, Icon }) => (
+              <article key={title.join(' ')} className="relative grid grid-cols-[64px_1fr] items-center gap-5 md:block md:text-center">
                 <span className="relative z-[2] flex h-16 w-16 items-center justify-center rounded-full border border-neutral-200 bg-white text-[#171717] md:mx-auto md:h-20 md:w-20">
                   <span className="absolute -inset-px rotate-[-20deg] rounded-full border border-transparent border-l-[#df012a] border-t-[#df012a]" aria-hidden="true" />
                   <Icon className="h-6 w-6 md:h-7 md:w-7" strokeWidth={1.45} aria-hidden="true" />
@@ -66,9 +59,6 @@ export default function ContactProcessSection() {
                     <span className="block">{title[1]}</span>
                   </h3>
                   <span className="mt-4 block h-px w-8 bg-[#df012a] md:mx-auto" aria-hidden="true" />
-                  <p className="type-body-sm mt-5 max-w-[390px] text-[#555555] md:mx-auto">
-                    {description}
-                  </p>
                 </div>
               </article>
             ))}

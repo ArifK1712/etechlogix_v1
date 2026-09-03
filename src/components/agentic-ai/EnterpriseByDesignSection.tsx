@@ -110,7 +110,7 @@ export default function EnterpriseByDesignSection() {
         </div>
 
         <div className="enterprise-design-rows md:col-start-2 md:row-start-2 md:self-start">
-          {capabilities.map(({ title, description, labels, Icon, checkpoint }) => (
+          {capabilities.map(({ title, labels, Icon, checkpoint }) => (
             <button
               key={title}
               type="button"
@@ -123,8 +123,7 @@ export default function EnterpriseByDesignSection() {
               <Icon className="mt-0.5 h-5 w-5 text-[#df012a]" strokeWidth={1.6} aria-hidden="true" />
               <span>
                 <strong className="block font-display text-lg font-semibold leading-snug tracking-[-0.02em] text-[#111] md:text-xl">{title}</strong>
-                <span className="mt-1.5 block text-sm leading-[1.55] text-neutral-600">{description}</span>
-                <span className="mt-2.5 block text-xs leading-relaxed tracking-[0.01em] text-neutral-500">{labels}</span>
+                <span className="mt-2 block text-sm sm:text-[0.9375rem] leading-relaxed text-neutral-600">{labels}</span>
               </span>
               <ArrowRight className="mt-1 h-4 w-4 text-neutral-400 transition-[color,transform] duration-300 group-hover:translate-x-1 group-hover:text-[#df012a] group-focus-visible:translate-x-1 group-focus-visible:text-[#df012a]" strokeWidth={1.7} aria-hidden="true" />
             </button>

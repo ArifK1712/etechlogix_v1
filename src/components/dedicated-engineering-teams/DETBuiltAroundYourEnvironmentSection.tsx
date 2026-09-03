@@ -212,16 +212,10 @@ export default function DETBuiltAroundYourEnvironmentSection() {
             <div className="mb-6 h-px w-10 bg-[#df012a]" aria-hidden="true" />
 
             {/* Main Heading */}
-            <h2 className="type-section-heading-lg text-[#0a0a0a] leading-[1.12] mb-5 text-balance">
+            <h2 className="type-section-heading-lg text-[#0a0a0a] leading-[1.12] mb-8 text-balance">
               Your processes stay intact.<br />
               Your capacity gets stronger<span className="text-[#df012a]">.</span>
             </h2>
-
-            {/* Supporting Paragraph */}
-            <p className="type-body text-[#555555] leading-relaxed mb-8 max-w-xl text-pretty">
-              A dedicated team should strengthen delivery without disrupting how you work. We align
-              with your technology, processes, and standards from day one.
-            </p>
 
             {/* 3 Structured Supporting Points */}
             <div className="border-t border-neutral-200/80 divide-y divide-neutral-200/80">

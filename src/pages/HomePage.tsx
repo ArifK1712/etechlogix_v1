@@ -16,13 +16,13 @@ export default function HomePage() {
       <SEOHead data={seoPages.home} />
       <main className="overflow-x-clip">
         <HeroSection />
-        <SelectedClientsSection />
         <ServicesSection />
         <EnterpriseIntegrationSection />
         <ProvenBusinessImpactSection />
         <IndustriesWeUnderstandSection />
         <HowWeDeliverSection />
         <WhyEtechLogixSection />
+        <SelectedClientsSection />
         <StartConversationSection />
       </main>
     </div>

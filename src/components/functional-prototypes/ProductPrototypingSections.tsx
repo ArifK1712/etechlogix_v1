@@ -158,18 +158,16 @@ export default function ProductPrototypingSections() {
               </article>
             ))}
 
-            <aside className="absolute right-0 top-16 z-30 h-[20rem] w-[15rem] rounded-md border border-neutral-300 bg-[#fafaf8] p-6">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white">
-                <Box className="h-7 w-7 text-[#df012a]" strokeWidth={1.4} aria-hidden="true" />
+            <aside className="absolute right-0 top-16 z-30 flex flex-col justify-between h-[15rem] w-[15rem] rounded-md border border-neutral-300 bg-[#fafaf8] p-6">
+              <div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white">
+                  <Box className="h-7 w-7 text-[#df012a]" strokeWidth={1.4} aria-hidden="true" />
+                </div>
+                <div className="mt-4 h-px w-8 bg-[#df012a]" aria-hidden="true" />
               </div>
-              <div className="mt-4 h-px w-8 bg-[#df012a]" aria-hidden="true" />
-              <h3 className="mt-4 font-display text-lg font-semibold uppercase leading-snug tracking-[-0.02em] text-[#0a0a0a] md:text-xl">
+              <h3 className="font-display text-lg font-semibold uppercase leading-snug tracking-[-0.02em] text-[#0a0a0a] md:text-xl">
                 One Working<br />Prototype
               </h3>
-              <div className="mt-4 h-px w-8 bg-[#df012a]" aria-hidden="true" />
-              <p className="type-body-sm mt-3 text-[#555555]">
-                Focused enough to learn.<br />Real enough to decide.
-              </p>
             </aside>
           </div>
 
@@ -191,14 +189,13 @@ export default function ProductPrototypingSections() {
                 </div>
               </article>
             ))}
-            <aside className="border border-neutral-300 bg-[#fafaf8] p-7">
-              <Box className="h-8 w-8 text-[#df012a]" strokeWidth={1.4} />
-              <h3 className="mt-5 font-display text-lg font-semibold uppercase leading-snug tracking-[-0.02em] text-[#0a0a0a] md:text-xl">
+            <aside className="border border-neutral-300 bg-[#fafaf8] p-6 flex items-center gap-5">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white">
+                <Box className="h-7 w-7 text-[#df012a]" strokeWidth={1.4} />
+              </div>
+              <h3 className="font-display text-lg font-semibold uppercase leading-snug tracking-[-0.02em] text-[#0a0a0a]">
                 One Working Prototype
               </h3>
-              <p className="type-body-sm mt-3 text-[#555555]">
-                Focused enough to learn. Real enough to decide.
-              </p>
             </aside>
           </div>
         </div>

@@ -189,19 +189,14 @@ export default function LMModernizationCapabilitiesSection() {
             <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-white/40 pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/75 to-white/90 pointer-events-none" />
 
-            <div className="relative z-10 flex flex-col h-full justify-between">
-              <div>
-                <p className="type-eyebrow-accent mb-3 tracking-[0.22em] text-[#df012a]">
-                  MODERNIZATION CAPABILITIES
-                </p>
-                <div className="mb-6 h-px w-10 bg-[#df012a]" aria-hidden="true" />
-                <h2 className="type-section-heading-lg text-[#0a0a0a] leading-[1.15]">
-                  Modernize the systems that matter most to your business<span className="text-[#df012a]">.</span>
-                </h2>
-              </div>
-              <p className="type-body text-[#444444] font-normal leading-relaxed max-w-md mt-6">
-                We modernize critical applications, data and infrastructure in focused stages — without unnecessary replacement.
+            <div className="relative z-10 flex flex-col">
+              <p className="type-eyebrow-accent mb-3 tracking-[0.22em] text-[#df012a]">
+                MODERNIZATION CAPABILITIES
               </p>
+              <div className="mb-6 h-px w-10 bg-[#df012a]" aria-hidden="true" />
+              <h2 className="type-section-heading-lg text-[#0a0a0a] leading-[1.15]">
+                Modernize the systems that matter most to your business<span className="text-[#df012a]">.</span>
+              </h2>
             </div>
           </div>
 

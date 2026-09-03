@@ -200,7 +200,7 @@ export default function ECSCapabilitiesSection() {
                   <div
                     key={cap.num}
                     data-cap-item
-                    className="relative flex items-center gap-5 sm:gap-6 py-7 sm:py-8 first:pt-0 last:pb-0"
+                    className="relative flex items-center gap-5 sm:gap-6 py-5 sm:py-6 first:pt-0 last:pb-0"
                   >
                     {/* Connection dot on the connector line */}
                     <span
@@ -220,14 +220,11 @@ export default function ECSCapabilitiesSection() {
                       <cap.Icon />
                     </div>
 
-                    {/* Title and description */}
+                    {/* Title */}
                     <div className="min-w-0 flex-1">
                       <h3 className="font-display text-lg font-semibold tracking-[-0.02em] text-[#0a0a0a] md:text-xl">
                         {cap.title}
                       </h3>
-                      <p className="type-body mt-1.5 text-[#555555]">
-                        {cap.desc}
-                      </p>
                     </div>
                   </div>
                 ))}

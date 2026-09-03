@@ -203,13 +203,9 @@ export default function ECSBuiltToConnectSection() {
             </p>
             <div className="mb-8 h-px w-10 bg-[#df012a]" aria-hidden="true" />
 
-            <h2 className="type-section-heading-lg text-balance sm:text-4xl md:text-[2.65rem] lg:text-[2.75rem] mb-6">
+            <h2 className="type-section-heading-lg text-balance sm:text-4xl md:text-[2.65rem] lg:text-[2.75rem]">
               Built to work with the enterprise you already have<span className="text-[#df012a]">.</span>
             </h2>
-
-            <p className="type-body text-[#555555] max-w-md leading-relaxed">
-              We build custom software that connects with your existing systems, data, and workflows without forcing unnecessary replacement.
-            </p>
           </div>
 
           {/* ── RIGHT SIDE — 2-Column Ecosystem List (~55%) ── */}

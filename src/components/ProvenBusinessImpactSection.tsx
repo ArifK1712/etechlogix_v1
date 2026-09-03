@@ -11,21 +11,21 @@ const outcomes = [
     index: '01',
     title: 'Automated Business Workflows',
     description:
-      'Automate document handling, information extraction, business rules, task routing, approvals, and system updates.',
+      'Automate document handling, data extraction, task routing, and system updates with built-in business rules.',
     Icon: ClipboardList,
   },
   {
     index: '02',
     title: 'Multi-System Workflow Execution',
     description:
-      'AI agents work across ERP, CRM, healthcare, payment, and custom systems to complete operational tasks.',
+      'Autonomous AI agents operate across ERP, CRM, and custom platforms to execute multi-step operations.',
     Icon: Waypoints,
   },
   {
     index: '03',
     title: 'Human-in-the-Loop Control',
     description:
-      'Manage exceptions and involve the right business users when review, approval, or operational decisions are required.',
+      'Ensure human oversight for critical review, approval thresholds, and operational decision gates.',
     Icon: FlaskConical,
   },
 ];
@@ -130,11 +130,7 @@ export default function ProvenBusinessImpactSection() {
                   <span className="text-[#0a0a0a]"> through agentic AI workflow automation.</span>
                 </p>
                 <p className="type-body mt-5 text-neutral-600 max-w-md">
-                  We help clients reduce operational costs by building AI agent tools that automate
-                  real business workflows across users, departments, and enterprise systems.
-                </p>
-                <p className="type-body mt-3 text-neutral-600 max-w-md">
-                  Focused on Agentic AI that executes business flows—not generic generative AI.
+                  We engineer deterministic AI agents that execute real business workflows across departments and enterprise systems—delivering measurable cost reduction.
                 </p>
               </div>
             </div>
@@ -176,10 +172,10 @@ export default function ProvenBusinessImpactSection() {
                           />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <h3 className="font-display font-semibold text-lg sm:text-xl text-[#0a0a0a] leading-snug mb-2">
+                          <h3 className="font-display font-semibold text-lg sm:text-xl text-[#0a0a0a] leading-snug mb-1.5">
                             {outcome.title}
                           </h3>
-                          <p className="type-body text-neutral-600 max-w-lg">
+                          <p className="type-body text-neutral-600 max-w-lg line-clamp-2">
                             {outcome.description}
                           </p>
                         </div>

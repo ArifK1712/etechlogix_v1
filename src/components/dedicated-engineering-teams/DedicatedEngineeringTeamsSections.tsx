@@ -49,9 +49,6 @@ export default function DedicatedEngineeringTeamsSections() {
             <h2 className="type-section-heading-lg max-w-xl text-balance">
               Embedded in your delivery model.<br />Accountable to your outcomes<span className="text-[#df012a]">.</span>
             </h2>
-            <p className="type-body mt-7 max-w-xl">
-              Our engineers integrate into your product, technology, and delivery environment — working within your processes, tools, governance, and priorities while taking clear ownership of delivery.
-            </p>
             <div className="mt-10 border-t border-neutral-200 pt-8">
               <p className="type-body-sm max-w-xl border-l-2 border-[#df012a] pl-5 font-medium text-[#222222]">
                 Not an external handoff. An engineering team built into the way your organization delivers.
@@ -92,12 +89,11 @@ export default function DedicatedEngineeringTeamsSections() {
             </div>
           </div>
 
-          <div className="relative border-t border-[#0a0a0a]">
-            <div className="absolute bottom-0 left-0 top-0 w-px bg-neutral-200" aria-hidden="true" />
+          <div className="relative border border-neutral-200 divide-y divide-neutral-200 bg-white">
             {capabilities.map(({ title, Icon }) => (
-              <div key={title} className="group relative grid grid-cols-[1fr_auto] items-center border-b border-neutral-200 py-3 pl-6 sm:pl-8">
+              <div key={title} className="group relative grid grid-cols-[1fr_auto] items-center py-4 px-6 sm:px-8">
                 <h3 className="font-display text-lg font-semibold leading-snug tracking-[-0.02em] text-[#0a0a0a] transition-transform duration-300 group-hover:translate-x-1 md:text-xl">{title}</h3>
-                <span className="ml-5 mr-1 flex h-14 w-14 items-center justify-center rounded-full border border-neutral-200 bg-[#fafaf8] text-[#df012a] transition-colors duration-300 group-hover:border-[#df012a]/45">
+                <span className="ml-5 flex h-14 w-14 items-center justify-center rounded-full border border-neutral-200 bg-[#fafaf8] text-[#df012a] transition-colors duration-300 group-hover:border-[#df012a]/45">
                   <Icon className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
                 </span>
               </div>

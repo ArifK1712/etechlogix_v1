@@ -234,22 +234,17 @@ export default function EIIntegrationLogicSection() {
                     <div
                       key={item.id}
                       data-capability-cell
-                      className={`p-6 lg:p-8 flex flex-col justify-start group ${
+                      className={`p-5 lg:p-6 flex flex-col justify-start group ${
                         isTopRow ? 'border-b md:border-b border-neutral-200/80' : 'border-b last:border-b-0 md:border-b-0 border-neutral-200/80'
                       } ${isNotRightmost ? 'md:border-r border-neutral-200/80' : ''}`}
                     >
                       {/* 1. Capability Title (Matched to HOW WE ENGINEER card titles) */}
-                      <h3 className="font-display font-semibold text-lg md:text-xl text-[#0a0a0a] tracking-[-0.02em] leading-snug mb-2">
+                      <h3 className="font-display font-semibold text-base sm:text-lg md:text-xl text-[#0a0a0a] tracking-[-0.02em] leading-snug mb-3">
                         {item.title}
                       </h3>
 
                       {/* 2. Short Red Underline */}
-                      <div className="h-[2px] w-5 bg-[#df012a] mb-4 group-hover:w-8 transition-all duration-300" />
-
-                      {/* 3. Description */}
-                      <p className="type-body-sm text-[#555555] leading-relaxed font-normal">
-                        {item.desc}
-                      </p>
+                      <div className="h-[2px] w-5 bg-[#df012a] group-hover:w-8 transition-all duration-300" />
                     </div>
                   );
                 })}

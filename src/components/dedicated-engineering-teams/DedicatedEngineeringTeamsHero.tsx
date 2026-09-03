@@ -44,7 +44,7 @@ export default function DedicatedEngineeringTeamsHero() {
   }, []);
 
   return (
-    <section className="relative w-full overflow-hidden bg-white" aria-label="Dedicated Engineering Teams Hero">
+    <section className="relative w-full overflow-hidden bg-white border-b border-neutral-200/80" aria-label="Dedicated Engineering Teams Hero">
       <div className="relative mx-auto w-full max-w-[1400px] px-5 pb-18 pt-32 md:pb-20">
         <div className="grid items-center gap-12 lg:grid-cols-[42fr_58fr] lg:gap-16 xl:gap-20">
           <div ref={contentRef} className="flex flex-col items-start">
