@@ -1,5 +1,6 @@
 import AboutHero from '../components/about/AboutHero';
 import WhoWeAreSection from '../components/about/WhoWeAreSection';
+import OurJourneySection from '../components/about/OurJourneySection';
 import EnterpriseByDesignSection from '../components/about/EnterpriseByDesignSection';
 import OurPeopleSection from '../components/about/OurPeopleSection';
 import AboutFinalCTASection from '../components/about/AboutFinalCTASection';
@@ -12,6 +13,7 @@ export default function AboutPage() {
       <SEOHead data={seoPages.about} />
       <AboutHero />
       <WhoWeAreSection />
+      <OurJourneySection />
       <EnterpriseByDesignSection />
       <OurPeopleSection />
       <AboutFinalCTASection />
