@@ -5,6 +5,17 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 import { InternalLink } from './InternalLink';
 import { buttonClassName } from './ui/Button';
 
+const headingWords = [
+  'Technology',
+  'built',
+  'around',
+  'how',
+  'your',
+  'business',
+  'actually',
+  'works',
+];
+
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const parallaxRef = useRef<HTMLDivElement>(null);
@@ -29,28 +40,50 @@ export default function HeroSection() {
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (reducedMotion) return;
 
-      const elements = [
-        eyebrowRef.current,
-        headingRef.current,
-        paragraphRef.current,
-        ctaRef.current,
-      ].filter(Boolean);
+      const tl = gsap.timeline({ delay: 0.1 });
 
-      gsap.fromTo(
-        elements,
-        {
-          opacity: 0,
-          y: 24,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.85,
-          stagger: 0.12,
-          ease: 'power3.out',
-          delay: 0.1,
-        }
-      );
+      if (eyebrowRef.current) {
+        tl.fromTo(
+          eyebrowRef.current,
+          { opacity: 0, y: 16 },
+          { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }
+        );
+      }
+
+      const chars = headingRef.current?.querySelectorAll('.hero-char');
+      if (chars && chars.length > 0) {
+        tl.fromTo(
+          chars,
+          {
+            opacity: 0,
+            y: 50,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.022,
+            duration: 0.6,
+            ease: 'back.out(1.7)',
+          },
+          '-=0.35'
+        );
+      }
+
+      const lowerElements = [paragraphRef.current, ctaRef.current].filter(Boolean);
+      if (lowerElements.length > 0) {
+        tl.fromTo(
+          lowerElements,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.12,
+            ease: 'power3.out',
+          },
+          '-=0.25'
+        );
+      }
     },
     { scope: sectionRef }
   );
@@ -85,8 +118,20 @@ export default function HeroSection() {
             <h1
               ref={headingRef}
               className="type-hero-heading text-balance text-[#0a0a0a] px-1"
+              aria-label="Technology built around how your business actually works."
             >
-              Technology built around how your business actually works<span className="text-[#df012a]">.</span>
+              {headingWords.map((word, wordIndex) => (
+                <span key={wordIndex} className="inline-block whitespace-nowrap mr-[0.26em] last:mr-0" aria-hidden="true">
+                  {word.split('').map((char, charIndex) => (
+                    <span key={charIndex} className="hero-char inline-block">
+                      {char}
+                    </span>
+                  ))}
+                  {word === 'works' && (
+                    <span className="hero-char inline-block text-[#df012a]">.</span>
+                  )}
+                </span>
+              ))}
             </h1>
             <p
               ref={paragraphRef}
