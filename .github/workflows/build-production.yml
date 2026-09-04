@@ -37,7 +37,9 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
  
           git checkout --orphan production-build
-          git rm -rf .
+ 
+          git rm -rf . || true
+          git clean -fdx
  
           cp -R /tmp/etechlogix-dist/. .
  
