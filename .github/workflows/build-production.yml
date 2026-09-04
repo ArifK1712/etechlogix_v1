@@ -1,0 +1,48 @@
+name: Build eTechLogix Production
+ 
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+ 
+permissions:
+  contents: write
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+ 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+ 
+      - name: Install dependencies
+        run: npm ci
+ 
+      - name: Build production website
+        run: npm run build
+ 
+      - name: Publish dist branch
+        run: |
+          cp -R dist /tmp/etechlogix-dist
+ 
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+ 
+          git checkout --orphan production-build
+          git rm -rf .
+ 
+          cp -R /tmp/etechlogix-dist/. .
+ 
+          touch .nojekyll
+ 
+          git add -A
+          git commit -m "Production build ${GITHUB_SHA}"
+          git push --force origin production-build
