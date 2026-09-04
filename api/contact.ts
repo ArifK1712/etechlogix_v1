@@ -16,13 +16,13 @@ export default async function handler(req: any, res: any) {
     process.env.POSTMARK_FROM_EMAIL ||
     process.env.POSTMARK_FROM ||
     process.env.POSTMARK_SENDER_EMAIL ||
-    'noreply@congenie.com';
+    'contact@etechlogix.com';
   const toEmail =
     process.env.TO_EMAIL ||
     process.env.POSTMARK_TO_EMAIL ||
     process.env.POSTMARK_TO ||
     process.env.POSTMARK_RECIPIENT_EMAIL ||
-    'arif@letuscode.com';
+    'contact@etechlogix.com';
 
   if (!postmarkToken) {
     console.error('Missing POSTMARK_SERVER_TOKEN in environment variables.');
