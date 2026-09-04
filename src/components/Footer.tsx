@@ -33,7 +33,7 @@ const exploreLinks = [
   { label: 'Industries', href: '/industries' },
   { label: 'Work', href: '/work' },
   { label: 'Company', href: '/company/about' },
-  { label: 'Careers', href: '/careers' },
+  { label: 'Insights', href: '/insights' },
 ] as const;
 
 const capabilityLinks = [

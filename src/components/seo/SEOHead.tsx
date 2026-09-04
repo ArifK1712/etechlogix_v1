@@ -178,6 +178,28 @@ export function SEOHead({ data, noindex = false }: SEOHeadProps) {
           '@id': `${SITE_URL}/#website`,
         },
       });
+    } else if (data.schemaType === 'Article') {
+      graph.push({
+        '@type': 'Article',
+        '@id': `${data.canonical}#article`,
+        isPartOf: {
+          '@id': `${SITE_URL}/#website`,
+        },
+        headline: data.title,
+        description: data.description,
+        mainEntityOfPage: data.canonical,
+        url: data.canonical,
+        image: data.ogImage || DEFAULT_OG_IMAGE,
+        author: {
+          '@type': 'Organization',
+          name: 'eTechLogix',
+          url: SITE_URL,
+        },
+        publisher: {
+          '@id': `${SITE_URL}/#organization`,
+        },
+        inLanguage: 'en-US',
+      });
     } else {
       graph.push({
         '@type': 'WebPage',

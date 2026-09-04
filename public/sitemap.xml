@@ -73,8 +73,62 @@
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.etechlogix.com/careers</loc>
-    <lastmod>2026-09-01T00:00:00+00:00</lastmod>
+    <loc>https://www.etechlogix.com/insights</loc>
+    <lastmod>2026-09-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.etechlogix.com/insights/navigating-legacy-systems-vs-modern-systems</loc>
+    <lastmod>2026-09-04T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.etechlogix.com/insights/unified-healthcare-communication</loc>
+    <lastmod>2026-09-04T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.etechlogix.com/insights/chatgpt-in-the-era-of-conversational-ai</loc>
+    <lastmod>2026-09-04T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.etechlogix.com/insights/custom-software-solution-benefits</loc>
+    <lastmod>2026-09-04T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.etechlogix.com/insights/custom-software-development-company-arizona</loc>
+    <lastmod>2026-09-04T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.etechlogix.com/insights/white-label-development</loc>
+    <lastmod>2026-09-04T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.etechlogix.com/insights/hl7-api-solutions-communication</loc>
+    <lastmod>2026-09-04T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.etechlogix.com/insights/shopping-cart-enterprise-integration</loc>
+    <lastmod>2026-09-04T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.etechlogix.com/insights/tech-savvy-leaders-changing-equations</loc>
+    <lastmod>2026-09-04T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
