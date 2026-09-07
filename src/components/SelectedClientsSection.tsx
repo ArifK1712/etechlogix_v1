@@ -138,7 +138,7 @@ export default function SelectedClientsSection() {
     <section
       ref={sectionRef}
       aria-label="Trusted Partners"
-      className="relative w-full bg-[#fbfbfc] border-y border-neutral-200/70 py-8"
+      className="relative w-full bg-[#fbfbfc] border-y border-neutral-200/70 py-8 hidden"
     >
       <div className="w-full max-w-[1400px] mx-auto px-5">
         {/* Intro Header — Intentionally Understated */}
