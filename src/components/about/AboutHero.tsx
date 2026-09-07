@@ -113,7 +113,7 @@ export default function AboutHero() {
 
           <h1
             id="about-hero-title"
-            className="about-hero-reveal about-hero-reveal--2 type-hero-heading text-balance"
+            className="about-hero-reveal about-hero-reveal--2 type-hero-heading text-balance hidden"
           >
             Engineering technology that<br className="hidden sm:block" /> powers modern business<span className="text-[#df012a]">.</span>
           </h1>
