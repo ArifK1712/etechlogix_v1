@@ -45,7 +45,7 @@ function App() {
           />
           <Route
             path="navigating-legacy-systems-vs-modern-systems"
-            element={<LegacyVsModernSystemsPage />}
+            element={<Navigate to="/insights/navigating-legacy-systems-vs-modern-systems" replace />}
           />
           <Route
             path="insights/unified-healthcare-communication"
@@ -53,11 +53,11 @@ function App() {
           />
           <Route
             path="insights/the-future-of-healthcare"
-            element={<UnifiedHealthcarePage />}
+            element={<Navigate to="/insights/unified-healthcare-communication" replace />}
           />
           <Route
             path="the-future-of-healthcare"
-            element={<UnifiedHealthcarePage />}
+            element={<Navigate to="/insights/unified-healthcare-communication" replace />}
           />
           <Route
             path="insights/chatgpt-in-the-era-of-conversational-ai"
@@ -65,7 +65,7 @@ function App() {
           />
           <Route
             path="chatgpt-in-the-era-of-conversational-ai"
-            element={<ChatGptConversationalAiPage />}
+            element={<Navigate to="/insights/chatgpt-in-the-era-of-conversational-ai" replace />}
           />
           <Route
             path="insights/custom-software-solution-benefits"
@@ -73,11 +73,11 @@ function App() {
           />
           <Route
             path="insights/custom-software-solution-know-its-benefits-for-your-business-growth"
-            element={<CustomSoftwareBenefitsPage />}
+            element={<Navigate to="/insights/custom-software-solution-benefits" replace />}
           />
           <Route
             path="custom-software-solution-know-its-benefits-for-your-business-growth"
-            element={<CustomSoftwareBenefitsPage />}
+            element={<Navigate to="/insights/custom-software-solution-benefits" replace />}
           />
           <Route
             path="insights/custom-software-development-company-arizona"
@@ -85,11 +85,11 @@ function App() {
           />
           <Route
             path="insights/best-custom-software-development-company-in-arizona"
-            element={<SoftwareCompanyArizonaPage />}
+            element={<Navigate to="/insights/custom-software-development-company-arizona" replace />}
           />
           <Route
             path="best-custom-software-development-company-in-arizona"
-            element={<SoftwareCompanyArizonaPage />}
+            element={<Navigate to="/insights/custom-software-development-company-arizona" replace />}
           />
           <Route
             path="insights/white-label-development"
@@ -113,11 +113,11 @@ function App() {
           />
           <Route
             path="insights/api-solutions-and-flawless-communication-in-hl7"
-            element={<Hl7ApiSolutionsPage />}
+            element={<Navigate to="/insights/hl7-api-solutions-communication" replace />}
           />
           <Route
             path="api-solutions-and-flawless-communication-in-hl7"
-            element={<Hl7ApiSolutionsPage />}
+            element={<Navigate to="/insights/hl7-api-solutions-communication" replace />}
           />
           <Route
             path="insights/shopping-cart-enterprise-integration"
@@ -125,11 +125,11 @@ function App() {
           />
           <Route
             path="insights/shoppingcart-and-integration"
-            element={<ShoppingCartIntegrationPage />}
+            element={<Navigate to="/insights/shopping-cart-enterprise-integration" replace />}
           />
           <Route
             path="shoppingcart-and-integration"
-            element={<ShoppingCartIntegrationPage />}
+            element={<Navigate to="/insights/shopping-cart-enterprise-integration" replace />}
           />
           <Route
             path="insights/tech-savvy-leaders-changing-equations"
@@ -137,13 +137,13 @@ function App() {
           />
           <Route
             path="insights/tech-savvy-leaders-changing-equations-in-every-industry"
-            element={<TechSavvyLeadersPage />}
+            element={<Navigate to="/insights/tech-savvy-leaders-changing-equations" replace />}
           />
           <Route
             path="tech-savvy-leaders-changing-equations-in-every-industry"
-            element={<TechSavvyLeadersPage />}
+            element={<Navigate to="/insights/tech-savvy-leaders-changing-equations" replace />}
           />
-          <Route path="blogs" element={<InsightsPage />} />
+          <Route path="blogs" element={<Navigate to="/insights" replace />} />
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="terms-conditions" element={<TermsConditionsPage />} />
           <Route
@@ -160,7 +160,7 @@ function App() {
           />
           <Route
             path="services/functional-prototypes"
-            element={<FunctionalPrototypesPage />}
+            element={<Navigate to="/services/product-prototyping" replace />}
           />
           <Route
             path="services/product-prototyping"
