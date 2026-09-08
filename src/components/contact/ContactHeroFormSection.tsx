@@ -15,7 +15,7 @@ import { sendEnquiry } from '../../services/contactService';
 const contactWaveOffsets = [-48, -40, -32, -24, -16, -8, 0, 8, 16, 24, 32, 40, 48];
 
 const fieldClassName =
-  'h-14 w-full rounded-lg border border-neutral-200 bg-white px-4 text-[15px] text-[#171717] outline-none transition-[border-color,box-shadow] duration-300 placeholder:text-neutral-400 focus:border-[#df012a] focus:ring-4 focus:ring-[#df012a]/[0.07] disabled:bg-neutral-50 disabled:text-neutral-400';
+  'h-14 w-full min-w-0 rounded-lg border border-neutral-200 bg-white px-4 text-[15px] text-[#171717] outline-none transition-[border-color,box-shadow] duration-300 placeholder:text-neutral-400 focus:border-[#df012a] focus:ring-4 focus:ring-[#df012a]/[0.07] disabled:bg-neutral-50 disabled:text-neutral-400';
 
 function RequiredMark() {
   return <span className="text-[#df012a]" aria-hidden="true"> *</span>;
@@ -130,7 +130,7 @@ export default function ContactHeroFormSection() {
           </p>
         </div>
 
-        <div className="contact-reveal contact-reveal--form">
+        <div className="contact-reveal contact-reveal--form w-full min-w-0">
           {status === 'success' ? (
             <div className="rounded-2xl border border-neutral-200/90 bg-white p-8 sm:p-10 lg:p-12 shadow-[0_20px_60px_rgba(72,18,29,0.055)] text-center animate-in fade-in zoom-in-95 duration-300">
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#df012a]/10 text-[#df012a]">
@@ -154,7 +154,7 @@ export default function ContactHeroFormSection() {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="rounded-2xl border border-neutral-200/90 bg-white p-6 shadow-[0_20px_60px_rgba(72,18,29,0.055)] sm:p-8 lg:p-10"
+              className="rounded-2xl border border-neutral-200/90 bg-white p-5 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(72,18,29,0.055)] w-full min-w-0"
             >
               {status === 'error' && (
                 <div className="mb-6 rounded-lg border border-red-200 bg-red-50/80 p-4 text-sm text-red-700">
@@ -165,8 +165,8 @@ export default function ContactHeroFormSection() {
                 </div>
               )}
 
-              <div className="grid gap-x-5 gap-y-6 sm:grid-cols-2">
-                <label className="block">
+              <div className="grid gap-x-5 gap-y-6 sm:grid-cols-2 w-full min-w-0">
+                <label className="block min-w-0">
                   <span className="mb-2.5 block text-sm font-semibold text-[#171717]">Full Name<RequiredMark /></span>
                   <span className="relative block">
                     <UserRound className="pointer-events-none absolute left-4 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-neutral-500" strokeWidth={1.5} aria-hidden="true" />
@@ -184,7 +184,7 @@ export default function ContactHeroFormSection() {
                   </span>
                 </label>
 
-                <label className="block">
+                <label className="block min-w-0">
                   <span className="mb-2.5 block text-sm font-semibold text-[#171717]">Work Email<RequiredMark /></span>
                   <span className="relative block">
                     <Mail className="pointer-events-none absolute left-4 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-neutral-500" strokeWidth={1.5} aria-hidden="true" />
@@ -202,7 +202,7 @@ export default function ContactHeroFormSection() {
                   </span>
                 </label>
 
-                <label className="block sm:col-span-2">
+                <label className="block sm:col-span-2 min-w-0">
                   <span className="mb-2.5 block text-sm font-semibold text-[#171717]">Company</span>
                   <span className="relative block">
                     <Building2 className="pointer-events-none absolute left-4 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-neutral-500" strokeWidth={1.5} aria-hidden="true" />
@@ -219,7 +219,7 @@ export default function ContactHeroFormSection() {
                   </span>
                 </label>
 
-                <div className="block">
+                <div className="block min-w-0">
                   <span className="mb-2.5 block text-sm font-semibold text-[#171717]">Phone</span>
                   <ContactPhoneInput
                     name="phone"
@@ -227,7 +227,7 @@ export default function ContactHeroFormSection() {
                   />
                 </div>
 
-                <label className="block">
+                <label className="block min-w-0">
                   <span className="mb-2.5 block text-sm font-semibold text-[#171717]">How can we help?<RequiredMark /></span>
                   <span className="relative block">
                     <select
@@ -250,7 +250,7 @@ export default function ContactHeroFormSection() {
                   </span>
                 </label>
 
-                <label className="block sm:col-span-2">
+                <label className="block sm:col-span-2 min-w-0">
                   <span className="mb-2.5 block text-sm font-semibold text-[#171717]">Tell us about your project or requirement<RequiredMark /></span>
                   <textarea
                     className="min-h-[138px] w-full resize-y rounded-lg border border-neutral-200 bg-white px-4 py-4 text-[15px] leading-6 text-[#171717] outline-none transition-[border-color,box-shadow] duration-300 placeholder:text-neutral-400 focus:border-[#df012a] focus:ring-4 focus:ring-[#df012a]/[0.07] disabled:bg-neutral-50 disabled:text-neutral-400"

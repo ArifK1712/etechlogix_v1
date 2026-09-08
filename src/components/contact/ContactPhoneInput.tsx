@@ -200,13 +200,13 @@ export default function ContactPhoneInput({
   const isInvalid = touched && digits.length > 0 && digits.length < selectedCountry.minDigits;
 
   return (
-    <div ref={containerRef} className="relative w-full">
+    <div ref={containerRef} className="relative w-full min-w-0">
       {/* Hidden input storing the full combined E.164 formatted number */}
       <input type="hidden" name={name} value={submittedE164} />
 
       {/* Unified Input Container */}
       <div
-        className={`relative flex ${heightClass} w-full items-center rounded-lg border bg-white text-[15px] text-[#171717] transition-[border-color,box-shadow] duration-300 ${
+        className={`relative flex ${heightClass} w-full min-w-0 items-center rounded-lg border bg-white text-[15px] text-[#171717] transition-[border-color,box-shadow] duration-300 ${
           isOpen
             ? 'border-[#df012a] ring-4 ring-[#df012a]/[0.07]'
             : isInvalid
@@ -218,15 +218,15 @@ export default function ContactPhoneInput({
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="flex h-full shrink-0 items-center gap-1.5 rounded-l-lg py-1 pl-3.5 pr-2.5 text-[14px] text-[#171717] outline-none transition-colors hover:bg-neutral-50/80 focus-visible:bg-neutral-100"
+          className="flex h-full shrink-0 items-center gap-1 sm:gap-1.5 rounded-l-lg py-1 pl-2.5 pr-2 sm:pl-3.5 sm:pr-2.5 text-[14px] text-[#171717] outline-none transition-colors hover:bg-neutral-50/80 focus-visible:bg-neutral-100"
           aria-haspopup="listbox"
           aria-expanded={isOpen}
           aria-label={`Select country code, currently ${selectedCountry.name} (${selectedCountry.dialCode})`}
         >
-          <span className="text-[18px] leading-none" aria-hidden="true">
+          <span className="text-[17px] sm:text-[18px] leading-none" aria-hidden="true">
             {selectedCountry.flag}
           </span>
-          <span className="font-medium text-[#171717] tracking-tight text-[14px]">
+          <span className="font-medium text-[#171717] tracking-tight text-[13px] sm:text-[14px]">
             {selectedCountry.dialCode}
           </span>
           <ChevronDown
@@ -251,13 +251,13 @@ export default function ContactPhoneInput({
           placeholder={selectedCountry.placeholder}
           autoComplete="tel-national"
           required={required}
-          className="h-full flex-1 rounded-r-lg bg-transparent px-3 text-[15px] text-[#171717] outline-none placeholder:text-neutral-400 font-normal tracking-wide"
+          className="h-full flex-1 min-w-0 rounded-r-lg bg-transparent px-2.5 sm:px-3 text-[14px] sm:text-[15px] text-[#171717] outline-none placeholder:text-neutral-400 font-normal tracking-wide"
         />
       </div>
 
       {/* Country Dropdown Panel */}
       {isOpen && (
-        <div className="absolute left-0 top-[calc(100%+6px)] z-50 w-full min-w-[280px] max-w-[340px] rounded-xl border border-neutral-200 bg-white p-2 shadow-[0_12px_36px_rgba(0,0,0,0.12)] animate-in fade-in zoom-in-95 duration-150">
+        <div className="absolute left-0 top-[calc(100%+6px)] z-50 w-full max-w-[340px] rounded-xl border border-neutral-200 bg-white p-2 shadow-[0_12px_36px_rgba(0,0,0,0.12)] animate-in fade-in zoom-in-95 duration-150">
           {/* Search Box */}
           <div className="relative mb-2 px-1">
             <Search

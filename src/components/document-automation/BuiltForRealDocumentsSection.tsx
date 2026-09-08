@@ -106,8 +106,7 @@ export default function BuiltForRealDocumentsSection() {
           <div className="w-full lg:flex-1 flex flex-col py-12 lg:py-0 px-8 lg:px-14 xl:px-16 justify-center">
             <p className="type-eyebrow-accent bfr-text mb-5">BUILT FOR REAL BUSINESS DOCUMENTS</p>
             <h2 className="type-section-heading-lg bfr-text mb-5">
-              Built for the documents<br className="hidden xl:block" />
-              your business runs on<span className="text-brand-red">.</span>
+              Built for the documents<br className="hidden xl:block" /> your business runs on<span className="text-brand-red">.</span>
             </h2>
             <p className="type-body bfr-text text-neutral-500 max-w-md text-balance">
               From invoices and forms to spreadsheets and reports, eTechLogix transforms document information into clean, structured data ready for business use.

@@ -1,5 +1,5 @@
 import HeroSection from '../components/HeroSection';
-import SelectedClientsSection from '../components/SelectedClientsSection';
+// import SelectedClientsSection from '../components/SelectedClientsSection';
 import ServicesSection from '../components/ServicesSection';
 import EnterpriseIntegrationSection from '../components/EnterpriseIntegrationSection/EnterpriseIntegrationSection';
 import HowWeDeliverSection from '../components/HowWeDeliverSection';
@@ -22,7 +22,7 @@ export default function HomePage() {
         <IndustriesWeUnderstandSection />
         <HowWeDeliverSection />
         <WhyEtechLogixSection />
-        <SelectedClientsSection />
+        {/* <SelectedClientsSection /> */}
         <StartConversationSection />
       </main>
     </div>
