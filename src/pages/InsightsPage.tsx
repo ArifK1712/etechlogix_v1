@@ -53,7 +53,7 @@ const articles: Article[] = [
     readTime: '4 min read',
     summary:
       "Digital solutions enable businesses small, medium, or large to ramp down expenses associated with processing and scrutinizing clients' information, thereby making it simpler to conduct business activities in a cost-effective and timely manner.",
-    slug: 'custom-software-solution-know-its-benefits-for-your-business-growth',
+    slug: 'custom-software-solution-benefits',
   },
   {
     id: 'software-company-arizona',
@@ -61,8 +61,8 @@ const articles: Article[] = [
     category: 'Enterprise Software',
     readTime: '3 min read',
     summary:
-      'If you want the most experienced team that knows how to transform ideas into reality, eTechLogix delivers full-lifecycle engineering tailored to business operations, scalable cloud architectures, and virtually appealing UX designs.',
-    slug: 'best-custom-software-development-company-in-arizona',
+      'If you want the most experienced team that knows how to transform ideas into reality, eTechLogix delivers full-lifecycle engineering tailored to business operations, scalable cloud architectures, and visually appealing UX designs.',
+    slug: 'custom-software-development-company-arizona',
   },
   {
     id: 'white-label-development',
@@ -71,7 +71,7 @@ const articles: Article[] = [
     readTime: '3 min read',
     summary:
       'White-label IT software can enhance business expertise and market reputation. Considering the growing era of digitization, white-labeled IT software and engineering solutions offer considerable strategic advantages.',
-    slug: 'white-label-dovelopment',
+    slug: 'white-label-development',
   },
   {
     id: 'hl7-api-solutions',
@@ -80,7 +80,7 @@ const articles: Article[] = [
     readTime: '5 min read',
     summary:
       'Health Level Seven (HL7) defines the strategy to exchange health-specific communication between medical applications. Having a well-designed and integrated clinical system ensures smooth, compliant, and reliable clinical workflows.',
-    slug: 'api-solutions-and-flawless-communication-in-hl7',
+    slug: 'hl7-api-solutions-communication',
   },
   {
     id: 'shopping-cart-integrations',
@@ -89,7 +89,7 @@ const articles: Article[] = [
     readTime: '4 min read',
     summary:
       'Online shopping cart systems require planning and development expertise. Modern integration coordinates payment gateways, ERP backends, and live inventory sync to deliver flawless transactions at scale.',
-    slug: 'shoppingcart-and-integration',
+    slug: 'shopping-cart-enterprise-integration',
   },
   {
     id: 'tech-savvy-leaders',
@@ -98,7 +98,7 @@ const articles: Article[] = [
     readTime: '4 min read',
     summary:
       'Businesses remain competitive by replacing manual friction with automated intelligence. Although leading human tasks toward automation requires thoughtful change management, the right engineering practices drive unmatched success.',
-    slug: 'tech-savvy-leaders-changing-equations-in-every-industry',
+    slug: 'tech-savvy-leaders-changing-equations',
   },
 ];
 

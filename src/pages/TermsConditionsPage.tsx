@@ -8,7 +8,7 @@ const tocItems = [
   { id: 'service-description', label: '2. Service Description' },
   { id: 'privacy', label: '3. Privacy' },
   { id: 'opt-out', label: '4. Opt-Out' },
-  { id: 'liability', label: 'Liability' },
+  { id: 'liability', label: '5. Liability' },
   { id: 'changes-to-terms', label: '6. Changes to Terms' },
 ];
 
@@ -167,10 +167,10 @@ export default function TermsConditionsPage() {
                 </p>
               </div>
 
-              {/* Liability */}
+              {/* 5. Liability */}
               <div id="liability" className="scroll-mt-28 pt-8 border-t border-neutral-200 mb-12">
                 <h2 className="font-display text-xl sm:text-2xl font-semibold tracking-[-0.02em] text-[#0a0a0a] mb-4">
-                  Liability:
+                  5. Liability:
                 </h2>
                 <p className="type-body text-[#555555] leading-relaxed">
                   The service provider shall not be liable for any damages, including but not limited to direct, indirect, incidental, consequential, or punitive damages, arising out of the use or inability to use the service.

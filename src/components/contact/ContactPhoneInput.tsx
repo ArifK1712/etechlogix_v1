@@ -151,7 +151,7 @@ export default function ContactPhoneInput({
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let rawVal = e.target.value;
     
-    // Strip leading dialing code if pasted by user (e.g. +14805270466 or +966501234567)
+    // Strip leading dialing code if pasted by user (e.g. +14805270786 or +966501234567)
     const cleanDialCode = selectedCountry.dialCode.replace(/\D/g, '');
     let cleanDigits = rawVal.replace(/\D/g, '');
     

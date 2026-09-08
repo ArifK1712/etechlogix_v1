@@ -262,7 +262,7 @@ export default function WorkEnquirySection() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="space-y-6"
+                className="space-y-6 w-full min-w-0"
               >
                 {status === 'error' && (
                   <div className="rounded-lg border border-red-200 bg-red-50/80 p-4 text-sm text-red-700">
@@ -274,8 +274,8 @@ export default function WorkEnquirySection() {
                 )}
 
                 {/* Row 1: Name & Company */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <label className="block">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full min-w-0">
+                  <label className="block min-w-0">
                     <span className="mb-2 block text-sm font-semibold text-[#171717]">
                       Name<RequiredMark />
                     </span>
@@ -292,7 +292,7 @@ export default function WorkEnquirySection() {
                     />
                   </label>
 
-                  <label className="block">
+                  <label className="block min-w-0">
                     <span className="mb-2 block text-sm font-semibold text-[#171717]">
                       Company<RequiredMark />
                     </span>
@@ -311,8 +311,8 @@ export default function WorkEnquirySection() {
                 </div>
 
                 {/* Row 2: Corporate email & Phone */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <label className="block">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full min-w-0">
+                  <label className="block min-w-0">
                     <span className="mb-2 block text-sm font-semibold text-[#171717]">
                       Email address<RequiredMark />
                     </span>
@@ -329,7 +329,7 @@ export default function WorkEnquirySection() {
                     />
                   </label>
 
-                  <div className="block">
+                  <div className="block min-w-0">
                     <span className="mb-2 block text-sm font-semibold text-[#171717]">
                       Phone<RequiredMark />
                     </span>
@@ -343,7 +343,7 @@ export default function WorkEnquirySection() {
                 </div>
 
                 {/* Row 3: Project budget */}
-                <label className="block">
+                <label className="block min-w-0">
                   <span className="mb-2 block text-sm font-semibold text-[#171717]">
                     Project budget
                   </span>
@@ -373,7 +373,7 @@ export default function WorkEnquirySection() {
                 </label>
 
                 {/* Row 4: Describe your needs in detail */}
-                <label className="block">
+                <label className="block min-w-0">
                   <span className="mb-2 block text-sm font-semibold text-[#171717]">
                     Describe your needs in detail<RequiredMark />
                   </span>
