@@ -97,15 +97,15 @@ function App() {
           />
           <Route
             path="insights/white-label-dovelopment"
-            element={<WhiteLabelDevelopmentPage />}
+            element={<Navigate to="/insights/white-label-development" replace />}
           />
           <Route
             path="white-label-dovelopment"
-            element={<WhiteLabelDevelopmentPage />}
+            element={<Navigate to="/insights/white-label-development" replace />}
           />
           <Route
             path="white-label-development"
-            element={<WhiteLabelDevelopmentPage />}
+            element={<Navigate to="/insights/white-label-development" replace />}
           />
           <Route
             path="insights/hl7-api-solutions-communication"
